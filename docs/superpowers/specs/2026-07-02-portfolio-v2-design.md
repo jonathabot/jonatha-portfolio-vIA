@@ -14,8 +14,9 @@ Recriar o design "terminal/typewriter" do handoff v2 como um projeto Next.js nov
 
 | Tema | Decisão |
 |---|---|
-| Framework | Next.js 15 (App Router) + React 19 + TypeScript strict |
+| Framework | Next.js 16 (App Router) + React 19 + TypeScript strict |
 | Estilo | Tailwind CSS v4 (tokens via `@theme` / CSS custom properties) |
+| Libs (versões) | next-intl 4 · zustand 5 · zod 4 · react-hook-form 7 · resend 6 · vitest 4 · @playwright/test 1.6x |
 | Fonte | Courier Prime via `next/font/google` (self-hosted; desvio justificado do `<link>` do protótipo) |
 | i18n | **next-intl** sem roteamento por locale; locale controlado client-side |
 | Estado global | **Zustand** (com `persist` middleware) para `theme` + `lang` |
