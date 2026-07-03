@@ -49,8 +49,6 @@ export function Hero({
     highlightRefs.current.forEach((el, i) => sweep(el, i));
   }, [sweep]);
 
-  let hi = -1;
-
   return (
     <div className="flex flex-wrap items-center gap-12 border-b-[3px] border-double border-ink pt-16 pb-[52px]">
       <div className="min-w-[380px] flex-1">
@@ -65,8 +63,8 @@ export function Hero({
         <p className="mt-5 text-[16px] leading-[1.7]">
           {segments.map((seg, i) => {
             if (!seg.highlight) return <span key={i}>{seg.text}</span>;
-            hi += 1;
-            const idx = hi;
+            // Highlight index = how many highlighted segments precede this one.
+            const idx = segments.slice(0, i).filter((s) => s.highlight).length;
             return (
               <span
                 key={i}
