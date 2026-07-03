@@ -33,6 +33,12 @@ export const useUIStore = create<UIState>()(
     {
       name: 'jb-portfolio-ui',
       partialize: (s) => ({ theme: s.theme, lang: s.lang }),
+      // Defer rehydration until after mount so server and first client render
+      // agree (both use the defaults). The inline <head> script already applies
+      // the persisted theme pre-paint, so there is no theme flash; language may
+      // briefly show the default before rehydration, which is acceptable for a
+      // client-only toggle with no locale routing.
+      skipHydration: true,
       onRehydrateStorage: () => (state) => {
         if (state) applyThemeAttr(state.theme);
       },
