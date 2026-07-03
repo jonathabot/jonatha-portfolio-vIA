@@ -1,0 +1,5 @@
+.next
+node_modules
+pnpm-lock.yaml
+content/fallback.json
+design_handoff_portfolio_v2

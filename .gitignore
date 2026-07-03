@@ -7,6 +7,7 @@ node_modules/
 out/
 build/
 next-env.d.ts
+*.tsbuildinfo
 
 # testing
 coverage/
@@ -27,3 +28,6 @@ yarn-error.log*
 
 # design handoff archive (source zip; extracted folder is kept as reference)
 Portfolio com IA.zip
+
+# local Claude Code settings (launch.json is committed)
+.claude/settings.local.json

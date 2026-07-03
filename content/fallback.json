@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "nowUpdated": {
+      "pt": "última atualização: jul 2026",
+      "en": "last updated: Jul 2026"
+    },
+    "footer": {
+      "pt": "© 2026 Jonatha Botelho. Todos os direitos reservados.",
+      "en": "© 2026 Jonatha Botelho. All rights reserved."
+    }
+  },
+  "flags": { "showEducation": true, "showPhoto": true },
+  "nav": {
+    "tools": { "pt": "ferramentas", "en": "toolkit" },
+    "exp": { "pt": "experiência", "en": "experience" },
+    "projects": { "pt": "projetos", "en": "projects" },
+    "contact": { "pt": "contato", "en": "contact" }
+  },
+  "sections": {
+    "now": { "pt": "AGORA_", "en": "NOW_" },
+    "tools": { "pt": "FERRAMENTAS_", "en": "TOOLKIT_" },
+    "exp": { "pt": "EXPERIÊNCIA_", "en": "EXPERIENCE_" },
+    "projects": { "pt": "PROJETOS_", "en": "PROJECTS_" },
+    "education": { "pt": "FORMAÇÃO_", "en": "EDUCATION_" },
+    "contact": { "pt": "CONTATO_", "en": "CONTACT_" }
+  },
+  "hero": {
+    "hello": { "pt": "olá, meu nome é", "en": "hello, my name is" },
+    "role": {
+      "pt": "Desenvolvedor Google Cloud & Google Workspace | Analista de Dados",
+      "en": "Google Cloud & Google Workspace Developer | Data Analyst"
+    },
+    "summary": {
+      "pt": "Mais de 3 anos de experiência no desenvolvimento de soluções com Google Cloud e [[Google Workspace]]. Automação de processos com [[Apps Script]], desenvolvimento de aplicativos com AppSheet, dashboards com Looker Studio + BigQuery e serviços em Cloud Run. No front-end: [[React]], Next.js, TypeScript e Tailwind CSS. Fluxos de desenvolvimento assistidos por IA generativa aplicados em projetos profissionais.",
+      "en": "3+ years of experience developing solutions with Google Cloud and [[Google Workspace]]. Process automation with [[Apps Script]], application development with AppSheet, dashboards with Looker Studio + BigQuery, and services on Cloud Run. Front-end work with [[React]], Next.js, TypeScript and Tailwind CSS. Generative-AI-assisted development workflows applied to professional projects."
+    },
+    "cta": { "pt": "Entre em contato", "en": "Get in touch" },
+    "techs": [
+      "Apps Script",
+      "AppSheet",
+      "BigQuery",
+      "Looker Studio",
+      "Cloud Run",
+      "React",
+      "TypeScript"
+    ],
+    "links": {
+      "email": "jonathabotelho1@gmail.com",
+      "linkedin": "https://linkedin.com/in/jonathabotelho",
+      "github": "https://github.com/jonathabot"
+    },
+    "photoUrl": "/images/profile-pic.png"
+  },
+  "now": {
+    "items": [
+      {
+        "pt": "Desenvolvendo features para a Stinx Network com fluxo assistido por Claude Code",
+        "en": "Building features for Stinx Network with a Claude Code–assisted workflow"
+      },
+      {
+        "pt": "Aprofundando arquitetura de microsserviços com .NET Aspire, Kafka e Testcontainers",
+        "en": "Going deeper into microservice architecture with .NET Aspire, Kafka and Testcontainers"
+      },
+      {
+        "pt": "Explorando agentes de IA aplicados à automação de fluxos de desenvolvimento",
+        "en": "Exploring AI agents applied to development-workflow automation"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": { "pt": "Front-end", "en": "Front-end" },
+      "items": {
+        "pt": "JavaScript · TypeScript · Node.js · React · Next.js · Tailwind CSS · Ant Design",
+        "en": "JavaScript · TypeScript · Node.js · React · Next.js · Tailwind CSS · Ant Design"
+      }
+    },
+    {
+      "name": { "pt": "Cloud", "en": "Cloud" },
+      "items": {
+        "pt": "Google Cloud Platform · BigQuery · Cloud Run · Cloud Storage · App Engine",
+        "en": "Google Cloud Platform · BigQuery · Cloud Run · Cloud Storage · App Engine"
+      }
+    },
+    {
+      "name": { "pt": "Dados & Analytics", "en": "Data & Analytics" },
+      "items": {
+        "pt": "SQL · BigQuery (Data Transfer Service) · Looker Studio · Google Sheets",
+        "en": "SQL · BigQuery (Data Transfer Service) · Looker Studio · Google Sheets"
+      }
+    },
+    {
+      "name": { "pt": "Automação & IA", "en": "Automation & AI" },
+      "items": {
+        "pt": "Apps Script · AppSheet · Claude Code · APIs REST · Webhooks · OAuth 2.0",
+        "en": "Apps Script · AppSheet · Claude Code · REST APIs · Webhooks · OAuth 2.0"
+      }
+    },
+    {
+      "name": { "pt": "Ferramentas", "en": "Dev tools" },
+      "items": {
+        "pt": "Git · GitHub · CLI · Docker",
+        "en": "Git · GitHub · CLI · Docker"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "company": "Gentrop",
+      "start": "2024-08-01",
+      "end": null,
+      "role": {
+        "pt": "Desenvolvedor Google Workspace",
+        "en": "Google Workspace Developer"
+      },
+      "techs": ["Apps Script", "AppSheet", "BigQuery", "Cloud Run", "Looker Studio", "GCP"],
+      "bullets": [
+        {
+          "head": { "pt": "Montadora de veículos:", "en": "Automotive manufacturer:" },
+          "text": {
+            "pt": "integração e tratamento de dados no BigQuery com Data Transfer Service, aplicação em Cloud Run integrando a API do Salesforce Marketing Cloud e dashboards gerenciais no Looker Studio.",
+            "en": "data integration and processing in BigQuery with Data Transfer Service, a Cloud Run app integrating the Salesforce Marketing Cloud API, and management dashboards in Looker Studio."
+          }
+        },
+        {
+          "head": { "pt": "Banco digital de grande porte:", "en": "Major digital bank:" },
+          "text": {
+            "pt": "scripts em Apps Script para automação de fluxos de agenda e sincronização de calendários corporativos.",
+            "en": "Apps Script automations for scheduling flows and corporate calendar synchronization."
+          }
+        },
+        {
+          "head": { "pt": "Multinacionais de cosméticos:", "en": "Cosmetics multinationals:" },
+          "text": {
+            "pt": "apps internos em AppSheet integrados a automações avançadas em Apps Script para governança de processos.",
+            "en": "internal AppSheet apps integrated with advanced Apps Script automations for process governance."
+          }
+        },
+        {
+          "head": { "pt": "Infraestrutura:", "en": "Infrastructure:" },
+          "text": {
+            "pt": "configurações, deploys e suporte em GCP — Cloud Storage, BigQuery e Cloud Run.",
+            "en": "configuration, deploys and support on GCP — Cloud Storage, BigQuery and Cloud Run."
+          }
+        }
+      ]
+    },
+    {
+      "company": "Mundo Móveis",
+      "start": "2023-01-01",
+      "end": "2024-08-01",
+      "role": {
+        "pt": "Analista de Sistemas (Front-end)",
+        "en": "Systems Analyst (Front-end)"
+      },
+      "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Looker Studio", "AppSheet", "SQL"],
+      "bullets": [
+        {
+          "head": { "pt": "Engenharia de software:", "en": "Software engineering:" },
+          "text": {
+            "pt": "novas features e correções no ERP da fábrica com React, Next.js, TypeScript e Tailwind CSS.",
+            "en": "new features and bug fixes in the factory ERP using React, Next.js, TypeScript and Tailwind CSS."
+          }
+        },
+        {
+          "head": { "pt": "Business Intelligence:", "en": "Business Intelligence:" },
+          "text": {
+            "pt": "dashboards no Looker Studio para indicadores industriais e comerciais.",
+            "en": "Looker Studio dashboards for industrial and commercial KPIs."
+          }
+        },
+        {
+          "head": { "pt": "Automação:", "en": "Automation:" },
+          "text": {
+            "pt": "otimização de planilhas com SQL e Apps Script; apps internos em AppSheet para fluxos fabris.",
+            "en": "spreadsheet optimization with SQL and Apps Script; internal AppSheet apps for factory workflows."
+          }
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "imageUrl": null,
+      "repoUrl": "https://github.com/jonathabot/programatical",
+      "title": {
+        "pt": "Programatical — plataforma educacional gamificada",
+        "en": "Programatical — gamified learning platform"
+      },
+      "dateLabel": { "pt": "2025 · TCC", "en": "2025 · Capstone" },
+      "desc": {
+        "pt": "Trabalho de Conclusão de Curso: plataforma web interativa para ensino de programação e engenharia de software com gamificação. Aulas em etapas (leitura, quiz, ordenação), pontuação, ranking em tempo real e painel administrativo para gestão de cursos, módulos e aulas.",
+        "en": "Capstone project (TCC): interactive web platform for teaching programming and software engineering through gamification. Step-based lessons (reading, quizzes, ordering challenges), scoring, real-time leaderboard and an admin panel for managing courses, modules and lessons."
+      },
+      "stack": [
+        {
+          "k": { "pt": "Core", "en": "Core" },
+          "v": {
+            "pt": "Next.js 14 (App Router) · React 18 · TypeScript",
+            "en": "Next.js 14 (App Router) · React 18 · TypeScript"
+          }
+        },
+        {
+          "k": { "pt": "Estilo & UI", "en": "Styling & UI" },
+          "v": {
+            "pt": "Tailwind CSS · Ant Design (Pro Components) · Radix UI · Framer Motion",
+            "en": "Tailwind CSS · Ant Design (Pro Components) · Radix UI · Framer Motion"
+          }
+        },
+        {
+          "k": { "pt": "Back-end", "en": "Back-end" },
+          "v": {
+            "pt": "Firebase — Firestore (NoSQL) · Firebase Auth",
+            "en": "Firebase — Firestore (NoSQL) · Firebase Auth"
+          }
+        },
+        {
+          "k": { "pt": "Validação", "en": "Validation" },
+          "v": {
+            "pt": "Zod · React Hook Form",
+            "en": "Zod · React Hook Form"
+          }
+        }
+      ]
+    },
+    {
+      "imageUrl": null,
+      "repoUrl": null,
+      "title": {
+        "pt": "Stinx Network — features com IA generativa",
+        "en": "Stinx Network — features with generative AI"
+      },
+      "dateLabel": { "pt": "2025 — presente", "en": "2025 — present" },
+      "desc": {
+        "pt": "Projeto colaborativo entre desenvolvedores (servidor FiveM). Desenvolvimento assistido por Claude Code: prototipação de interfaces, especificações técnicas e planos de implementação com agentes especializados antes da construção do código.",
+        "en": "Collaborative developer project (FiveM server). AI-assisted development with Claude Code: interface prototyping, technical specs and implementation plans built with specialized agents before writing code."
+      },
+      "stack": [
+        {
+          "k": { "pt": "Linguagens", "en": "Languages" },
+          "v": {
+            "pt": "C# (.NET 10) · Lua 5.4 · TypeScript · JavaScript (Node.js)",
+            "en": "C# (.NET 10) · Lua 5.4 · TypeScript · JavaScript (Node.js)"
+          }
+        },
+        {
+          "k": { "pt": "Front-end & NUI", "en": "Front-end & NUI" },
+          "v": {
+            "pt": "React 19.2 · Tailwind CSS v4 · Zustand 5 · Vite 8 · i18next · Vitest · Biome",
+            "en": "React 19.2 · Tailwind CSS v4 · Zustand 5 · Vite 8 · i18next · Vitest · Biome"
+          }
+        },
+        {
+          "k": { "pt": "Back-end & APIs", "en": "Back-end & APIs" },
+          "v": {
+            "pt": "ASP.NET Core · .NET Aspire · Dapper · Entity Framework Core · WebSockets",
+            "en": "ASP.NET Core · .NET Aspire · Dapper · Entity Framework Core · WebSockets"
+          }
+        },
+        {
+          "k": { "pt": "Banco de dados & Mensageria", "en": "Database & Messaging" },
+          "v": {
+            "pt": "PostgreSQL · Apache Kafka",
+            "en": "PostgreSQL · Apache Kafka"
+          }
+        },
+        {
+          "k": { "pt": "DevOps & Testes", "en": "DevOps & Testing" },
+          "v": {
+            "pt": "Podman/Docker · Testcontainers · Git/GitHub · CodeWalker",
+            "en": "Podman/Docker · Testcontainers · Git/GitHub · CodeWalker"
+          }
+        }
+      ]
+    },
+    {
+      "imageUrl": null,
+      "repoUrl": "https://github.com/jonathabot/jonatha-portfolio",
+      "title": {
+        "pt": "jonatha-portfolio — site pessoal v1",
+        "en": "jonatha-portfolio — personal site v1"
+      },
+      "dateLabel": { "pt": "2023", "en": "2023" },
+      "desc": {
+        "pt": "Primeiro portfólio pessoal: Next.js com CMS headless (Hygraph), animações com Framer Motion, formulário de contato com validação e envio via API.",
+        "en": "First personal portfolio: Next.js with a headless CMS (Hygraph), Framer Motion animations, and a validated contact form with API-based delivery."
+      },
+      "stack": [
+        {
+          "k": { "pt": "Stack", "en": "Stack" },
+          "v": {
+            "pt": "Next.js · TypeScript · Tailwind CSS · Hygraph CMS · Framer Motion",
+            "en": "Next.js · TypeScript · Tailwind CSS · Hygraph CMS · Framer Motion"
+          }
+        }
+      ]
+    }
+  ],
+  "projectsView": { "pt": "ver projeto", "en": "view project" },
+  "education": {
+    "degree": {
+      "pt": "Tecnólogo em Sistemas para Internet",
+      "en": "Associate Degree in Internet Systems"
+    },
+    "school": {
+      "pt": "Instituto Federal de São Paulo (IFSP), Campus Birigui",
+      "en": "Federal Institute of São Paulo (IFSP), Birigui Campus"
+    },
+    "degreeYear": { "pt": "concluído em 2025", "en": "completed 2025" },
+    "langLine": {
+      "pt": "Português nativo · Inglês avançado",
+      "en": "Native Portuguese · Advanced English"
+    },
+    "langCert": { "pt": "C1 Advanced — EF SET", "en": "C1 Advanced — EF SET" }
+  },
+  "form": {
+    "name": { "pt": "Nome", "en": "Name" },
+    "email": { "pt": "E-mail", "en": "E-mail" },
+    "message": { "pt": "Mensagem", "en": "Message" },
+    "send": { "pt": "ENVIAR MENSAGEM", "en": "SEND MESSAGE" },
+    "cta": { "pt": "Entre em contato →", "en": "Get in touch →" },
+    "success": { "pt": "Mensagem enviada, obrigado!", "en": "Message sent, thanks!" },
+    "error": {
+      "pt": "Não foi possível enviar. Escreva para o e-mail abaixo.",
+      "en": "Couldn't send. Please use the email below."
+    }
+  }
+}
