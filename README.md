@@ -1,102 +1,104 @@
-# Jonatha Botelho — Portfólio v2
+# Jonatha Mathews - Portfolio v2
 
-Portfólio pessoal de página única, bilíngue (PT/EN), estética terminal/monospace com
-dark mode. Estaticamente gerado (SSG) com Next.js; o conteúdo vem de um CMS caseiro
-baseado em Google Sheets + AppSheet + Apps Script, consumido em build-time.
+A bilingual (EN/PT), single-page personal portfolio with a terminal-inspired,
+monospace aesthetic and dark mode. The site is statically generated (SSG) with
+Next.js. Its content can be supplied at build time by a lightweight CMS built with
+Google Sheets, AppSheet, and Apps Script.
 
-## Stack
+## Tech stack
 
-- **Next.js 16** (App Router) · **React 19** · **TypeScript** (strict)
-- **Tailwind CSS v4** (tokens via CSS custom properties, trocados por `[data-theme]`)
-- **next-intl 4** (i18n sem roteamento por locale; toggle client-side)
-- **Zustand 5** (tema + idioma, persistidos em `localStorage`)
-- **React Hook Form 7** + **Zod 4** (formulário de contato)
-- **Resend 6** (envio de e-mail via API route)
-- **Vitest 4** (unit) · **Playwright** (smoke E2E)
+- **Next.js 16** (App Router) · **React 19** · **TypeScript** (strict mode)
+- **Tailwind CSS v4** (CSS custom-property tokens switched through `[data-theme]`)
+- **next-intl 4** (client-side internationalization without locale routing)
+- **Zustand 5** (theme and language persisted in `localStorage`)
+- **React Hook Form 7** + **Zod 4** (contact form)
+- **Resend 6** (email delivery through an API route)
+- **Vitest 4** (unit tests) · **Playwright** (E2E smoke tests)
 
-## Desenvolvimento
+## Development
 
 ```bash
 pnpm install
 pnpm dev            # http://localhost:3000
 ```
 
-Sem nenhuma variável de ambiente, o site roda com o conteúdo de
-`content/fallback.json` (cópia fiel do design). O formulário só envia e-mail de fato
-quando `RESEND_API_KEY` está configurada.
+The site runs without environment variables by using the versioned content in
+`content/fallback.json`. The contact form only sends email when `RESEND_API_KEY` is
+configured.
 
 ### Scripts
 
-| Comando | O que faz |
-|---|---|
-| `pnpm dev` | Servidor de desenvolvimento |
-| `pnpm build` | Build de produção (SSG) |
-| `pnpm start` | Serve o build |
-| `pnpm test` | Testes unitários (Vitest) |
-| `pnpm test:e2e` | Smoke test (Playwright; faz build + start) |
-| `pnpm lint` | ESLint |
-| `pnpm format` | Prettier |
+| Command         | Description                                   |
+| --------------- | --------------------------------------------- |
+| `pnpm dev`      | Start the development server                  |
+| `pnpm build`    | Create the production build (SSG)             |
+| `pnpm start`    | Serve the production build                    |
+| `pnpm test`     | Run unit tests with Vitest                    |
+| `pnpm test:e2e` | Run the Playwright smoke test (build + start) |
+| `pnpm lint`     | Run ESLint                                    |
+| `pnpm format`   | Format the project with Prettier              |
 
-## Variáveis de ambiente
+## Environment variables
 
-Copie `.env.example` para `.env.local` e preencha:
+Copy `.env.example` to `.env.local` and provide the required values:
 
-| Var | Uso |
-|---|---|
-| `RESEND_API_KEY` | Chave da Resend para envio do formulário |
-| `CONTACT_TO_EMAIL` | Destino do formulário (default `jonathabotelho1@gmail.com`) |
-| `CMS_ENDPOINT_URL` | URL do Web App Apps Script (JSON). Vazio → usa `fallback.json` |
-| `CMS_TOKEN` | Token opcional anexado como `?token=` e validado no `doGet` |
+| Variable           | Purpose                                                               |
+| ------------------ | --------------------------------------------------------------------- |
+| `RESEND_API_KEY`   | Resend API key used by the contact form                               |
+| `CONTACT_TO_EMAIL` | Contact-form recipient (defaults to `jonathabotelho1@gmail.com`)      |
+| `CMS_ENDPOINT_URL` | Apps Script Web App URL that returns JSON; empty uses `fallback.json` |
+| `CMS_TOKEN`        | Optional token appended as `?token=` and validated by `doGet`         |
 
 ### Resend
 
-Crie uma conta em [resend.com](https://resend.com), gere uma API key e coloque em
-`RESEND_API_KEY`. Enquanto não houver domínio verificado, o remetente usa
-`onboarding@resend.dev` (funciona só para o e-mail da própria conta). Para enviar de um
-domínio próprio, verifique o domínio na Resend e ajuste o `from` em
-[`app/api/contact/route.ts`](app/api/contact/route.ts).
+Create an account at [resend.com](https://resend.com), generate an API key, and assign
+it to `RESEND_API_KEY`. Until a domain is verified, the sender is
+`onboarding@resend.dev`, which can only deliver to the email address associated with
+the Resend account. To send from a custom domain, verify it in Resend and update the
+`from` field in [`app/api/contact/route.ts`](app/api/contact/route.ts).
 
-## Conteúdo (CMS)
+## Content and CMS
 
-Todo o conteúdo editável vem do endpoint definido em `CMS_ENDPOINT_URL`, buscado **uma
-vez em build-time**, validado com Zod ([`lib/cms/schema.ts`](lib/cms/schema.ts)) e
-transformado em mensagens i18n + dados estruturados
-([`lib/cms/transform.ts`](lib/cms/transform.ts)). Se o endpoint falhar, der timeout ou
-não validar, o build cai em [`content/fallback.json`](content/fallback.json) — o site
-nunca quebra por causa do CMS.
+Editable content can come from the endpoint configured through `CMS_ENDPOINT_URL`.
+The endpoint is fetched **once at build time**, validated with Zod
+([`lib/cms/schema.ts`](lib/cms/schema.ts)), and transformed into internationalized
+messages and structured data ([`lib/cms/transform.ts`](lib/cms/transform.ts)). If the
+endpoint fails, times out, or returns invalid data, the build falls back to
+[`content/fallback.json`](content/fallback.json), preventing a CMS failure from
+breaking the site.
 
-O contrato JSON, o esquema do Google Sheet e o `doGet` de referência estão em
+The JSON contract and reference `doGet` implementation are documented in
 [`apps-script/`](apps-script/README.md).
 
-### Publicando alterações de conteúdo
+### Publishing content changes
 
-1. Edite os dados no **AppSheet** (ligado ao Google Sheet).
-2. Toque no botão **"atualizar infos do site"** — uma Automation do AppSheet chama o
-   **Vercel Deploy Hook**.
-3. A Vercel refaz o build; o `getContent()` busca o JSON atualizado. Propagação em
-   ~30–60s.
+1. Edit the data in **AppSheet**, which is connected to the Google Sheet.
+2. Select the **“atualizar infos do site”** (“update site info”) action. An AppSheet
+   Automation calls the **Vercel Deploy Hook**.
+3. Vercel rebuilds the site and `getContent()` fetches the updated JSON. Changes
+   typically propagate in 30-60 seconds.
 
-Detalhes de deploy do Web App e configuração do Deploy Hook: veja
-[`apps-script/README.md`](apps-script/README.md).
+See [`apps-script/README.md`](apps-script/README.md) for Web App deployment and Deploy
+Hook configuration details.
 
-### Imagens dos projetos
+### Project images
 
-As capas dos projetos são placeholders cinza (280×200) até que imagens reais sejam
-fornecidas. Para usar uma imagem: coloque o arquivo em `public/images/` e defina
-`projects[].imageUrl` no CMS (ex.: `/images/programatical.png`).
+Project covers use gray 280×200 placeholders until real images are provided. To add
+an image, place it in `public/images/` and set `projects[].imageUrl` in the CMS, for
+example `/images/programatical.png`.
 
-## Estrutura
+## Project structure
 
+```text
+app/            Layout, page, global styles, and contact API route
+components/     Providers, layouts, sections, UI elements, and hooks
+store/          Zustand UI store for theme and language
+lib/            Date utilities, validation, and CMS logic
+content/        Versioned fallback content
+apps-script/    Optional reference CMS implementation outside the site build
+__tests__/      Vitest unit tests
+e2e/            Playwright end-to-end tests
 ```
-app/            layout, page (SSG), globals.css, api/contact
-components/      providers, layout, sections, ui, hooks
-store/          Zustand UI store (theme, lang)
-lib/            duration, month, contact-schema, cms/*
-content/        fallback.json (conteúdo versionado)
-apps-script/    doGet de referência (fora do build)
-__tests__/      Vitest
-e2e/            Playwright
-```
 
-Especificação de design e plano de implementação:
+The original design specification and implementation plan are stored in
 [`docs/superpowers/`](docs/superpowers/).
