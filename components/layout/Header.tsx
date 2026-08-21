@@ -39,10 +39,14 @@ export function Header() {
 
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-4 text-[14px]">
-      <span className="font-bold">jonatha.botelho_</span>
-      <nav className="flex items-baseline gap-[22px]">
+      <span className="font-bold">
+        {lang === 'en' ? 'jonatha.mathews_' : 'jonatha.botelho_'}
+      </span>
+      <nav className="flex flex-1 flex-wrap items-baseline justify-end gap-x-[18px] gap-y-2 max-[640px]:justify-start">
         <TextLink href="#ferramentas">{t('tools')}</TextLink>
         <TextLink href="#experiencia">{t('exp')}</TextLink>
+        <TextLink href="#formacao">{t('education')}</TextLink>
+        <TextLink href="#cursos">{t('courses')}</TextLink>
         <TextLink href="#projetos">{t('projects')}</TextLink>
         <TextLink href="#contato">{t('contact')}</TextLink>
         <span className="text-dim">
@@ -59,7 +63,7 @@ export function Header() {
             }
           }}
           aria-label={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
-          className="cursor-pointer text-dim select-none hover:text-ink"
+          className="text-dim hover:text-ink cursor-pointer select-none"
         >
           [{mounted ? (theme === 'dark' ? '☀' : '☾') : '☾'}]
         </span>

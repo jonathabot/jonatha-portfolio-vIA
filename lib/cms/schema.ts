@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-export const loc = <T extends z.ZodTypeAny>(inner: T) => z.object({ pt: inner, en: inner });
+export const loc = <T extends z.ZodTypeAny>(inner: T) =>
+  z.object({ pt: inner, en: inner });
 
 const locStr = loc(z.string());
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'expected YYYY-MM-DD');
@@ -8,13 +9,21 @@ const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'expected YYYY-MM-DD');
 export const portfolioSchema = z.object({
   meta: z.object({ nowUpdated: locStr, footer: locStr }),
   flags: z.object({ showEducation: z.boolean(), showPhoto: z.boolean() }),
-  nav: z.object({ tools: locStr, exp: locStr, projects: locStr, contact: locStr }),
+  nav: z.object({
+    tools: locStr,
+    exp: locStr,
+    education: locStr,
+    courses: locStr,
+    projects: locStr,
+    contact: locStr,
+  }),
   sections: z.object({
     now: locStr,
     tools: locStr,
     exp: locStr,
-    projects: locStr,
     education: locStr,
+    courses: locStr,
+    projects: locStr,
     contact: locStr,
   }),
   hero: z.object({
@@ -23,7 +32,11 @@ export const portfolioSchema = z.object({
     summary: locStr,
     cta: locStr,
     techs: z.array(z.string()),
-    links: z.object({ email: z.string(), linkedin: z.string(), github: z.string() }),
+    links: z.object({
+      email: z.string(),
+      linkedin: z.string(),
+      github: z.string(),
+    }),
     photoUrl: z.string().nullable(),
   }),
   now: z.object({ items: z.array(locStr) }),
@@ -56,6 +69,14 @@ export const portfolioSchema = z.object({
     langLine: locStr,
     langCert: locStr,
   }),
+  courses: z.array(
+    z.object({
+      title: locStr,
+      issuer: locStr,
+      year: z.string(),
+      details: locStr.nullable(),
+    }),
+  ),
   form: z.object({
     name: locStr,
     email: locStr,

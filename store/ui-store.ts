@@ -21,13 +21,14 @@ type UIState = {
 export const useUIStore = create<UIState>()(
   persist(
     (set, get) => ({
-      theme: 'light',
-      lang: 'pt',
+      theme: 'dark',
+      lang: 'en',
       setTheme: (t) => {
         applyThemeAttr(t);
         set({ theme: t });
       },
-      toggleTheme: () => get().setTheme(get().theme === 'dark' ? 'light' : 'dark'),
+      toggleTheme: () =>
+        get().setTheme(get().theme === 'dark' ? 'light' : 'dark'),
       setLang: (l) => set({ lang: l }),
     }),
     {

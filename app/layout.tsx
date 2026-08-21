@@ -11,24 +11,28 @@ const courier = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: 'Jonatha Botelho — Desenvolvedor Google Cloud & Workspace',
+  title: 'Jonatha Mathews — Software Developer',
   description:
-    'Portfólio de Jonatha Botelho — Desenvolvedor Google Cloud & Google Workspace | Analista de Dados. Apps Script, AppSheet, BigQuery, Looker Studio, Cloud Run, React.',
-  authors: [{ name: 'Jonatha Botelho' }],
+    'Software Developer with 3+ years of professional experience building web applications with React, Next.js, TypeScript and JavaScript.',
+  authors: [{ name: 'Jonatha Mathews' }],
   icons: { icon: '/favicon.svg' },
   openGraph: {
-    title: 'Jonatha Botelho — Desenvolvedor Google Cloud & Workspace',
+    title: 'Jonatha Mathews — Software Developer',
     description:
-      'Automação de processos, dados e front-end. Apps Script, AppSheet, BigQuery, Looker Studio, Cloud Run, React.',
+      'Frontend development, responsive interfaces, REST API integrations, Google Cloud and Google Workspace.',
     type: 'website',
   },
 };
 
-const themeScript = `(function(){try{var s=localStorage.getItem('jb-portfolio-ui');var t=s?JSON.parse(s).state.theme:null;if(t!=='dark'&&t!=='light')t='light';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='light';}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem('jb-portfolio-ui');var t=s?JSON.parse(s).state.theme:null;if(t!=='dark'&&t!=='light')t='dark';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='dark';}})();`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

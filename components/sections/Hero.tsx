@@ -10,9 +10,8 @@ import { Chip } from '@/components/ui/Chip';
 import { TextLink } from '@/components/ui/TextLink';
 import { LinkedInIcon } from '@/components/ui/icons/LinkedInIcon';
 import { GitHubIcon } from '@/components/ui/icons/GitHubIcon';
+import { useUIStore } from '@/store/ui-store';
 import type { SiteContent } from '@/lib/cms/transform';
-
-const FULL_NAME = 'JONATHA BOTELHO';
 
 export function Hero({
   techs,
@@ -21,7 +20,9 @@ export function Hero({
   showPhoto,
 }: SiteContent['hero'] & { showPhoto: boolean }) {
   const t = useTranslations('hero');
-  const typed = useTypewriter(FULL_NAME);
+  const lang = useUIStore((state) => state.lang);
+  const fullName = lang === 'en' ? 'JONATHA MATHEWS' : 'JONATHA BOTELHO';
+  const typed = useTypewriter(fullName);
   const sweep = useSweep();
   const cursorRef = useRef<HTMLSpanElement>(null);
   const highlightRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -50,16 +51,16 @@ export function Hero({
   }, [sweep]);
 
   return (
-    <div className="flex flex-wrap items-center gap-12 border-b-[3px] border-double border-ink pt-16 pb-[52px]">
-      <div className="min-w-[380px] flex-1">
-        <p className="m-0 mb-2 text-[14px] text-dim">{t('hello')}</p>
+    <div className="border-ink flex flex-wrap items-center gap-12 border-b-[3px] border-double pt-16 pb-[52px]">
+      <div className="min-w-0 flex-1 basis-[380px]">
+        <p className="text-dim m-0 mb-2 text-[14px]">{t('hello')}</p>
         <h1 className="m-0 text-[38px] leading-[1.2] font-bold">
           {typed}
           <span ref={cursorRef} className="font-normal">
             _
           </span>
         </h1>
-        <p className="mt-[10px] text-[16px] text-body">{t('role')}</p>
+        <p className="text-body mt-[10px] text-[16px]">{t('role')}</p>
         <p className="mt-5 text-[16px] leading-[1.7]">
           {segments.map((seg, i) => {
             if (!seg.highlight) return <span key={i}>{seg.text}</span>;
@@ -71,7 +72,7 @@ export function Hero({
                 ref={(el) => {
                   highlightRefs.current[idx] = el;
                 }}
-                className="px-[6px] text-ink"
+                className="text-ink px-[6px]"
                 style={{
                   backgroundImage: 'linear-gradient(var(--ink),var(--ink))',
                   backgroundRepeat: 'no-repeat',
@@ -93,7 +94,7 @@ export function Hero({
         <div className="mt-7 flex flex-wrap items-center gap-6">
           <a
             href="#contato"
-            className="bg-ink px-5 py-[10px] text-[14px] font-bold text-bg no-underline"
+            className="bg-ink text-bg px-5 py-[10px] text-[14px] font-bold no-underline"
           >
             {t('cta')} →
           </a>
@@ -116,10 +117,10 @@ export function Hero({
         </div>
       </div>
       {showPhoto && photoUrl && (
-        <div className="h-[240px] w-[240px] flex-none border border-ink shadow-[10px_10px_0_var(--ink)] [filter:grayscale(1)_contrast(1.05)]">
+        <div className="border-ink h-[240px] w-[240px] flex-none border shadow-[10px_10px_0_var(--ink)] [filter:grayscale(1)_contrast(1.05)]">
           <Image
             src={photoUrl}
-            alt="Jonatha Botelho"
+            alt={lang === 'en' ? 'Jonatha Mathews' : 'Jonatha Botelho'}
             width={240}
             height={240}
             className="h-full w-full object-cover"

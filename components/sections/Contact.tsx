@@ -43,15 +43,23 @@ export function Contact({ links }: { links: SiteContent['hero']['links'] }) {
 
   return (
     <div id="contato" className="pt-11 pb-14">
-      <SectionHeading>05 — {t('section.contact')}</SectionHeading>
+      <SectionHeading>06 — {t('section.contact')}</SectionHeading>
       <p className="m-0 mb-7 text-[22px] font-bold">{t('form.cta')}</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex max-w-[480px] flex-col gap-3"
         noValidate
       >
-        <input className={inputCls} placeholder={t('form.name')} {...register('name')} />
-        <input className={inputCls} placeholder={t('form.email')} {...register('email')} />
+        <input
+          className={inputCls}
+          placeholder={t('form.name')}
+          {...register('name')}
+        />
+        <input
+          className={inputCls}
+          placeholder={t('form.email')}
+          {...register('email')}
+        />
         <textarea
           className={`${inputCls} resize-none`}
           rows={5}
@@ -69,12 +77,16 @@ export function Contact({ links }: { links: SiteContent['hero']['links'] }) {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="self-start bg-ink px-6 py-3 text-[14px] font-bold text-bg disabled:opacity-60"
+          className="bg-ink text-bg self-start px-6 py-3 text-[14px] font-bold disabled:opacity-60"
         >
           {t('form.send')} →
         </button>
-        {status === 'success' && <span className="text-[13px] text-dim">{t('form.success')}</span>}
-        {status === 'error' && <span className="text-[13px] text-faint">{t('form.error')}</span>}
+        {status === 'success' && (
+          <span className="text-dim text-[13px]">{t('form.success')}</span>
+        )}
+        {status === 'error' && (
+          <span className="text-faint text-[13px]">{t('form.error')}</span>
+        )}
       </form>
       <div className="mt-8 flex flex-wrap gap-7 text-[14px]">
         <TextLink href={`mailto:${links.email}`}>{links.email}</TextLink>

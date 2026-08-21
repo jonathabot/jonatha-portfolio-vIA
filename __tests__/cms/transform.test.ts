@@ -9,7 +9,9 @@ describe('transform', () => {
   const { messages, content: site } = transform(content);
 
   it('pt and en messages share the same top-level keys', () => {
-    expect(Object.keys(messages.pt).sort()).toEqual(Object.keys(messages.en).sort());
+    expect(Object.keys(messages.pt).sort()).toEqual(
+      Object.keys(messages.en).sort(),
+    );
   });
 
   it('flattens hero.role per language', () => {
@@ -19,6 +21,10 @@ describe('transform', () => {
 
   it('exposes section titles and projects.view', () => {
     expect(messages.pt.section.now).toBe(content.sections.now.pt);
+    expect(messages.pt.section.courses).toBe(content.sections.courses.pt);
+    expect(messages.pt.courses.items[0].title).toBe(
+      content.courses[0].title.pt,
+    );
     expect(messages.en.projects.view).toBe(content.projectsView.en);
   });
 

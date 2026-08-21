@@ -6,13 +6,15 @@
     },
     "footer": {
       "pt": "© 2026 Jonatha Botelho. Todos os direitos reservados.",
-      "en": "© 2026 Jonatha Botelho. All rights reserved."
+      "en": "© 2026 Jonatha Mathews. All rights reserved."
     }
   },
   "flags": { "showEducation": true, "showPhoto": true },
   "nav": {
     "tools": { "pt": "ferramentas", "en": "toolkit" },
     "exp": { "pt": "experiência", "en": "experience" },
+    "education": { "pt": "formação", "en": "education" },
+    "courses": { "pt": "cursos", "en": "courses" },
     "projects": { "pt": "projetos", "en": "projects" },
     "contact": { "pt": "contato", "en": "contact" }
   },
@@ -20,19 +22,20 @@
     "now": { "pt": "AGORA_", "en": "NOW_" },
     "tools": { "pt": "FERRAMENTAS_", "en": "TOOLKIT_" },
     "exp": { "pt": "EXPERIÊNCIA_", "en": "EXPERIENCE_" },
-    "projects": { "pt": "PROJETOS_", "en": "PROJECTS_" },
     "education": { "pt": "FORMAÇÃO_", "en": "EDUCATION_" },
+    "courses": { "pt": "CURSOS E CERTIFICADOS_", "en": "COURSES & CERTIFICATES_" },
+    "projects": { "pt": "PROJETOS_", "en": "PROJECTS_" },
     "contact": { "pt": "CONTATO_", "en": "CONTACT_" }
   },
   "hero": {
     "hello": { "pt": "olá, meu nome é", "en": "hello, my name is" },
     "role": {
       "pt": "Desenvolvedor Google Cloud & Google Workspace | Analista de Dados",
-      "en": "Google Cloud & Google Workspace Developer | Data Analyst"
+      "en": "Software Developer, Google Cloud & Google Workspace Developer | Data Analyst"
     },
     "summary": {
       "pt": "Mais de 3 anos de experiência no desenvolvimento de soluções com Google Cloud e [[Google Workspace]]. Automação de processos com [[Apps Script]], desenvolvimento de aplicativos com AppSheet, dashboards com Looker Studio + BigQuery e serviços em Cloud Run. No front-end: [[React]], Next.js, TypeScript e Tailwind CSS. Fluxos de desenvolvimento assistidos por IA generativa aplicados em projetos profissionais.",
-      "en": "3+ years of experience developing solutions with Google Cloud and [[Google Workspace]]. Process automation with [[Apps Script]], application development with AppSheet, dashboards with Looker Studio + BigQuery, and services on Cloud Run. Front-end work with [[React]], Next.js, TypeScript and Tailwind CSS. Generative-AI-assisted development workflows applied to professional projects."
+      "en": "Software Developer with 3+ years of professional experience building web applications, with a strong focus on [[Frontend]] development using [[React]], Next.js, TypeScript and JavaScript. Experienced in responsive interfaces, reusable components, [[REST API integrations]] and enterprise systems. Contributed to projects for major clients in Brazil."
     },
     "cta": { "pt": "Entre em contato", "en": "Get in touch" },
     "techs": [
@@ -49,7 +52,7 @@
       "linkedin": "https://linkedin.com/in/jonathabotelho",
       "github": "https://github.com/jonathabot"
     },
-    "photoUrl": "/images/profile-pic.png"
+    "photoUrl": "/images/profile-pic-2026.jpeg"
   },
   "now": {
     "items": [
@@ -313,6 +316,77 @@
     },
     "langCert": { "pt": "C1 Advanced — EF SET", "en": "C1 Advanced — EF SET" }
   },
+  "courses": [
+    {
+      "title": {
+        "pt": "Claude Code: Software Engineering with Generative AI Agents",
+        "en": "Claude Code: Software Engineering with Generative AI Agents"
+      },
+      "issuer": {
+        "pt": "Vanderbilt University / Coursera",
+        "en": "Vanderbilt University / Coursera"
+      },
+      "year": "2026",
+      "details": null
+    },
+    {
+      "title": {
+        "pt": "EF SET English Certificate (C1 Advanced)",
+        "en": "EF SET English Certificate (C1 Advanced)"
+      },
+      "issuer": { "pt": "EF SET", "en": "EF SET" },
+      "year": "2025",
+      "details": null
+    },
+    {
+      "title": { "pt": "React Completo", "en": "Complete React" },
+      "issuer": { "pt": "Origamid", "en": "Origamid" },
+      "year": "2024",
+      "details": null
+    },
+    {
+      "title": {
+        "pt": "Building No-Code Apps with AppSheet",
+        "en": "Building No-Code Apps with AppSheet"
+      },
+      "issuer": {
+        "pt": "Google Cloud Skills Boost",
+        "en": "Google Cloud Skills Boost"
+      },
+      "year": "2024",
+      "details": {
+        "pt": "Foundations · Implementation · Automation",
+        "en": "Foundations · Implementation · Automation"
+      }
+    },
+    {
+      "title": {
+        "pt": "Formação Full Stack JavaScript: React e Node.js",
+        "en": "Full Stack JavaScript Program: React and Node.js"
+      },
+      "issuer": { "pt": "Alura", "en": "Alura" },
+      "year": "2023",
+      "details": null
+    },
+    {
+      "title": {
+        "pt": "Formação React com JavaScript",
+        "en": "React with JavaScript Program"
+      },
+      "issuer": { "pt": "Alura", "en": "Alura" },
+      "year": "2023",
+      "details": null
+    },
+    {
+      "title": {
+        "pt": "Bootcamp Orange Tech+ (HTML, CSS, JavaScript, React)",
+        "en": "Orange Tech+ Bootcamp (HTML, CSS, JavaScript, React)"
+      },
+      "issuer": { "pt": "DIO", "en": "DIO" },
+      "year": "2022",
+      "details": null
+    }
+  ],
   "form": {
     "name": { "pt": "Nome", "en": "Name" },
     "email": { "pt": "E-mail", "en": "E-mail" },

@@ -14,15 +14,15 @@ export function Projects({ projects }: { projects: SiteContent['projects'] }) {
   const stacks = t.raw('projects.stacks') as { k: string; v: string }[][];
 
   return (
-    <div id="projetos" className="border-b border-dashed border-faint py-10">
-      <SectionHeading>03 — {t('section.projects')}</SectionHeading>
+    <div id="projetos" className="border-faint border-b border-dashed py-10">
+      <SectionHeading>05 — {t('section.projects')}</SectionHeading>
       <div className="flex flex-col gap-11">
         {projects.map((p, i) => (
           <div
             key={i}
             className="grid grid-cols-[280px_1fr] items-start gap-7 max-[640px]:grid-cols-1"
           >
-            <div className="h-[200px] w-[280px] border border-ink [filter:grayscale(1)] max-[640px]:w-full">
+            <div className="border-ink h-[200px] w-[280px] border [filter:grayscale(1)] max-[640px]:w-full">
               {p.imageUrl ? (
                 <Image
                   src={p.imageUrl}
@@ -32,7 +32,7 @@ export function Projects({ projects }: { projects: SiteContent['projects'] }) {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-hair px-3 text-center text-[12px] text-dim">
+                <div className="bg-hair text-dim flex h-full w-full items-center justify-center px-3 text-center text-[12px]">
                   {titles[i].split(' — ')[0]}
                 </div>
               )}
@@ -42,13 +42,15 @@ export function Projects({ projects }: { projects: SiteContent['projects'] }) {
                 <span className="text-[17px] font-bold underline [text-decoration-thickness:2px] [text-underline-offset:5px]">
                   {titles[i]}
                 </span>
-                <span className="text-[13px] text-faint">{dateLabels[i]}</span>
+                <span className="text-faint text-[13px]">{dateLabels[i]}</span>
               </div>
-              <span className="text-[15px] leading-[1.65] text-body">{descs[i]}</span>
-              <div className="mt-1 flex flex-col gap-[5px] text-[13px] leading-[1.6] text-dim">
+              <span className="text-body text-[15px] leading-[1.65]">
+                {descs[i]}
+              </span>
+              <div className="text-dim mt-1 flex flex-col gap-[5px] text-[13px] leading-[1.6]">
                 {stacks[i].map((s, j) => (
                   <span key={j}>
-                    <span className="font-bold text-ink">{s.k}:</span> {s.v}
+                    <span className="text-ink font-bold">{s.k}:</span> {s.v}
                   </span>
                 ))}
               </div>
