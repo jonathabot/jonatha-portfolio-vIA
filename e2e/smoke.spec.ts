@@ -41,3 +41,25 @@ test('portfolio smoke: typing, theme, language, nav', async ({ page }) => {
   await page.getByRole('link', { name: 'projetos' }).click();
   await expect(page).toHaveURL(/#projetos/);
 });
+
+test('profile photo only appears when the hero fits in two columns', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => localStorage.clear());
+  await page.goto('/');
+
+  const photo = page.getByRole('img', { name: 'Jonatha Mathews' });
+  await expect(photo).toBeHidden();
+
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await expect(photo).toBeVisible();
+
+  const photoBox = await photo.boundingBox();
+  const summaryBox = await page
+    .getByText('Software Developer with 3+ years', { exact: false })
+    .boundingBox();
+  expect(photoBox).not.toBeNull();
+  expect(summaryBox).not.toBeNull();
+  expect(photoBox!.x).toBeGreaterThan(summaryBox!.x + summaryBox!.width);
+});

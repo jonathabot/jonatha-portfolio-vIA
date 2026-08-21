@@ -117,7 +117,7 @@ export function Hero({
         </div>
       </div>
       {showPhoto && photoUrl && (
-        <div className="border-ink h-[240px] w-[240px] flex-none border shadow-[10px_10px_0_var(--ink)] [filter:grayscale(1)_contrast(1.05)]">
+        <div className="border-ink hidden h-[240px] w-[240px] flex-none border shadow-[10px_10px_0_var(--ink)] [filter:grayscale(1)_contrast(1.05)] min-[732px]:block">
           <Image
             src={photoUrl}
             alt={lang === 'en' ? 'Jonatha Mathews' : 'Jonatha Botelho'}
