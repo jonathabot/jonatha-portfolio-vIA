@@ -6,7 +6,7 @@ test('portfolio smoke: typing, theme, language, nav', async ({ page }) => {
 
   // name types in
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'JONATHA MATHEWS',
+    'JONATHA BOTELHO',
     {
       timeout: 5000,
     },
@@ -56,10 +56,8 @@ test('profile photo only appears when the hero fits in two columns', async ({
   await expect(photo).toBeVisible();
 
   const photoBox = await photo.boundingBox();
-  const summaryBox = await page
-    .getByText('Software Developer with 3+ years', { exact: false })
-    .boundingBox();
+  const headingBox = await page.getByRole('heading', { level: 1 }).boundingBox();
   expect(photoBox).not.toBeNull();
-  expect(summaryBox).not.toBeNull();
-  expect(photoBox!.x).toBeGreaterThan(summaryBox!.x + summaryBox!.width);
+  expect(headingBox).not.toBeNull();
+  expect(photoBox!.x).toBeGreaterThan(headingBox!.x + headingBox!.width);
 });

@@ -37,12 +37,14 @@ describe('getContent', () => {
       nav: Record<string, unknown>;
       sections: Record<string, unknown>;
       courses?: unknown;
+      education: { postgraduate?: unknown };
       hero: { role: { pt: string } };
     };
     delete legacy.nav.education;
     delete legacy.nav.courses;
     delete legacy.sections.courses;
     delete legacy.courses;
+    delete legacy.education.postgraduate;
     legacy.hero.role.pt = 'LEGACY ROLE';
     vi.stubGlobal(
       'fetch',
@@ -55,6 +57,9 @@ describe('getContent', () => {
     expect(c.hero.role.pt).toBe('LEGACY ROLE');
     expect(c.nav.courses).toEqual(fallback.nav.courses);
     expect(c.courses).toEqual(fallback.courses);
+    expect(c.education.postgraduate).toEqual(
+      fallback.education.postgraduate,
+    );
   });
 
   it('falls back when the endpoint returns 500', async () => {

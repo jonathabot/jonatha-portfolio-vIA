@@ -31,10 +31,20 @@ function addCoursesDefaults(payload: unknown): unknown {
       }
     : payload.sections;
 
+  const education = isObject(payload.education)
+    ? {
+        ...payload.education,
+        postgraduate: Object.hasOwn(payload.education, 'postgraduate')
+          ? payload.education.postgraduate
+          : fallback.education.postgraduate,
+      }
+    : payload.education;
+
   return {
     ...payload,
     nav,
     sections,
+    education,
     courses: Object.hasOwn(payload, 'courses')
       ? payload.courses
       : fallback.courses,

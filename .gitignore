@@ -26,8 +26,8 @@ yarn-debug.log*
 yarn-error.log*
 .vercel
 
-# design handoff archive (source zip; extracted folder is kept as reference)
+# archived design source
 Portfolio com IA.zip
 
-# local Claude Code settings (launch.json is committed)
+# local agent settings
 .claude/settings.local.json

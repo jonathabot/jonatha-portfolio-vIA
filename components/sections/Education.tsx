@@ -12,6 +12,17 @@ export function Education({ show }: { show: boolean }) {
       <div className="flex flex-col gap-[14px] text-[15px]">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <span>
+            <span className="font-bold">
+              {t('education.postgraduate.degree')}
+            </span>{' '}
+            — {t('education.postgraduate.school')}
+          </span>
+          <span className="text-faint text-[13px]">
+            {t('education.postgraduate.period')}
+          </span>
+        </div>
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <span>
             <span className="font-bold">{t('education.degree')}</span> —{' '}
             {t('education.school')}
           </span>

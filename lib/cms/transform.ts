@@ -33,6 +33,11 @@ export type Messages = {
     view: string;
   };
   education: {
+    postgraduate: {
+      degree: string;
+      school: string;
+      period: string;
+    };
     degree: string;
     school: string;
     degreeYear: string;
@@ -122,6 +127,11 @@ function messagesFor(c: PortfolioContent, lang: Lang): Messages {
       view: p(c.projectsView),
     },
     education: {
+      postgraduate: {
+        degree: p(c.education.postgraduate.degree),
+        school: p(c.education.postgraduate.school),
+        period: p(c.education.postgraduate.period),
+      },
       degree: p(c.education.degree),
       school: p(c.education.school),
       degreeYear: p(c.education.degreeYear),

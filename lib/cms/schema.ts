@@ -63,6 +63,11 @@ export const portfolioSchema = z.object({
   ),
   projectsView: locStr,
   education: z.object({
+    postgraduate: z.object({
+      degree: locStr,
+      school: locStr,
+      period: locStr,
+    }),
     degree: locStr,
     school: locStr,
     degreeYear: locStr,

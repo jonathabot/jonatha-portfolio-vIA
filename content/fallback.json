@@ -31,11 +31,11 @@
     "hello": { "pt": "olá, meu nome é", "en": "hello, my name is" },
     "role": {
       "pt": "Desenvolvedor Google Cloud & Google Workspace | Analista de Dados",
-      "en": "Software Developer, Google Cloud & Google Workspace Developer | Data Analyst"
+      "en": "Software Developer | React | Next.js | TypeScript"
     },
     "summary": {
       "pt": "Mais de 3 anos de experiência no desenvolvimento de soluções com Google Cloud e [[Google Workspace]]. Automação de processos com [[Apps Script]], desenvolvimento de aplicativos com AppSheet, dashboards com Looker Studio + BigQuery e serviços em Cloud Run. No front-end: [[React]], Next.js, TypeScript e Tailwind CSS. Fluxos de desenvolvimento assistidos por IA generativa aplicados em projetos profissionais.",
-      "en": "Software Developer with 3+ years of professional experience building web applications, with a strong focus on [[Frontend]] development using [[React]], Next.js, TypeScript and JavaScript. Experienced in responsive interfaces, reusable components, [[REST API integrations]] and enterprise systems. Contributed to projects for major clients in Brazil."
+      "en": "Software Developer with over 3 years of professional experience building web applications, specializing in [[front-end development]] with [[React]], Next.js, TypeScript and JavaScript. Experienced in responsive interfaces, reusable components, [[REST API integrations]] and enterprise systems. Contributed to projects for five large corporate clients and an industrial ERP focused on process digitization and factory productivity. Additional experience with Google Cloud Platform, GitHub Actions, CI/CD, SQL, BigQuery and Firebase in remote teams and agile environments."
     },
     "cta": { "pt": "Entre em contato", "en": "Get in touch" },
     "techs": [
@@ -75,35 +75,35 @@
       "name": { "pt": "Front-end", "en": "Front-end" },
       "items": {
         "pt": "JavaScript · TypeScript · Node.js · React · Next.js · Tailwind CSS · Ant Design",
-        "en": "JavaScript · TypeScript · Node.js · React · Next.js · Tailwind CSS · Ant Design"
+        "en": "React · Next.js · TypeScript · JavaScript · HTML · CSS · Tailwind CSS · Ant Design · shadcn/ui · Framer Motion · Responsive Design"
       }
     },
     {
       "name": { "pt": "Cloud", "en": "Cloud" },
       "items": {
         "pt": "Google Cloud Platform · BigQuery · Cloud Run · Cloud Storage · App Engine",
-        "en": "Google Cloud Platform · BigQuery · Cloud Run · Cloud Storage · App Engine"
+        "en": "Google Cloud Platform · Cloud Run · Cloud Storage · GitHub Actions · CI/CD · Docker"
       }
     },
     {
       "name": { "pt": "Dados & Analytics", "en": "Data & Analytics" },
       "items": {
         "pt": "SQL · BigQuery (Data Transfer Service) · Looker Studio · Google Sheets",
-        "en": "SQL · BigQuery (Data Transfer Service) · Looker Studio · Google Sheets"
+        "en": "REST APIs · JSON · Firebase · SQL · BigQuery · Looker Studio · Google Sheets"
       }
     },
     {
       "name": { "pt": "Automação & IA", "en": "Automation & AI" },
       "items": {
         "pt": "Apps Script · AppSheet · Claude Code · APIs REST · Webhooks · OAuth 2.0",
-        "en": "Apps Script · AppSheet · Claude Code · REST APIs · Webhooks · OAuth 2.0"
+        "en": "Google Apps Script · AppSheet · Claude Code · Webhooks · OAuth 2.0"
       }
     },
     {
       "name": { "pt": "Ferramentas", "en": "Dev tools" },
       "items": {
         "pt": "Git · GitHub · CLI · Docker",
-        "en": "Git · GitHub · CLI · Docker"
+        "en": "Git · GitHub · CLI · Trello · ClickUp · Agile Methodologies"
       }
     }
   ],
@@ -114,43 +114,71 @@
       "end": null,
       "role": {
         "pt": "Desenvolvedor Google Workspace",
-        "en": "Google Workspace Developer"
+        "en": "Software Developer"
       },
       "techs": ["Apps Script", "AppSheet", "BigQuery", "Cloud Run", "Looker Studio", "GCP"],
       "bullets": [
         {
-          "head": { "pt": "Montadora de veículos:", "en": "Automotive manufacturer:" },
+          "head": { "pt": "Soluções corporativas:", "en": "Corporate solutions:" },
           "text": {
-            "pt": "integração e tratamento de dados no BigQuery com Data Transfer Service, aplicação em Cloud Run integrando a API do Salesforce Marketing Cloud e dashboards gerenciais no Looker Studio.",
-            "en": "data integration and processing in BigQuery with Data Transfer Service, a Cloud Run app integrating the Salesforce Marketing Cloud API, and management dashboards in Looker Studio."
+            "pt": "desenvolvimento de aplicações web, automações, integrações e soluções de dados para grandes clientes corporativos, utilizando React, Next.js, Google Cloud Platform, AppSheet e ferramentas do ecossistema Google.",
+            "en": "development of web applications, automations, integrations and data solutions for large corporate clients, utilizing React, Next.js, Google Cloud Platform, AppSheet and Google ecosystem tools."
           }
         },
         {
-          "head": { "pt": "Banco digital de grande porte:", "en": "Major digital bank:" },
+          "head": { "pt": "Aplicações web:", "en": "Web applications:" },
           "text": {
-            "pt": "scripts em Apps Script para automação de fluxos de agenda e sincronização de calendários corporativos.",
-            "en": "Apps Script automations for scheduling flows and corporate calendar synchronization."
+            "pt": "desenvolvimento e manutenção com React, Next.js, TypeScript e Tailwind CSS, incluindo interfaces responsivas, componentes reutilizáveis e integração com APIs REST.",
+            "en": "development and maintenance of web applications using React, Next.js, TypeScript and Tailwind CSS, including responsive interfaces, reusable components and REST API integration."
           }
         },
         {
-          "head": { "pt": "Multinacionais de cosméticos:", "en": "Cosmetics multinationals:" },
+          "head": { "pt": "AppSheet:", "en": "AppSheet:" },
           "text": {
-            "pt": "apps internos em AppSheet integrados a automações avançadas em Apps Script para governança de processos.",
-            "en": "internal AppSheet apps integrated with advanced Apps Script automations for process governance."
+            "pt": "desenvolvimento de aplicações corporativas e soluções no-code/low-code, incluindo design de interfaces, regras de negócio, automações e integração com diversas fontes de dados.",
+            "en": "development of corporate applications and no-code/low-code solutions, including interface design, business logic, automations and integration with various data sources."
           }
         },
         {
-          "head": { "pt": "Infraestrutura:", "en": "Infrastructure:" },
+          "head": { "pt": "Automações e integrações:", "en": "Automations and integrations:" },
           "text": {
-            "pt": "configurações, deploys e suporte em GCP — Cloud Storage, BigQuery e Cloud Run.",
-            "en": "configuration, deploys and support on GCP — Cloud Storage, BigQuery and Cloud Run."
+            "pt": "uso de Google Apps Script, APIs REST e ferramentas do Google Workspace para digitalizar e otimizar processos internos.",
+            "en": "development using Google Apps Script, REST APIs and Google Workspace tools to digitize and optimize internal processes."
+          }
+        },
+        {
+          "head": { "pt": "Google Cloud Platform:", "en": "Google Cloud Platform:" },
+          "text": {
+            "pt": "uso de Cloud Run, Cloud Storage e BigQuery em aplicações, integrações e fluxos de dados.",
+            "en": "work with Cloud Run, Cloud Storage and BigQuery for applications, integrations and data workflows."
+          }
+        },
+        {
+          "head": { "pt": "Dados e dashboards:", "en": "Data and dashboards:" },
+          "text": {
+            "pt": "criação e manutenção de dashboards e relatórios no Looker Studio, com manipulação, processamento e consultas de dados usando SQL e BigQuery.",
+            "en": "creation and maintenance of dashboards and reports in Looker Studio, involving data manipulation, processing and querying using SQL and BigQuery."
+          }
+        },
+        {
+          "head": { "pt": "Versionamento e CI/CD:", "en": "Version control and CI/CD:" },
+          "text": {
+            "pt": "uso de Git e GitHub para controle de versão e colaboração, além de GitHub Actions em pipelines de CI/CD.",
+            "en": "use of Git and GitHub for version control and collaboration, as well as GitHub Actions for CI/CD pipelines."
+          }
+        },
+        {
+          "head": { "pt": "Rotina ágil:", "en": "Agile collaboration:" },
+          "text": {
+            "pt": "participação em reuniões diárias, planejamento de entregas, acompanhamento de tarefas e reuniões técnicas com clientes, usando Trello e ClickUp para organizar as atividades.",
+            "en": "participation in daily stand-ups, delivery planning, task tracking and technical meetings with clients, using Trello and ClickUp to organize activities."
           }
         }
       ]
     },
     {
       "company": "Mundo Móveis",
-      "start": "2023-01-01",
+      "start": "2023-03-01",
       "end": "2024-08-01",
       "role": {
         "pt": "Analista de Sistemas (Front-end)",
@@ -159,24 +187,38 @@
       "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Looker Studio", "AppSheet", "SQL"],
       "bullets": [
         {
-          "head": { "pt": "Engenharia de software:", "en": "Software engineering:" },
+          "head": { "pt": "ERP industrial:", "en": "Industrial ERP:" },
           "text": {
-            "pt": "novas features e correções no ERP da fábrica com React, Next.js, TypeScript e Tailwind CSS.",
-            "en": "new features and bug fixes in the factory ERP using React, Next.js, TypeScript and Tailwind CSS."
+            "pt": "evolução de um ERP usado por aproximadamente 20 coordenadores, com foco na digitalização de processos e aumento da produtividade da fábrica.",
+            "en": "enhanced an ERP used by approximately 20 coordinators, focusing on process digitization and increased factory productivity."
           }
         },
         {
-          "head": { "pt": "Business Intelligence:", "en": "Business Intelligence:" },
+          "head": { "pt": "Fluxos com QR Code:", "en": "QR Code workflows:" },
           "text": {
-            "pt": "dashboards no Looker Studio para indicadores industriais e comerciais.",
-            "en": "Looker Studio dashboards for industrial and commercial KPIs."
+            "pt": "leitura, processamento e geração para identificação, etiquetagem e rastreamento de móveis, apoiando aproximadamente 200 etiquetas por dia.",
+            "en": "implemented scanning, processing and generation for furniture identification, labeling and tracking, supporting approximately 200 labels per day."
           }
         },
         {
-          "head": { "pt": "Automação:", "en": "Automation:" },
+          "head": { "pt": "Interfaces reutilizáveis:", "en": "Reusable interfaces:" },
           "text": {
-            "pt": "otimização de planilhas com SQL e Apps Script; apps internos em AppSheet para fluxos fabris.",
-            "en": "spreadsheet optimization with SQL and Apps Script; internal AppSheet apps for factory workflows."
+            "pt": "componentes com React, Next.js, Tailwind CSS, Ant Design, shadcn/ui e Framer Motion para múltiplos módulos do ERP.",
+            "en": "built components with React, Next.js, Tailwind CSS, Ant Design, shadcn/ui and Framer Motion for multiple ERP modules."
+          }
+        },
+        {
+          "head": { "pt": "Operação logística:", "en": "Logistics operation:" },
+          "text": {
+            "pt": "otimização das rotinas de identificação e rastreamento, reduzindo tarefas manuais no fluxo produtivo e apoiando a preparação de coletas.",
+            "en": "optimized identification and tracking routines, reducing manual tasks in the production workflow and supporting pickup preparation."
+          }
+        },
+        {
+          "head": { "pt": "Versionamento e CI/CD:", "en": "Version control and CI/CD:" },
+          "text": {
+            "pt": "uso de Git e GitHub para colaboração e GitHub Actions nos processos de integração e entrega contínuas.",
+            "en": "used Git and GitHub for collaboration and GitHub Actions in continuous integration and delivery processes."
           }
         }
       ]
@@ -301,6 +343,17 @@
   ],
   "projectsView": { "pt": "ver projeto", "en": "view project" },
   "education": {
+    "postgraduate": {
+      "degree": {
+        "pt": "Pós-graduação em Engenharia de Software",
+        "en": "Postgraduate Specialization in Software Engineering"
+      },
+      "school": { "pt": "PUC Minas", "en": "PUC Minas" },
+      "period": {
+        "pt": "ago 2026 — fev 2028 · em andamento",
+        "en": "Aug 2026 — Feb 2028 · in progress"
+      }
+    },
     "degree": {
       "pt": "Tecnólogo em Sistemas para Internet",
       "en": "Associate Degree in Internet Systems"

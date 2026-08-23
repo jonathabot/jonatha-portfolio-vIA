@@ -21,7 +21,7 @@ export function Hero({
 }: SiteContent['hero'] & { showPhoto: boolean }) {
   const t = useTranslations('hero');
   const lang = useUIStore((state) => state.lang);
-  const fullName = lang === 'en' ? 'JONATHA MATHEWS' : 'JONATHA BOTELHO';
+  const fullName = 'JONATHA BOTELHO';
   const typed = useTypewriter(fullName);
   const sweep = useSweep();
   const cursorRef = useRef<HTMLSpanElement>(null);

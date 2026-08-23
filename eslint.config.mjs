@@ -12,10 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Design handoff prototype runtime — reference only, not project source.
-    "design_handoff_portfolio_v2/**",
-    // Apps Script reference — targets the Apps Script runtime, not linted here.
-    "apps-script/**",
   ]),
 ]);
 

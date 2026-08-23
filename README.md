@@ -1,9 +1,8 @@
-# Jonatha Mathews - Portfolio v2
+# Jonatha Botelho - Portfolio v2
 
 A bilingual (EN/PT), single-page personal portfolio with a terminal-inspired,
 monospace aesthetic and dark mode. The site is statically generated (SSG) with
-Next.js. Its content can be supplied at build time by a lightweight CMS built with
-Google Sheets, AppSheet, and Apps Script.
+Next.js. Its content can be supplied at build time by an external CMS endpoint.
 
 ## Tech stack
 
@@ -46,8 +45,8 @@ Copy `.env.example` to `.env.local` and provide the required values:
 | ------------------ | --------------------------------------------------------------------- |
 | `RESEND_API_KEY`   | Resend API key used by the contact form                               |
 | `CONTACT_TO_EMAIL` | Contact-form recipient (defaults to `jonathabotelho1@gmail.com`)      |
-| `CMS_ENDPOINT_URL` | Apps Script Web App URL that returns JSON; empty uses `fallback.json` |
-| `CMS_TOKEN`        | Optional token appended as `?token=` and validated by `doGet`         |
+| `CMS_ENDPOINT_URL` | CMS endpoint that returns JSON; empty uses `fallback.json`             |
+| `CMS_TOKEN`        | Optional token appended to the CMS request as `?token=`                |
 
 ### Resend
 
@@ -67,19 +66,11 @@ endpoint fails, times out, or returns invalid data, the build falls back to
 [`content/fallback.json`](content/fallback.json), preventing a CMS failure from
 breaking the site.
 
-The JSON contract and reference `doGet` implementation are documented in
-[`apps-script/`](apps-script/README.md).
-
 ### Publishing content changes
 
-1. Edit the data in **AppSheet**, which is connected to the Google Sheet.
-2. Select the **“atualizar infos do site”** (“update site info”) action. An AppSheet
-   Automation calls the **Vercel Deploy Hook**.
-3. Vercel rebuilds the site and `getContent()` fetches the updated JSON. Changes
-   typically propagate in 30-60 seconds.
-
-See [`apps-script/README.md`](apps-script/README.md) for Web App deployment and Deploy
-Hook configuration details.
+1. Publish the updated data through the configured CMS.
+2. Trigger a new deployment through the hosting provider.
+3. During the build, `getContent()` fetches and validates the updated JSON.
 
 ### Project images
 
@@ -95,10 +86,6 @@ components/     Providers, layouts, sections, UI elements, and hooks
 store/          Zustand UI store for theme and language
 lib/            Date utilities, validation, and CMS logic
 content/        Versioned fallback content
-apps-script/    Optional reference CMS implementation outside the site build
 __tests__/      Vitest unit tests
 e2e/            Playwright end-to-end tests
 ```
-
-The original design specification and implementation plan are stored in
-[`docs/superpowers/`](docs/superpowers/).

@@ -19,6 +19,53 @@ describe('transform', () => {
     expect(messages.en.hero.role).toBe(content.hero.role.en);
   });
 
+  it('exposes the postgraduate education in both languages', () => {
+    expect(messages.pt.education.postgraduate).toEqual({
+      degree: 'Pós-graduação em Engenharia de Software',
+      school: 'PUC Minas',
+      period: 'ago 2026 — fev 2028 · em andamento',
+    });
+    expect(messages.en.education.postgraduate).toEqual({
+      degree: 'Postgraduate Specialization in Software Engineering',
+      school: 'PUC Minas',
+      period: 'Aug 2026 — Feb 2028 · in progress',
+    });
+  });
+
+  it('publishes the updated English resume facts', () => {
+    expect(messages.en.hero.role).toBe(
+      'Software Developer | React | Next.js | TypeScript',
+    );
+    expect(messages.en.experience.roles[0]).toBe('Software Developer');
+    expect(
+      messages.en.experience.bullets[0]
+        .map(({ head, text }) => `${head} ${text}`)
+        .join(' '),
+    ).toContain('development and maintenance of web applications');
+    expect(site.experience[1].start).toBe('2023-03-01');
+  });
+
+  it('does not expose client company names in public resume content', () => {
+    const publicResume = JSON.stringify({
+      hero: messages.en.hero,
+      experience: {
+        pt: messages.pt.experience,
+        en: messages.en.experience,
+      },
+    });
+
+    for (const client of [
+      'Natura',
+      'Honda',
+      'Boticário',
+      'Jusbrasil',
+      'Nubank',
+      'Mobly',
+    ]) {
+      expect(publicResume).not.toContain(client);
+    }
+  });
+
   it('exposes section titles and projects.view', () => {
     expect(messages.pt.section.now).toBe(content.sections.now.pt);
     expect(messages.pt.section.courses).toBe(content.sections.courses.pt);
