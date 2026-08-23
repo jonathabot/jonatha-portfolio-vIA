@@ -1,91 +1,41 @@
-# Jonatha Botelho - Portfolio v2
+# Jonatha Botelho — Portfolio
 
-A bilingual (EN/PT), single-page personal portfolio with a terminal-inspired,
-monospace aesthetic and dark mode. The site is statically generated (SSG) with
-Next.js. Its content can be supplied at build time by an external CMS endpoint.
+Personal portfolio and interactive resume showcasing my experience, education,
+courses, technical skills, and projects as a software developer. The interface
+combines a terminal-inspired visual identity with a responsive, accessible
+single-page experience.
 
-## Tech stack
+## Highlights
 
-- **Next.js 16** (App Router) · **React 19** · **TypeScript** (strict mode)
-- **Tailwind CSS v4** (CSS custom-property tokens switched through `[data-theme]`)
-- **next-intl 4** (client-side internationalization without locale routing)
-- **Zustand 5** (theme and language persisted in `localStorage`)
-- **React Hook Form 7** + **Zod 4** (contact form)
-- **Resend 6** (email delivery through an API route)
-- **Vitest 4** (unit tests) · **Playwright** (E2E smoke tests)
+- Content available in English and Portuguese
+- Responsive layout for desktop and mobile devices
+- Light and dark themes with persisted preferences
+- Sections for experience, education, courses, projects, and contact
+- Content integration with an external CMS and a versioned local fallback
+- Contact form with validation and email delivery
+- Automated unit and end-to-end tests
 
-## Development
+## Built with
+
+Next.js, React, TypeScript, Tailwind CSS, next-intl, Zustand, Zod, Resend,
+Vitest, and Playwright.
+
+## Running locally
 
 ```bash
 pnpm install
-pnpm dev            # http://localhost:3000
+pnpm dev
 ```
 
-The site runs without environment variables by using the versioned content in
-`content/fallback.json`. The contact form only sends email when `RESEND_API_KEY` is
-configured.
+Open [http://localhost:3000](http://localhost:3000) in your browser. The local
+fallback content allows the portfolio to run without configuring a CMS.
 
-### Scripts
+## Screenshots
 
-| Command         | Description                                   |
-| --------------- | --------------------------------------------- |
-| `pnpm dev`      | Start the development server                  |
-| `pnpm build`    | Create the production build (SSG)             |
-| `pnpm start`    | Serve the production build                    |
-| `pnpm test`     | Run unit tests with Vitest                    |
-| `pnpm test:e2e` | Run the Playwright smoke test (build + start) |
-| `pnpm lint`     | Run ESLint                                    |
-| `pnpm format`   | Format the project with Prettier              |
+### Desktop
 
-## Environment variables
+![Portfolio desktop view](./public/screenshots/portfolio-desktop.png)
 
-Copy `.env.example` to `.env.local` and provide the required values:
+### Mobile
 
-| Variable           | Purpose                                                               |
-| ------------------ | --------------------------------------------------------------------- |
-| `RESEND_API_KEY`   | Resend API key used by the contact form                               |
-| `CONTACT_TO_EMAIL` | Contact-form recipient (defaults to `jonathabotelho1@gmail.com`)      |
-| `CMS_ENDPOINT_URL` | CMS endpoint that returns JSON; empty uses `fallback.json`             |
-| `CMS_TOKEN`        | Optional token appended to the CMS request as `?token=`                |
-
-### Resend
-
-Create an account at [resend.com](https://resend.com), generate an API key, and assign
-it to `RESEND_API_KEY`. Until a domain is verified, the sender is
-`onboarding@resend.dev`, which can only deliver to the email address associated with
-the Resend account. To send from a custom domain, verify it in Resend and update the
-`from` field in [`app/api/contact/route.ts`](app/api/contact/route.ts).
-
-## Content and CMS
-
-Editable content can come from the endpoint configured through `CMS_ENDPOINT_URL`.
-The endpoint is fetched **once at build time**, validated with Zod
-([`lib/cms/schema.ts`](lib/cms/schema.ts)), and transformed into internationalized
-messages and structured data ([`lib/cms/transform.ts`](lib/cms/transform.ts)). If the
-endpoint fails, times out, or returns invalid data, the build falls back to
-[`content/fallback.json`](content/fallback.json), preventing a CMS failure from
-breaking the site.
-
-### Publishing content changes
-
-1. Publish the updated data through the configured CMS.
-2. Trigger a new deployment through the hosting provider.
-3. During the build, `getContent()` fetches and validates the updated JSON.
-
-### Project images
-
-Project covers use gray 280×200 placeholders until real images are provided. To add
-an image, place it in `public/images/` and set `projects[].imageUrl` in the CMS, for
-example `/images/programatical.png`.
-
-## Project structure
-
-```text
-app/            Layout, page, global styles, and contact API route
-components/     Providers, layouts, sections, UI elements, and hooks
-store/          Zustand UI store for theme and language
-lib/            Date utilities, validation, and CMS logic
-content/        Versioned fallback content
-__tests__/      Vitest unit tests
-e2e/            Playwright end-to-end tests
-```
+![Portfolio mobile view](./public/screenshots/portfolio-mobile.png)
