@@ -1,23 +1,34 @@
 import type { Metadata } from 'next';
-import { Courier_Prime } from 'next/font/google';
+import { Anton, DM_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const courier = Courier_Prime({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-courier',
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+const display = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const body = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Jonatha Mathews — Software Developer',
+  title: 'Jonatha Botelho — Software Developer',
   description:
     'Software Developer with 3+ years of professional experience building web applications with React, Next.js, TypeScript and JavaScript.',
-  authors: [{ name: 'Jonatha Mathews' }],
-  icons: { icon: '/favicon.svg' },
+  authors: [{ name: 'Jonatha Botelho' }],
+  icons: { icon: '/images/crown-name.png' },
   openGraph: {
-    title: 'Jonatha Mathews — Software Developer',
+    title: 'Jonatha Botelho — Software Developer',
     description:
       'Frontend development, responsive interfaces, REST API integrations, Google Cloud and Google Workspace.',
     type: 'website',
@@ -37,8 +48,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${courier.variable} bg-bg text-ink`}
-        style={{ fontFamily: 'var(--font-courier), monospace' }}
+        className={`${mono.variable} ${display.variable} ${body.variable} bg-bg text-ink`}
       >
         {children}
       </body>

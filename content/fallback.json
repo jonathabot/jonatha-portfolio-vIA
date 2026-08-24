@@ -234,8 +234,8 @@
       },
       "dateLabel": { "pt": "2025 · TCC", "en": "2025 · Capstone" },
       "desc": {
-        "pt": "Trabalho de Conclusão de Curso: plataforma web interativa para ensino de programação e engenharia de software com gamificação. Aulas em etapas (leitura, quiz, ordenação), pontuação, ranking em tempo real e painel administrativo para gestão de cursos, módulos e aulas.",
-        "en": "Capstone project (TCC): interactive web platform for teaching programming and software engineering through gamification. Step-based lessons (reading, quizzes, ordering challenges), scoring, real-time leaderboard and an admin panel for managing courses, modules and lessons."
+        "pt": "Plataforma gamificada para aprender programação com aulas interativas, quizzes, pontuação e ranking em tempo real.",
+        "en": "Gamified programming learning platform with interactive lessons, quizzes, scoring and a real-time leaderboard."
       },
       "stack": [
         {

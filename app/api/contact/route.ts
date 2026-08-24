@@ -7,7 +7,10 @@ export async function POST(req: Request) {
   try {
     json = await req.json();
   } catch {
-    return NextResponse.json({ ok: false, error: 'invalid_json' }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: 'invalid_json' },
+      { status: 400 },
+    );
   }
 
   const parsed = contactSchema.safeParse(json);
@@ -16,13 +19,19 @@ export async function POST(req: Request) {
     if (typeof website === 'string' && website.length > 0) {
       return NextResponse.json({ ok: true });
     }
-    return NextResponse.json({ ok: false, error: 'invalid_input' }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: 'invalid_input' },
+      { status: 400 },
+    );
   }
 
-  const { name, email, message, lang } = parsed.data;
+  const { name, email, subject: requestedSubject, message, lang } = parsed.data;
   const to = process.env.CONTACT_TO_EMAIL ?? 'jonathabotelho1@gmail.com';
-  const subject =
-    lang === 'pt' ? `Contato via portfólio — ${name}` : `Portfolio contact — ${name}`;
+  const subject = requestedSubject?.trim()
+    ? `${requestedSubject.trim()} — ${name}`
+    : lang === 'pt'
+      ? `Contato via portfólio — ${name}`
+      : `Portfolio contact — ${name}`;
   const body = `${message}\n\n— ${name}${email ? ` (${email})` : ''}`;
 
   try {
@@ -34,9 +43,16 @@ export async function POST(req: Request) {
       subject,
       text: body,
     });
-    if (error) return NextResponse.json({ ok: false, error: 'send_failed' }, { status: 500 });
+    if (error)
+      return NextResponse.json(
+        { ok: false, error: 'send_failed' },
+        { status: 500 },
+      );
     return NextResponse.json({ ok: true });
   } catch {
-    return NextResponse.json({ ok: false, error: 'send_failed' }, { status: 500 });
+    return NextResponse.json(
+      { ok: false, error: 'send_failed' },
+      { status: 500 },
+    );
   }
 }

@@ -1,63 +1,65 @@
 import { test, expect } from '@playwright/test';
 
-test('portfolio smoke: typing, theme, language, nav', async ({ page }) => {
-  await page.addInitScript(() => localStorage.clear());
-  await page.goto('/');
-
-  // name types in
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'JONATHA BOTELHO',
-    {
-      timeout: 5000,
-    },
-  );
-
-  // theme toggle flips <html data-theme>
-  const html = page.locator('html');
-  await expect(html).toHaveAttribute('data-theme', 'dark');
-  await page.getByRole('button', { name: /modo/i }).click();
-  await expect(html).toHaveAttribute('data-theme', 'light');
-
-  // language starts in English and can switch to Portuguese
-  await expect(page.getByRole('link', { name: 'toolkit' })).toBeVisible();
-  await page.getByRole('button', { name: 'PT', exact: true }).click();
-  await expect(page.getByRole('link', { name: 'ferramentas' })).toBeVisible();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'JONATHA BOTELHO',
-  );
-
-  const orderedSections = await page
-    .locator('#experiencia, #formacao, #cursos, #projetos, #contato')
-    .evaluateAll((sections) => sections.map((section) => section.id));
-  expect(orderedSections).toEqual([
-    'experiencia',
-    'formacao',
-    'cursos',
-    'projetos',
-    'contato',
-  ]);
-
-  // nav anchor works
-  await page.getByRole('link', { name: 'projetos' }).click();
-  await expect(page).toHaveURL(/#projetos/);
-});
-
-test('profile photo only appears when the hero fits in two columns', async ({
+test('V2 portfolio navigation, language and project detail', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => localStorage.clear());
   await page.goto('/');
 
-  const photo = page.getByRole('img', { name: 'Jonatha Mathews' });
-  await expect(photo).toBeHidden();
+  await expect(
+    page.getByText('JONATHA BOTELHO', { exact: true }).first(),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'PT-BR', exact: true }).click();
+  await page
+    .getByRole('link', { name: /ACADEMICS & CERTS/ })
+    .last()
+    .click();
+  await expect(page).toHaveURL('/academics');
+  await expect(
+    page.getByText('Pós-graduação em Engenharia de Software'),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(() => document.documentElement.scrollHeight),
+  ).toBeLessThanOrEqual(1080);
 
-  await page.setViewportSize({ width: 1024, height: 768 });
-  await expect(photo).toBeVisible();
+  await page
+    .getByRole('link', { name: /PROJECTS/ })
+    .last()
+    .click();
+  await expect(page).toHaveURL('/projects');
+  await page
+    .getByRole('link', { name: /see project/i })
+    .first()
+    .click();
+  await expect(page).toHaveURL(/\/projects\/1$/);
+  await expect(page.getByText('PROJECT SPECIFICATION')).toBeVisible();
+});
 
-  const photoBox = await photo.boundingBox();
-  const headingBox = await page.getByRole('heading', { level: 1 }).boundingBox();
-  expect(photoBox).not.toBeNull();
-  expect(headingBox).not.toBeNull();
-  expect(photoBox!.x).toBeGreaterThan(headingBox!.x + headingBox!.width);
+test('mobile shell exposes menu and the real 3D portrait', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  const character = page.getByRole('img', {
+    name: 'Personagem 3D de Jonatha Botelho',
+  });
+  await expect(character).toBeVisible();
+
+  const menu = page.getByRole('button', { name: 'Menu', exact: true });
+  await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await menu.click();
+  await expect(menu).toHaveAttribute('aria-expanded', 'true');
+  await expect(
+    page.getByRole('link', { name: /PROJECTS/ }).first(),
+  ).toBeVisible();
+});
+
+test('character study renders the final GLB viewer', async ({ page }) => {
+  await page.goto('/character');
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'CHARACTER STUDY' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('img', { name: 'Personagem 3D de Jonatha Botelho' }),
+  ).toBeVisible();
+  await expect(page.getByText('GLB / GLTF 2.0')).toBeVisible();
 });

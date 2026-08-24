@@ -1,32 +1,48 @@
 @import 'tailwindcss';
 
 :root {
-  --bg: #ffffff;
-  --ink: #111111;
-  --body: #444444;
-  --dim: #666666;
-  --faint: #999999;
-  --idle: #bbbbbb;
-  --hair: #cccccc;
+  --bg: #f6f3eb;
+  --paper: #f6f3eb;
+  --panel: #ebe4d3;
+  --ink: #1a1a1a;
+  --body: #3d3830;
+  --dim: #756f65;
+  --faint: #948d82;
+  --idle: #b4ada2;
+  --hair: #bdb5a8;
+  --yellow: #f2d45c;
+  --blue: #a8c4d4;
+  --green: #b8d2ae;
+  --pink: #efa0a4;
+  --red: #cc2222;
 }
 :root[data-theme='dark'] {
-  --bg: #0d0d0d;
-  --ink: #ececec;
-  --body: #b0b0b0;
-  --dim: #8f8f8f;
-  --faint: #6f6f6f;
-  --idle: #555555;
-  --hair: #3a3a3a;
+  --bg: #f6f3eb;
+  --paper: #f6f3eb;
+  --panel: #ebe4d3;
+  --ink: #1a1a1a;
+  --body: #3d3830;
+  --dim: #756f65;
+  --faint: #948d82;
+  --idle: #b4ada2;
+  --hair: #bdb5a8;
 }
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
   --color-ink: var(--ink);
   --color-body: var(--body);
   --color-dim: var(--dim);
   --color-faint: var(--faint);
   --color-idle: var(--idle);
   --color-hair: var(--hair);
+  --color-yellow: var(--yellow);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+  --color-pink: var(--pink);
+  --color-red: var(--red);
   --radius: 0px;
 }
 
@@ -39,4 +55,59 @@ body {
   background: var(--bg);
   color: var(--ink);
   transition: background 0.25s;
+  font-family: var(--font-mono), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+.v2-rule {
+  border-color: var(--ink);
+}
+.v2-shadow {
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.paint-splash {
+  border-radius: 50% 40% 60% 35% / 45% 55% 40% 60% !important;
+}
+.v2-screen {
+  min-height: calc(100svh - 130px);
+  scroll-margin-top: 130px;
+}
+
+@media (min-width: 1024px) {
+  .v2-overview-screen {
+    height: calc(100dvh - 184px);
+    min-height: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .v2-screen {
+    min-height: auto;
+    scroll-margin-top: 74px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
