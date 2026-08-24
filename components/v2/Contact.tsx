@@ -11,6 +11,7 @@ import { TextLink } from '@/components/ui/TextLink';
 import { LinkedInIcon } from '@/components/ui/icons/LinkedInIcon';
 import { GitHubIcon } from '@/components/ui/icons/GitHubIcon';
 import type { SiteContent } from '@/lib/cms/transform';
+import type { Messages } from '@/lib/cms/transform';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 const inputCls =
@@ -24,6 +25,7 @@ export function Contact({
   embedded?: boolean;
 }) {
   const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   const lang = useUIStore((s) => s.lang);
   const [status, setStatus] = useState<Status>('idle');
   const { register, handleSubmit, reset } = useForm<ContactInput>({
@@ -79,7 +81,7 @@ export function Contact({
       >
         <div className={embedded ? 'grid gap-5 md:grid-cols-2' : 'contents'}>
           <label className="text-faint flex flex-col gap-2 text-[8px] tracking-[.16em]">
-            {embedded && 'NAME *'}
+            {embedded && `${t('form.name').toUpperCase()} *`}
             <input
               className={inputCls}
               placeholder={embedded ? 'Your full name' : t('form.name')}
@@ -87,7 +89,7 @@ export function Contact({
             />
           </label>
           <label className="text-faint flex flex-col gap-2 text-[8px] tracking-[.16em]">
-            {embedded && 'EMAIL *'}
+            {embedded && `${t('form.email').toUpperCase()} *`}
             <input
               className={inputCls}
               placeholder={embedded ? 'you@email.com' : t('form.email')}
@@ -97,16 +99,16 @@ export function Contact({
         </div>
         {embedded && (
           <label className="text-faint flex flex-col gap-2 text-[8px] tracking-[.16em]">
-            SUBJECT *
+            {v2.contact.subject}
             <input
               className={inputCls}
-              placeholder="Project inquiry, collaboration, open role..."
+              placeholder={v2.contact.subjectPlaceholder}
               {...register('subject')}
             />
           </label>
         )}
         <label className="text-faint flex flex-col gap-2 text-[8px] tracking-[.16em]">
-          {embedded && 'MESSAGE *'}
+          {embedded && `${t('form.message').toUpperCase()} *`}
           <textarea
             className={`${inputCls} resize-none`}
             rows={embedded ? 6 : 5}
@@ -131,7 +133,7 @@ export function Contact({
           disabled={status === 'sending'}
           className="bg-ink text-yellow v2-shadow cursor-pointer self-start px-8 py-4 text-[12px] font-bold underline-offset-4 hover:underline disabled:opacity-60"
         >
-          {embedded ? 'SEND TRANSMISSION ↗' : `${t('form.send')} →`}
+          {embedded ? v2.contact.sendTransmission : `${t('form.send')} →`}
         </button>
         {status === 'success' && (
           <span className="text-dim text-[13px]">{t('form.success')}</span>

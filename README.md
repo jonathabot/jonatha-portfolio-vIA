@@ -50,14 +50,16 @@ a configured CMS because it automatically uses the local content fallback.
 
 The portfolio's structured content is stored in
 [`content/fallback.json`](./content/fallback.json). It contains Portuguese and
-English versions of information such as:
+English versions of all visible site content, including:
 
 - introduction and personal links;
 - work experience;
 - technical skills and tools;
 - projects;
 - education, courses, and certificates;
-- contact form messages.
+- contact form messages;
+- navigation, labels, annotations, accessibility text, and page metadata;
+- character-study and project-detail content.
 
 Translatable fields follow this format:
 
@@ -72,9 +74,8 @@ The file is validated with Zod through
 [`lib/cms/schema.ts`](./lib/cms/schema.ts). Changes that do not match the schema
 cause a validation error, preventing incomplete content from reaching the UI.
 
-> The content contract will be expanded to remove the remaining presentation
-> text from the V2 components and make all visible content manageable through
-> the CMS.
+The V2 interface reads its content from this validated contract, so the same
+file can be used as the source model for the future CMS response.
 
 ## CMS integration
 

@@ -2,8 +2,47 @@ import type { Lang, Loc, PortfolioContent } from './types';
 
 export const pick = <T>(l: Loc<T>, lang: Lang): T => l[lang];
 
+export type Localized<T> =
+  T extends Loc<infer V>
+    ? V
+    : T extends Array<infer U>
+      ? Localized<U>[]
+      : T extends object
+        ? { [K in keyof T]: Localized<T[K]> }
+        : T;
+
+function localizeDeep<T>(value: T, lang: Lang): Localized<T> {
+  if (Array.isArray(value)) {
+    return value.map((item) => localizeDeep(item, lang)) as Localized<T>;
+  }
+  if (value && typeof value === 'object') {
+    const record = value as Record<string, unknown>;
+    if (
+      Object.keys(record).length === 2 &&
+      typeof record.pt === 'string' &&
+      typeof record.en === 'string'
+    ) {
+      return record[lang] as Localized<T>;
+    }
+    return Object.fromEntries(
+      Object.entries(record).map(([key, item]) => [
+        key,
+        localizeDeep(item, lang),
+      ]),
+    ) as Localized<T>;
+  }
+  return value as Localized<T>;
+}
+
 export type Messages = {
-  meta: { nowUpdated: string; footer: string };
+  v2: Localized<PortfolioContent['v2']>;
+  meta: {
+    title: string;
+    description: string;
+    openGraphDescription: string;
+    nowUpdated: string;
+    footer: string;
+  };
   nav: {
     tools: string;
     exp: string;
@@ -24,12 +63,20 @@ export type Messages = {
   hero: { hello: string; role: string; summary: string; cta: string };
   now: { items: string[] };
   tools: { names: string[]; items: string[] };
-  experience: { roles: string[]; bullets: { head: string; text: string }[][] };
+  experience: {
+    roles: string[];
+    periodLabels: string[];
+    employmentTypes: string[];
+    locations: string[];
+    contexts: string[];
+    bullets: { head: string; text: string }[][];
+  };
   projects: {
     titles: string[];
     dateLabels: string[];
     descs: string[];
     stacks: { k: string; v: string }[][];
+    details: Localized<PortfolioContent['projects'][number]['detail']>[];
     view: string;
   };
   education: {
@@ -82,7 +129,14 @@ export type SiteContent = {
 function messagesFor(c: PortfolioContent, lang: Lang): Messages {
   const p = <T>(l: Loc<T>) => pick(l, lang);
   return {
-    meta: { nowUpdated: p(c.meta.nowUpdated), footer: p(c.meta.footer) },
+    v2: localizeDeep(c.v2, lang),
+    meta: {
+      title: p(c.meta.title),
+      description: p(c.meta.description),
+      openGraphDescription: p(c.meta.openGraphDescription),
+      nowUpdated: p(c.meta.nowUpdated),
+      footer: p(c.meta.footer),
+    },
     nav: {
       tools: p(c.nav.tools),
       exp: p(c.nav.exp),
@@ -113,6 +167,10 @@ function messagesFor(c: PortfolioContent, lang: Lang): Messages {
     },
     experience: {
       roles: c.experience.map((e) => p(e.role)),
+      periodLabels: c.experience.map((e) => p(e.periodLabel)),
+      employmentTypes: c.experience.map((e) => p(e.employmentType)),
+      locations: c.experience.map((e) => p(e.location)),
+      contexts: c.experience.map((e) => p(e.context)),
       bullets: c.experience.map((e) =>
         e.bullets.map((b) => ({ head: p(b.head), text: p(b.text) })),
       ),
@@ -124,6 +182,7 @@ function messagesFor(c: PortfolioContent, lang: Lang): Messages {
       stacks: c.projects.map((x) =>
         x.stack.map((s) => ({ k: p(s.k), v: p(s.v) })),
       ),
+      details: c.projects.map((x) => localizeDeep(x.detail, lang)),
       view: p(c.projectsView),
     },
     education: {

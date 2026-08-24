@@ -22,4 +22,10 @@ describe('portfolioSchema', () => {
     bad.experience[0].start = 'ago 2024';
     expect(() => portfolioSchema.parse(bad)).toThrow();
   });
+
+  it('requires the complete V2 content contract', () => {
+    const bad = structuredClone(fallback) as Record<string, unknown>;
+    delete bad.v2;
+    expect(() => portfolioSchema.parse(bad)).toThrow();
+  });
 });

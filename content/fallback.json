@@ -1,5 +1,124 @@
 {
+  "v2": {
+    "identity": {
+      "name": { "pt": "JONATHA BOTELHO", "en": "JONATHA BOTELHO" },
+      "brand": { "pt": "J.BOTELHO", "en": "J.BOTELHO" },
+      "website": { "pt": "jonatha.dev", "en": "jonatha.dev" },
+      "origin": { "pt": "ORIGEM: SÃO PAULO, BR ☕", "en": "ORIGIN: SÃO PAULO, BR ☕" },
+      "languages": { "pt": "IDIOMAS: PORTUGUÊS (NATIVO) E INGLÊS (C1 AVANÇADO)", "en": "LANGUAGES: PORTUGUESE (NATIVE) & ENGLISH (C1 ADVANCED)" },
+      "roleLine": { "pt": "DESENVOLVEDOR DE SOFTWARE // FRONT-END // FULL-STACK", "en": "SOFTWARE DEVELOPER // FRONT-END DEVELOPER // FULL-STACK DEVELOPER" },
+      "coderLabel": { "pt": "~CODER~", "en": "~CODER~" }
+    },
+    "navigation": {
+      "menuLabel": { "pt": "Menu", "en": "Menu" },
+      "closeLabel": { "pt": "Fechar menu", "en": "Close menu" },
+      "heading": { "pt": "NAVEGAÇÃO // 06 ROTAS", "en": "NAVIGATION // 06 ROUTES" },
+      "items": [
+        { "id": "overview", "label": { "pt": "VISÃO GERAL", "en": "OVERVIEW" } },
+        { "id": "experiencia", "label": { "pt": "EXPERIÊNCIA", "en": "WORK EXPERIENCE" } },
+        { "id": "stack", "label": { "pt": "STACK TÉCNICA", "en": "TECH STACK" } },
+        { "id": "academics", "label": { "pt": "FORMAÇÃO E CERTIFICADOS", "en": "ACADEMICS & CERTS" } },
+        { "id": "projetos", "label": { "pt": "PROJETOS", "en": "PROJECTS" } },
+        { "id": "contato", "label": { "pt": "CONTATO", "en": "CONTACT" } }
+      ]
+    },
+    "global": {
+      "available": { "pt": "● DISPONÍVEL", "en": "● AVAILABLE" },
+      "availableForWork": { "pt": "● DISPONÍVEL PARA TRABALHO", "en": "● CURRENTLY AVAILABLE FOR WORK" },
+      "portfolioSystem": { "pt": "SISTEMA DO PORTFÓLIO // V2", "en": "PORTFOLIO SYSTEM // V2" },
+      "copyright": { "pt": "J.BOTELHO © 2026", "en": "J.BOTELHO © 2026" },
+      "version": { "pt": "V1", "en": "V1" },
+      "languagePt": { "pt": "PT-BR", "en": "PT-BR" },
+      "languageEn": { "pt": "EN", "en": "EN" }
+    },
+    "accessibility": {
+      "home": { "pt": "Voltar para a página inicial", "en": "Return to the home page" },
+      "characterStudy": { "pt": "Abrir estudo do personagem de Jonatha Botelho", "en": "Open Jonatha Botelho character study" },
+      "fallback3d": { "pt": "[ Personagem 3D ]", "en": "[ 3D character ]" }
+    },
+    "overview": {
+      "eyebrow": { "pt": "[01] // VISÃO GERAL", "en": "[01] // OVERVIEW" },
+      "selectedStack": { "pt": "STACK SELECIONADA_", "en": "SELECTED STACK_" },
+      "worksTitle": { "pt": "TRABALHOS DE ENGENHARIA EM DESTAQUE", "en": "EXHIBITED ENGINEERING WORKS" },
+      "moduleLabel": { "pt": "MÓDULO", "en": "MODULE" },
+      "seeProject": { "pt": "VER PROJETO ↗", "en": "SEE PROJECT ↗" },
+      "initializeContact": { "pt": "INICIAR CONTATO ↗", "en": "INITIALIZE CONTACT ↗" },
+      "availableProjects": { "pt": "DISPONÍVEL PARA PROJETOS SELECIONADOS", "en": "AVAILABLE FOR SELECT PROJECTS" },
+      "figureCaption": { "pt": "FIG.01 — J.BOTELHO // SP, BR", "en": "FIG.01 — J.BOTELHO // SP, BR" },
+      "annotations": { "pt": "→ observar\n\n  construir →\n\n↳ iterar", "en": "→ observe\n\n  build →\n\n↳ iterate" },
+      "frontEndTitle": { "pt": "FRONT-END:", "en": "FRONT-END:" },
+      "frontEndItems": ["React.js", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
+      "cloudTitle": { "pt": "CLOUD E DEVOPS:", "en": "CLOUD & DEVOPS:" },
+      "cloudItems": ["Google Cloud Platform", "Cloud Run", "Cloud Storage", "GitHub Actions", "CI/CD"],
+      "dataTitle": { "pt": "DADOS E APIS:", "en": "DATA & APIS:" },
+      "dataItems": ["REST APIs", "Firebase", "SQL", "BigQuery"],
+      "responsiveStack": [
+        { "label": { "pt": "FRONT-END", "en": "FRONT-END" }, "value": "React · Next.js · TypeScript" },
+        { "label": { "pt": "INTERFACE", "en": "INTERFACE" }, "value": "Tailwind · shadcn/ui · Motion" },
+        { "label": { "pt": "CLOUD / GCP", "en": "CLOUD / GCP" }, "value": "Cloud Run · Actions" },
+        { "label": { "pt": "DADOS", "en": "DATA" }, "value": "REST APIs · SQL · BigQuery" },
+        { "label": { "pt": "FLUXO", "en": "WORKFLOW" }, "value": "Git · GitHub · CI/CD" }
+      ]
+    },
+    "sections": {
+      "experience": { "index": "02", "title": { "pt": "EXPERIÊNCIA PROFISSIONAL", "en": "WORK EXPERIENCE" }, "subtitle": { "pt": "REGISTRO CRONOLÓGICO // 3+ ANOS EM PRODUÇÃO", "en": "CHRONOLOGICAL FIELD RECORD // 3+ YEARS IN PRODUCTION" } },
+      "stack": { "index": "03", "title": { "pt": "STACK TÉCNICA", "en": "TECH STACK" }, "subtitle": { "pt": "MANIFESTO DE INSTRUMENTAÇÃO // MAPA DE PROFICIÊNCIA", "en": "INSTRUMENTATION MANIFEST // SKILL PROFICIENCY MAP" }, "toolsLabel": { "pt": "FERRAMENTAS", "en": "TOOLS" } },
+      "academics": { "index": "04", "title": { "pt": "FORMAÇÃO E CERTIFICADOS", "en": "ACADEMICS & CERTS" }, "subtitle": { "pt": "REGISTRO EDUCACIONAL // CREDENCIAIS E CERTIFICAÇÕES", "en": "EDUCATIONAL RECORD // CREDENTIALS & CERTIFICATIONS" }, "formalEducation": { "pt": "§ FORMAÇÃO ACADÊMICA", "en": "§ FORMAL EDUCATION" }, "previousDegree": { "pt": "FORMAÇÃO ANTERIOR", "en": "PREVIOUS DEGREE" }, "certifications": { "pt": "§ CERTIFICAÇÕES PROFISSIONAIS", "en": "§ PROFESSIONAL CERTIFICATIONS" }, "seeCertificate": { "pt": "VER CERTIFICADO ↗", "en": "SEE CERTIFICATE ↗" } },
+      "projects": { "index": "05", "title": { "pt": "PROJETOS", "en": "PROJECTS" }, "subtitle": { "pt": "TRABALHOS DE ENGENHARIA // ESTUDOS DE CASO SELECIONADOS", "en": "EXHIBITED ENGINEERING WORKS // SELECTED CASE STUDIES" } },
+      "contact": { "index": "06", "title": { "pt": "VAMOS CONSTRUIR ALGO_", "en": "LET'S BUILD SOMETHING_" }, "subtitle": { "pt": "CANAL ABERTO // CONTATO E COLABORAÇÃO", "en": "OPEN COMMUNICATION CHANNEL // CONTACT & COLLABORATION" } }
+    },
+    "contact": {
+      "directChannels": { "pt": "CANAIS DIRETOS", "en": "DIRECT CHANNELS" },
+      "labels": { "email": { "pt": "E-MAIL", "en": "EMAIL" }, "website": { "pt": "SITE", "en": "WEBSITE" }, "github": { "pt": "GITHUB", "en": "GITHUB" }, "linkedin": { "pt": "LINKEDIN", "en": "LINKEDIN" }, "location": { "pt": "LOCALIZAÇÃO", "en": "LOCATION" } },
+      "location": { "pt": "São Paulo, BR (UTC-3)", "en": "São Paulo, BR (UTC-3)" },
+      "openToWork": { "pt": "🟢 DISPONÍVEL PARA TRABALHO", "en": "🟢 OPEN TO WORK" },
+      "availabilityCopy": { "pt": "Disponível para oportunidades em tempo integral, contratos e colaborações técnicas. Em São Paulo — aberto a trabalho remoto mundial.", "en": "Currently available for full-time roles, contract work, and technical collaborations. Based in São Paulo — open to remote worldwide." },
+      "responseTime": { "pt": "TEMPO MÉDIO DE RESPOSTA", "en": "AVG. RESPONSE TIME" },
+      "responseValue": { "pt": "< 24 HORAS", "en": "< 24 HOURS" },
+      "subject": { "pt": "ASSUNTO *", "en": "SUBJECT *" },
+      "sendTransmission": { "pt": "ENVIAR TRANSMISSÃO ↗", "en": "SEND TRANSMISSION ↗" }
+      ,"subjectPlaceholder": { "pt": "Consulta sobre projeto, colaboração, oportunidade...", "en": "Project inquiry, collaboration, open role..." }
+    },
+    "characterStudy": {
+      "metaTitle": { "pt": "Estudo do Personagem — Jonatha Botelho", "en": "Character Study — Jonatha Botelho" },
+      "metaDescription": { "pt": "Estudo interativo do personagem 3D de Jonatha Botelho.", "en": "Interactive study of Jonatha Botelho's 3D character." },
+      "breadcrumb": { "pt": "← [01] VISÃO GERAL / ESTUDO DO PERSONAGEM", "en": "← [01] OVERVIEW / CHARACTER STUDY" },
+      "title": { "pt": "ESTUDO DO PERSONAGEM", "en": "CHARACTER STUDY" },
+      "figure": { "pt": "FIG.07 — J.BOTELHO // GÊMEO DIGITAL", "en": "FIG.07 — J.BOTELHO // DIGITAL TWIN" },
+      "formatLabel": { "pt": "GLB / TEMPO REAL", "en": "GLB / REAL-TIME" },
+      "specificationTitle": { "pt": "ESPECIFICAÇÃO DO PERSONAGEM DIGITAL", "en": "DIGITAL CHARACTER SPECIFICATION" },
+      "specifications": [
+        { "label": { "pt": "FORMATO", "en": "FORMAT" }, "value": { "pt": "GLB / GLTF 2.0", "en": "GLB / GLTF 2.0" } },
+        { "label": { "pt": "RENDERIZADOR", "en": "RENDERER" }, "value": { "pt": "THREE.JS · R3F", "en": "THREE.JS · R3F" } },
+        { "label": { "pt": "ENQUADRAMENTO", "en": "FRAMING" }, "value": { "pt": "CABEÇA · OMBROS · PEITO", "en": "HEAD · SHOULDERS · CHEST" } },
+        { "label": { "pt": "INTERAÇÃO", "en": "INTERACTION" }, "value": { "pt": "REATIVO AO CURSOR", "en": "CURSOR REACTIVE" } },
+        { "label": { "pt": "MOVIMENTO", "en": "MOTION" }, "value": { "pt": "MOVIMENTO REDUZIDO", "en": "REDUCED-MOTION READY" } },
+        { "label": { "pt": "FUNDO", "en": "BACKGROUND" }, "value": { "pt": "WEBGL TRANSPARENTE", "en": "TRANSPARENT WEBGL" } }
+      ],
+      "modelReady": { "pt": "● MODELO PRONTO", "en": "● MODEL READY" },
+      "return": { "pt": "← VOLTAR AO PORTFÓLIO", "en": "← RETURN TO PORTFOLIO" },
+      "accessibleName": { "pt": "Personagem 3D de Jonatha Botelho", "en": "3D character of Jonatha Botelho" },
+      "contextLost": { "pt": "[ CONTEXTO WEBGL PERDIDO ]", "en": "[ WEBGL CONTEXT LOST ]" },
+      "reload": { "pt": "↻ RECARREGAR 3D", "en": "↻ RELOAD 3D" }
+    },
+    "projectDetail": {
+      "projectsLabel": { "pt": "PROJETOS", "en": "PROJECTS" },
+      "selectedCaseStudy": { "pt": "ESTUDO DE CASO SELECIONADO", "en": "SELECTED CASE STUDY" },
+      "overview": { "pt": "VISÃO GERAL", "en": "OVERVIEW" },
+      "challenge": { "pt": "DESAFIO", "en": "CHALLENGE" },
+      "outcomes": { "pt": "SOLUÇÃO E RESULTADOS", "en": "SOLUTION & OUTCOMES" },
+      "projectImage": { "pt": "IMAGEM DO PROJETO", "en": "PROJECT IMAGE" },
+      "projectMedia": { "pt": "MÍDIA DO PROJETO / CMS", "en": "PROJECT MEDIA / CMS" },
+      "aspectRatio": { "pt": "16:9", "en": "16:9" },
+      "specification": { "pt": "ESPECIFICAÇÃO DO PROJETO", "en": "PROJECT SPECIFICATION" },
+      "openRepository": { "pt": "ABRIR REPOSITÓRIO ↗", "en": "OPEN REPOSITORY ↗" },
+      "contact": { "pt": "CONTATO →", "en": "CONTACT →" }
+    }
+  },
   "meta": {
+    "title": { "pt": "Jonatha Botelho — Desenvolvedor de Software", "en": "Jonatha Botelho — Software Developer" },
+    "description": { "pt": "Desenvolvedor de software com mais de 3 anos de experiência profissional construindo aplicações web com React, Next.js, TypeScript e JavaScript.", "en": "Software Developer with 3+ years of professional experience building web applications with React, Next.js, TypeScript and JavaScript." },
+    "openGraphDescription": { "pt": "Desenvolvimento front-end, interfaces responsivas, integrações com APIs REST, Google Cloud e Google Workspace.", "en": "Frontend development, responsive interfaces, REST API integrations, Google Cloud and Google Workspace." },
     "nowUpdated": {
       "pt": "última atualização: jul 2026",
       "en": "last updated: Jul 2026"
@@ -112,6 +231,10 @@
       "company": "Gentrop",
       "start": "2024-08-01",
       "end": null,
+      "periodLabel": { "pt": "AGO 2024 — PRESENTE", "en": "AUG 2024 — PRESENT" },
+      "employmentType": { "pt": "TEMPO INTEGRAL", "en": "FULL-TIME" },
+      "location": { "pt": "São Paulo, BR", "en": "São Paulo, BR" },
+      "context": { "pt": "SOLUÇÕES CORPORATIVAS / CLIENTES CONFIDENCIAIS", "en": "ENTERPRISE SOLUTIONS / GENTROP" },
       "role": {
         "pt": "Desenvolvedor Google Workspace",
         "en": "Software Developer"
@@ -180,6 +303,10 @@
       "company": "Mundo Móveis",
       "start": "2023-03-01",
       "end": "2024-08-01",
+      "periodLabel": { "pt": "MAR 2023 — AGO 2024", "en": "MAR 2023 — AUG 2024" },
+      "employmentType": { "pt": "TEMPO INTEGRAL", "en": "FULL-TIME" },
+      "location": { "pt": "São Paulo, BR", "en": "São Paulo, BR" },
+      "context": { "pt": "ERP INDUSTRIAL / EMPREGADOR CONFIDENCIAL", "en": "INDUSTRIAL ERP / MUNDO MÓVEIS" },
       "role": {
         "pt": "Analista de Sistemas (Front-end)",
         "en": "Systems Analyst (Front-end)"
@@ -237,6 +364,27 @@
         "pt": "Plataforma gamificada para aprender programação com aulas interativas, quizzes, pontuação e ranking em tempo real.",
         "en": "Gamified programming learning platform with interactive lessons, quizzes, scoring and a real-time leaderboard."
       },
+      "detail": {
+        "category": { "pt": "EDUCAÇÃO GAMIFICADA // APLICAÇÃO WEB", "en": "GAMIFIED TECHNOLOGY EDUCATION // WEB APPLICATION" },
+        "challenge": { "pt": "Criar uma experiência de aprendizagem envolvente, mantendo o progresso educacional claro e oferecendo mecânicas competitivas e feedback imediato.", "en": "Create an engaging learning experience that keeps educational progress clear while supporting competitive mechanics and immediate feedback." },
+        "outcomes": [
+          { "pt": "Fluxos estruturados de aulas e quizzes com componentes React reutilizáveis.", "en": "Structured lesson and quiz flows with reusable React components." },
+          { "pt": "Feedback de pontuação e ranking pensado para engajamento contínuo.", "en": "Scoring and leaderboard feedback designed for continuous engagement." },
+          { "pt": "Interface responsiva preparada para desktop, tablet e mobile.", "en": "Responsive interface prepared for desktop, tablet and mobile learners." }
+        ],
+        "imageAlt": { "pt": "Interface do projeto Programatical", "en": "Programatical project interface" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 01 / ASSET DO CMS", "en": "PROJECT MEDIA 01 / CMS ASSET" },
+        "mediaPlaceholder": { "pt": "[ SCREENSHOT DO PROJETO / IMAGEM DO CMS ]", "en": "[ PROJECT SCREENSHOT / CMS IMAGE ]" },
+        "figureCaption": { "pt": "FIG.02 — INTERFACE DO PRODUTO", "en": "FIG.02 — PRODUCT INTERFACE" },
+        "mediaType": { "pt": "MÍDIA DINÂMICA", "en": "DYNAMIC MEDIA" },
+        "specifications": [
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "PROJETO PÚBLICO", "en": "PUBLIC PROJECT" } },
+          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVIMENTO FRONT-END", "en": "FRONT-END DEVELOPMENT" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PLATAFORMA EDUCACIONAL", "en": "EDUCATION PLATFORM" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · TYPESCRIPT · API", "en": "REACT · TYPESCRIPT · API" } },
+          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "APLICAÇÃO WEB RESPONSIVA", "en": "RESPONSIVE WEB APP" } }
+        ]
+      },
       "stack": [
         {
           "k": { "pt": "Core", "en": "Core" },
@@ -279,6 +427,27 @@
       "desc": {
         "pt": "Projeto colaborativo entre desenvolvedores (servidor FiveM). Desenvolvimento assistido por Claude Code: prototipação de interfaces, especificações técnicas e planos de implementação com agentes especializados antes da construção do código.",
         "en": "Collaborative developer project (FiveM server). AI-assisted development with Claude Code: interface prototyping, technical specs and implementation plans built with specialized agents before writing code."
+      },
+      "detail": {
+        "category": { "pt": "PLATAFORMA COLABORATIVA // FIVEM", "en": "COLLABORATIVE PLATFORM // FIVEM" },
+        "challenge": { "pt": "Coordenar uma base full-stack extensa entre diferentes contribuidores, mantendo contratos técnicos claros e entregas incrementais.", "en": "Coordinate a broad full-stack codebase across contributors while keeping technical contracts clear and delivery incremental." },
+        "outcomes": [
+          { "pt": "Especificações e planos de implementação assistidos por IA.", "en": "AI-assisted specifications and implementation plans." },
+          { "pt": "Interfaces NUI reutilizáveis com React e Tailwind CSS.", "en": "Reusable NUI interfaces with React and Tailwind CSS." },
+          { "pt": "Integração entre serviços .NET, Node.js e o runtime FiveM.", "en": "Integration across .NET, Node.js and the FiveM runtime." }
+        ],
+        "imageAlt": { "pt": "Interface do projeto Stinx Network", "en": "Stinx Network project interface" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 02 / ASSET DO CMS", "en": "PROJECT MEDIA 02 / CMS ASSET" },
+        "mediaPlaceholder": { "pt": "[ SCREENSHOT DO PROJETO / IMAGEM DO CMS ]", "en": "[ PROJECT SCREENSHOT / CMS IMAGE ]" },
+        "figureCaption": { "pt": "FIG.03 — INTERFACE COLABORATIVA", "en": "FIG.03 — COLLABORATIVE INTERFACE" },
+        "mediaType": { "pt": "MÍDIA DINÂMICA", "en": "DYNAMIC MEDIA" },
+        "specifications": [
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "EM DESENVOLVIMENTO", "en": "IN DEVELOPMENT" } },
+          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVEDOR COLABORADOR", "en": "COLLABORATIVE DEVELOPER" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PLATAFORMA FIVEM", "en": "FIVEM PLATFORM" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · .NET · LUA", "en": "REACT · .NET · LUA" } },
+          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "MÓDULOS FULL-STACK", "en": "FULL-STACK MODULES" } }
+        ]
       },
       "stack": [
         {
@@ -330,6 +499,27 @@
         "pt": "Primeiro portfólio pessoal: Next.js com CMS headless (Hygraph), animações com Framer Motion, formulário de contato com validação e envio via API.",
         "en": "First personal portfolio: Next.js with a headless CMS (Hygraph), Framer Motion animations, and a validated contact form with API-based delivery."
       },
+      "detail": {
+        "category": { "pt": "PORTFÓLIO HEADLESS // APLICAÇÃO WEB", "en": "HEADLESS PORTFOLIO // WEB APPLICATION" },
+        "challenge": { "pt": "Construir uma presença profissional bilíngue com conteúdo administrável e animações sem comprometer desempenho e acessibilidade.", "en": "Build a bilingual professional presence with manageable content and motion without compromising performance or accessibility." },
+        "outcomes": [
+          { "pt": "Conteúdo integrado ao Hygraph CMS.", "en": "Content integrated with Hygraph CMS." },
+          { "pt": "Transições e interações com Framer Motion.", "en": "Transitions and interactions with Framer Motion." },
+          { "pt": "Formulário validado com envio por API.", "en": "Validated contact form with API delivery." }
+        ],
+        "imageAlt": { "pt": "Interface do portfólio pessoal V1", "en": "Personal portfolio V1 interface" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 03 / ASSET DO CMS", "en": "PROJECT MEDIA 03 / CMS ASSET" },
+        "mediaPlaceholder": { "pt": "[ SCREENSHOT DO PROJETO / IMAGEM DO CMS ]", "en": "[ PROJECT SCREENSHOT / CMS IMAGE ]" },
+        "figureCaption": { "pt": "FIG.04 — PORTFÓLIO V1", "en": "FIG.04 — PORTFOLIO V1" },
+        "mediaType": { "pt": "MÍDIA DINÂMICA", "en": "DYNAMIC MEDIA" },
+        "specifications": [
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "PROJETO PÚBLICO", "en": "PUBLIC PROJECT" } },
+          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVIMENTO FULL-STACK", "en": "FULL-STACK DEVELOPMENT" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PORTFÓLIO PESSOAL", "en": "PERSONAL PORTFOLIO" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "NEXT.JS · HYGRAPH · MOTION", "en": "NEXT.JS · HYGRAPH · MOTION" } },
+          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "SITE RESPONSIVO", "en": "RESPONSIVE WEBSITE" } }
+        ]
+      },
       "stack": [
         {
           "k": { "pt": "Stack", "en": "Stack" },
@@ -338,6 +528,37 @@
             "en": "Next.js · TypeScript · Tailwind CSS · Hygraph CMS · Framer Motion"
           }
         }
+      ]
+    },
+    {
+      "imageUrl": null,
+      "repoUrl": null,
+      "title": { "pt": "Soluções corporativas web e dados", "en": "Enterprise web & data solutions" },
+      "dateLabel": { "pt": "2024 — PRESENTE", "en": "2024 — PRESENT" },
+      "desc": { "pt": "Visão pública de trabalhos corporativos confidenciais em aplicações web, cloud, integrações e analytics.", "en": "Public-safe overview of confidential corporate work across web apps, cloud, integrations and analytics." },
+      "detail": {
+        "category": { "pt": "SOLUÇÕES CORPORATIVAS // CONFIDENCIAL", "en": "ENTERPRISE SOLUTIONS // CONFIDENTIAL" },
+        "challenge": { "pt": "Entregar soluções para clientes corporativos preservando confidencialidade, confiabilidade e integração entre diferentes plataformas.", "en": "Deliver solutions for enterprise clients while preserving confidentiality, reliability and integration across platforms." },
+        "outcomes": [
+          { "pt": "Aplicações web responsivas e componentes reutilizáveis.", "en": "Responsive web applications and reusable components." },
+          { "pt": "Automações e integrações com Google Cloud e Workspace.", "en": "Automation and integrations with Google Cloud and Workspace." },
+          { "pt": "Pipelines de dados, dashboards e processos de CI/CD.", "en": "Data pipelines, dashboards and CI/CD workflows." }
+        ],
+        "imageAlt": { "pt": "Representação de soluções corporativas", "en": "Enterprise solutions representation" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 04 / CONTEÚDO CONFIDENCIAL", "en": "PROJECT MEDIA 04 / CONFIDENTIAL CONTENT" },
+        "mediaPlaceholder": { "pt": "[ MÍDIA PROTEGIDA / PROJETO CONFIDENCIAL ]", "en": "[ PROTECTED MEDIA / CONFIDENTIAL PROJECT ]" },
+        "figureCaption": { "pt": "FIG.05 — SOLUÇÕES CORPORATIVAS", "en": "FIG.05 — ENTERPRISE SOLUTIONS" },
+        "mediaType": { "pt": "VISÃO PÚBLICA", "en": "PUBLIC-SAFE VIEW" },
+        "specifications": [
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "CONFIDENCIAL", "en": "CONFIDENTIAL" } },
+          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVEDOR DE SOFTWARE", "en": "SOFTWARE DEVELOPER" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "SOLUÇÕES CORPORATIVAS", "en": "ENTERPRISE SOLUTIONS" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · NEXT.JS · GCP · DADOS", "en": "REACT · NEXT.JS · GCP · DATA" } },
+          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "APLICAÇÕES E AUTOMAÇÕES", "en": "APPLICATIONS & AUTOMATION" } }
+        ]
+      },
+      "stack": [
+        { "k": { "pt": "Escopo", "en": "Scope" }, "v": { "pt": "React · Next.js · Google Cloud · Integrações de dados", "en": "React · Next.js · Google Cloud · Data integrations" } }
       ]
     }
   ],
@@ -380,7 +601,7 @@
         "en": "Vanderbilt University / Coursera"
       },
       "year": "2026",
-      "details": null
+      "details": { "pt": "CURSO: AGENTES DE IA GENERATIVA", "en": "COURSE: GENERATIVE AI AGENTS" }
     },
     {
       "title": {
@@ -389,13 +610,13 @@
       },
       "issuer": { "pt": "EF SET", "en": "EF SET" },
       "year": "2025",
-      "details": null
+      "details": { "pt": "NÍVEL: C1 AVANÇADO", "en": "LEVEL: C1 ADVANCED" }
     },
     {
       "title": { "pt": "React Completo", "en": "Complete React" },
       "issuer": { "pt": "Origamid", "en": "Origamid" },
       "year": "2024",
-      "details": null
+      "details": { "pt": "CURSO: REACT", "en": "COURSE: REACT" }
     },
     {
       "title": {
@@ -419,7 +640,7 @@
       },
       "issuer": { "pt": "Alura", "en": "Alura" },
       "year": "2023",
-      "details": null
+      "details": { "pt": "PROGRAMA: REACT + NODE.JS", "en": "PROGRAM: REACT + NODE.JS" }
     },
     {
       "title": {
@@ -428,7 +649,7 @@
       },
       "issuer": { "pt": "Alura", "en": "Alura" },
       "year": "2023",
-      "details": null
+      "details": { "pt": "PROGRAMA: REACT + JAVASCRIPT", "en": "PROGRAM: REACT + JAVASCRIPT" }
     },
     {
       "title": {
@@ -437,7 +658,7 @@
       },
       "issuer": { "pt": "DIO", "en": "DIO" },
       "year": "2022",
-      "details": null
+      "details": { "pt": "BOOTCAMP: FRONT-END", "en": "BOOTCAMP: FRONT-END" }
     }
   ],
   "form": {

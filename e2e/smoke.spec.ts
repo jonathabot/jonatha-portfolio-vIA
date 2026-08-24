@@ -11,7 +11,7 @@ test('mobile header hides its crown after scrolling', async ({ page }) => {
     'fixed',
   );
   const crown = page.getByRole('link', {
-    name: 'Voltar para a página inicial',
+    name: /Return to the home page|Voltar para a página inicial/,
   });
   await expect(crown).toBeVisible();
   await expect(crown).toHaveCSS('position', 'static');
@@ -33,7 +33,9 @@ test('tablet header shows the crown and floating menu at the top', async ({
   await page.goto('/');
 
   await expect(
-    page.getByRole('link', { name: 'Voltar para a página inicial' }),
+    page.getByRole('link', {
+      name: /Return to the home page|Voltar para a página inicial/,
+    }),
   ).toBeVisible();
   await expect(page.getByRole('button', { name: 'Menu' })).toBeVisible();
 });
@@ -49,7 +51,7 @@ test('V2 portfolio navigation, language and project detail', async ({
   ).toBeVisible();
   await page.getByRole('button', { name: 'PT-BR', exact: true }).click();
   await page
-    .getByRole('link', { name: /ACADEMICS & CERTS/ })
+    .getByRole('link', { name: /ACADEMICS & CERTS|FORMAÇÃO E CERTIFICADOS/ })
     .last()
     .click();
   await expect(page).toHaveURL('/academics');
@@ -61,16 +63,18 @@ test('V2 portfolio navigation, language and project detail', async ({
   ).toBeLessThanOrEqual(1080);
 
   await page
-    .getByRole('link', { name: /PROJECTS/ })
+    .getByRole('link', { name: /PROJECTS|PROJETOS/ })
     .last()
     .click();
   await expect(page).toHaveURL('/projects');
   await page
-    .getByRole('link', { name: /see project/i })
+    .getByRole('link', { name: /see project|ver projeto/i })
     .first()
     .click();
   await expect(page).toHaveURL(/\/projects\/1$/);
-  await expect(page.getByText('PROJECT SPECIFICATION')).toBeVisible();
+  await expect(
+    page.getByText(/PROJECT SPECIFICATION|ESPECIFICAÇÃO DO PROJETO/),
+  ).toBeVisible();
 });
 
 test('desktop overview uses two content columns with absolute sketch notes', async ({
@@ -96,9 +100,11 @@ test('intermediate desktop width keeps the tablet overview composition', async (
   await page.setViewportSize({ width: 1100, height: 900 });
   await page.goto('/');
 
-  const columns = await page.locator('#overview').evaluate((element) =>
-    getComputedStyle(element).gridTemplateColumns.split(' '),
-  );
+  const columns = await page
+    .locator('#overview')
+    .evaluate((element) =>
+      getComputedStyle(element).gridTemplateColumns.split(' '),
+    );
   expect(columns).toHaveLength(1);
   await expect(
     page.getByRole('heading', { name: 'SELECTED STACK_' }),
@@ -110,7 +116,7 @@ test('mobile shell exposes menu and the real 3D portrait', async ({ page }) => {
   await page.goto('/');
 
   const character = page.getByRole('img', {
-    name: 'Personagem 3D de Jonatha Botelho',
+    name: /3D character of Jonatha Botelho|Personagem 3D de Jonatha Botelho/,
   });
   await expect(character).toBeVisible();
 
@@ -130,7 +136,9 @@ test('character study renders the final GLB viewer', async ({ page }) => {
     page.getByRole('heading', { level: 1, name: 'CHARACTER STUDY' }),
   ).toBeVisible();
   await expect(
-    page.getByRole('img', { name: 'Personagem 3D de Jonatha Botelho' }),
+    page.getByRole('img', {
+      name: /3D character of Jonatha Botelho|Personagem 3D de Jonatha Botelho/,
+    }),
   ).toBeVisible();
   await expect(page.getByText('GLB / GLTF 2.0')).toBeVisible();
   await expect(

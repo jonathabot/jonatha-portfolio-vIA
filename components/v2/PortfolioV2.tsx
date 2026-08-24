@@ -9,6 +9,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useUIStore } from '@/store/ui-store';
 import { Contact } from '@/components/v2/Contact';
 import type { SiteContent } from '@/lib/cms/transform';
+import type { Messages } from '@/lib/cms/transform';
 
 const MotionLink = motion.create(Link);
 const hoverButton = {
@@ -27,15 +28,15 @@ const Character = dynamic(
 );
 
 const nav = [
-  ['overview', 'OVERVIEW'],
-  ['experiencia', 'WORK EXPERIENCE'],
-  ['stack', 'TECH STACK'],
-  ['academics', 'ACADEMICS & CERTS'],
-  ['projetos', 'PROJECTS'],
-  ['contato', 'CONTACT'],
+  'overview',
+  'experiencia',
+  'stack',
+  'academics',
+  'projetos',
+  'contato',
 ] as const;
 
-export type PortfolioScreen = (typeof nav)[number][0];
+export type PortfolioScreen = (typeof nav)[number];
 
 const routes: Record<PortfolioScreen, string> = {
   overview: '/',
@@ -160,9 +161,20 @@ export function Header({
   const setLang = useUIStore((s) => s.setLang);
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
+  const labels = Object.fromEntries(
+    v2.navigation.items.map((item) => [item.id, item.label]),
+  ) as Record<PortfolioScreen, string>;
+  const githubLabel = links.github
+    .replace(/^https?:\/\//, '')
+    .replace(/\/$/, '');
+  const linkedInLabel = links.linkedin
+    .replace(/^https?:\/\//, '')
+    .replace(/\/$/, '');
 
   return (
-    <header className="border-ink sticky top-0 z-50 lg:bg-bg lg:border-b-2">
+    <header className="border-ink lg:bg-bg sticky top-0 z-50 lg:border-b-2">
       <div className="relative mx-auto hidden h-[130px] max-w-[1920px] lg:block">
         <div className="absolute top-[18px] left-7 flex gap-4">
           <MotionLink
@@ -171,7 +183,7 @@ export function Header({
             whileHover={hoverButton}
             transition={buttonTransition}
           >
-            ◎ [jonatha.dev] ☠
+            ◎ [{v2.identity.website}] ☠
           </MotionLink>
           <MotionLink
             className="border-ink border-2 px-3 py-2 text-[11px] font-bold"
@@ -179,7 +191,7 @@ export function Header({
             whileHover={hoverButton}
             transition={buttonTransition}
           >
-            ● [github.com/jonathabot] ✋
+            ● [{githubLabel}] ✋
           </MotionLink>
         </div>
         <MotionLink
@@ -188,52 +200,50 @@ export function Header({
           whileHover={hoverButton}
           transition={buttonTransition}
         >
-          in [linkedin.com/in/jonathabotelho]
+          in [{linkedInLabel}]
         </MotionLink>
         <div className="absolute top-1 bottom-3 left-1/2 flex -translate-x-1/2 flex-col items-center justify-between">
           <Link
             href="/"
-            aria-label="Voltar para a página inicial"
+            aria-label={v2.accessibility.home}
             className="cursor-pointer"
           >
             <Crown className="h-10 w-11 shrink-0 object-contain" />
           </Link>
           <div className="font-display text-5xl leading-none whitespace-nowrap">
-            JONATHA BOTELHO
+            {v2.identity.name}
           </div>
           <div className="text-dim text-[11px] whitespace-nowrap">
-            <b className="text-red mr-4">~CODER~</b>
-            {
-              ' SOFTWARE DEVELOPER // FRONT-END DEVELOPER // FULL-STACK DEVELOPER'
-            }
+            <b className="text-red mr-4">{v2.identity.coderLabel}</b>
+            {` ${v2.identity.roleLine}`}
           </div>
         </div>
         <div className="absolute top-6 right-28 text-right text-[10px] leading-6">
-          <b className="text-[12px]">ORIGIN: SÃO PAULO, BR ☕</b>
+          <b className="text-[12px]">{v2.identity.origin}</b>
           <br />
-          LANGUAGES: PORTUGUESE (NATIVE) & ENGLISH (C1 ADVANCED)
+          {v2.identity.languages}
         </div>
         <div className="border-ink absolute top-[78px] right-28 flex border text-[9px] font-bold">
           <button
             className={`cursor-pointer px-5 py-2 ${lang === 'pt' ? 'bg-ink text-bg' : ''}`}
             onClick={() => setLang('pt')}
           >
-            PT-BR
+            {v2.global.languagePt}
           </button>
           <button
             className={`cursor-pointer px-5 py-2 ${lang === 'en' ? 'bg-ink text-yellow' : ''}`}
             onClick={() => setLang('en')}
           >
-            EN
+            {v2.global.languageEn}
           </button>
         </div>
         <span className="text-dim absolute right-3 bottom-1 text-[8px] underline underline-offset-2">
-          V1
+          {v2.global.version}
         </span>
       </div>
       <div className="h-0 lg:hidden">
         <button
-          aria-label="Menu"
+          aria-label={v2.navigation.menuLabel}
           aria-expanded={open}
           onClick={() => setOpen(!open)}
           className="border-ink bg-bg fixed top-4 right-5 z-[51] h-10 w-12 cursor-pointer border-2 text-2xl"
@@ -262,11 +272,11 @@ export function Header({
             >
               <div className="border-ink flex h-12 shrink-0 items-center justify-between border-b-2 px-3">
                 <span className="text-faint text-[8px] tracking-[.16em]">
-                  NAVIGATION // 06 ROUTES
+                  {v2.navigation.heading}
                 </span>
                 <button
                   type="button"
-                  aria-label="Fechar menu"
+                  aria-label={v2.navigation.closeLabel}
                   onClick={() => setOpen(false)}
                   className="bg-ink text-paper h-8 w-8 cursor-pointer text-lg"
                 >
@@ -274,7 +284,7 @@ export function Header({
                 </button>
               </div>
               <div className="shrink-0">
-                {nav.map(([id, label], i) => (
+                {nav.map((id, i) => (
                   <Link
                     key={id}
                     href={routes[id]}
@@ -285,7 +295,7 @@ export function Header({
                     <b
                       className={`font-display text-lg ${active === id ? 'text-paper' : ''}`}
                     >
-                      {label}
+                      {labels[id]}
                     </b>
                     <span
                       className={`ml-3 box-border text-left font-['JetBrains_Mono',system-ui,sans-serif] text-[13px] leading-normal font-normal whitespace-nowrap ${active === id ? 'text-yellow' : 'text-[#1A1A1A]'}`}
@@ -302,23 +312,23 @@ export function Header({
                       onClick={() => setLang('pt')}
                       className={`cursor-pointer px-4 py-2 ${lang === 'pt' ? 'bg-ink text-paper' : ''}`}
                     >
-                      PT-BR
+                      {v2.global.languagePt}
                     </button>
                     <button
                       onClick={() => setLang('en')}
                       className={`cursor-pointer px-4 py-2 ${lang === 'en' ? 'bg-ink text-yellow' : ''}`}
                     >
-                      EN
+                      {v2.global.languageEn}
                     </button>
                   </div>
                   <span className="text-[8px]">[ ☀ / ☽ ]</span>
                 </div>
               </div>
               <div className="border-ink min-h-[112px] space-y-1 border-t-2 px-3 pt-4 pb-8 text-[8px]">
-                <p className="m-0">● github.com/jonathabot</p>
-                <p className="m-0">in linkedin.com/in/jonathabotelho</p>
+                <p className="m-0">● {githubLabel}</p>
+                <p className="m-0">in {linkedInLabel}</p>
                 <p className="m-0 pt-1 text-[#357a38]">
-                  ● CURRENTLY AVAILABLE FOR WORK
+                  {v2.global.availableForWork}
                 </p>
               </div>
             </motion.nav>
@@ -350,6 +360,8 @@ function SectionTitle({
 }
 
 function Portrait() {
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   return (
     <div className="border-ink bg-paper relative mx-auto h-[330px] w-[260px] border-[2.5px] shadow-[8px_8px_0_var(--ink)] md:h-[350px] md:w-[294px] lg:h-[374px] lg:w-[280px]">
       <CrownDoodle className="pointer-events-none absolute -top-[52px] left-1/2 z-10 h-[74px] w-[100px] -translate-x-1/2 object-contain" />
@@ -357,7 +369,7 @@ function Portrait() {
         <Character />
       </div>
       <div className="bg-ink text-yellow absolute inset-x-0 bottom-0 flex h-[30px] items-center justify-center text-[9px] font-bold tracking-[.14em]">
-        FIG.01 — J.BOTELHO // SP, BR
+        {v2.overview.figureCaption}
       </div>
     </div>
   );
@@ -365,12 +377,14 @@ function Portrait() {
 
 function PortraitStation() {
   const reducedMotion = useReducedMotion();
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
 
   return (
     <div className="flex flex-col items-center">
       <Link
         href="/character"
-        aria-label="Open Jonatha Botelho character study"
+        aria-label={v2.accessibility.characterStudy}
         className="block cursor-pointer"
       >
         <Portrait />
@@ -397,30 +411,25 @@ function PortraitStation() {
             },
           }}
         >
-          INITIALIZE CONTACT ↗
+          {v2.overview.initializeContact}
         </motion.span>
       </MotionLink>
       <span className="text-faint mt-4 hidden text-[8px] tracking-[.18em] xl:block">
-        <b className="text-[#4caf50]">●</b> CURRENTLY AVAILABLE FOR WORK
+        {v2.global.availableForWork}
       </span>
     </div>
   );
 }
 
 function ResponsiveStack() {
-  const rows = [
-    ['FRONT-END', 'React · Next.js · TypeScript'],
-    ['INTERFACE', 'Tailwind · shadcn/ui · Motion'],
-    ['CLOUD / GCP', 'Cloud Run · Actions'],
-    ['DATA', 'REST APIs · SQL · BigQuery'],
-    ['WORKFLOW', 'Git · GitHub · CI/CD'],
-  ];
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   return (
     <div className="border-ink flex w-full flex-col border-y-2 py-5 md:h-full md:border-t-0 md:py-0 xl:hidden">
       <h2 className="font-display mb-4 text-[28px] leading-none md:mb-0 md:flex md:min-h-[58px] md:items-center">
-        SELECTED STACK_
+        {v2.overview.selectedStack}
       </h2>
-      {rows.map(([label, value]) => (
+      {v2.overview.responsiveStack.map(({ label, value }) => (
         <div
           key={label}
           className="border-ink/25 flex min-h-11 items-center border-b text-[8px] last:border-0 md:min-h-0 md:flex-1"
@@ -440,10 +449,12 @@ function ResponsiveWorks({
   titles: string[];
   descriptions: string[];
 }) {
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   return (
     <section className="border-ink mt-6 border-t-2 py-6 xl:hidden">
       <h2 className="font-display mb-4 text-[28px] leading-[.9] md:text-[30px]">
-        EXHIBITED ENGINEERING WORKS
+        {v2.overview.worksTitle}
       </h2>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {titles.slice(0, 4).map((title, index) => (
@@ -468,6 +479,8 @@ function ProjectCard({
   desc: string;
   index: number;
 }) {
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   return (
     <article className="border-ink bg-panel relative flex min-h-0 min-w-0 flex-col overflow-hidden border-r-2 border-b-2 p-3 md:p-4">
       <i
@@ -483,7 +496,7 @@ function ProjectCard({
       />
       <div className="flex min-h-0 flex-1 flex-col justify-between py-2 md:py-4">
         <span className="text-faint text-[7px] tracking-[.16em] md:text-[9px]">
-          MODULE 0{index + 1}
+          {v2.overview.moduleLabel} 0{index + 1}
         </span>
         <h3 className="font-display my-2 text-sm leading-tight md:text-xl">
           {title.toUpperCase()}
@@ -499,7 +512,7 @@ function ProjectCard({
           whileHover={hoverButton}
           transition={buttonTransition}
         >
-          SEE PROJECT ↗
+          {v2.overview.seeProject}
         </MotionLink>
       </div>
     </article>
@@ -507,13 +520,15 @@ function ProjectCard({
 }
 
 export function SketchNotes() {
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   return (
     <p
       aria-hidden
       data-testid="overview-sketch-notes"
       className="text-faint pointer-events-none absolute bottom-10 left-7 hidden w-40 -rotate-3 text-[13px] leading-[2] whitespace-pre xl:block"
     >
-      {'→ observe\n\n  build →\n\n↳ iterate'}
+      {v2.overview.annotations}
     </p>
   );
 }
@@ -528,6 +543,8 @@ function SkillCard({
   index: number;
 }) {
   const reducedMotion = useReducedMotion();
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
   const skills = items.split(' · ').slice(0, index === 0 ? 8 : 6);
   return (
     <article className="v2-shadow border-ink bg-panel h-[212px] border-2">
@@ -537,7 +554,7 @@ function SkillCard({
       >
         {name}
         <small className="font-mono text-[8px] font-normal">
-          {skills.length} TOOLS
+          {skills.length} {v2.sections.stack.toolsLabel}
         </small>
       </h3>
       <div
@@ -586,27 +603,30 @@ export function PortfolioV2({
 }) {
   const reducedMotion = useReducedMotion();
   const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
+  const navLabels = Object.fromEntries(
+    v2.navigation.items.map((item) => [item.id, item.label]),
+  ) as Record<PortfolioScreen, string>;
   const roles = t.raw('experience.roles') as string[];
+  const periodLabels = t.raw('experience.periodLabels') as string[];
+  const employmentTypes = t.raw('experience.employmentTypes') as string[];
+  const experienceLocations = t.raw('experience.locations') as string[];
+  const experienceContexts = t.raw('experience.contexts') as string[];
   const bullets = t.raw('experience.bullets') as {
     head: string;
     text: string;
   }[][];
   const tools = t.raw('tools.names') as string[];
   const toolItems = t.raw('tools.items') as string[];
-  const projects = t.raw('projects.titles') as string[];
-  const projectDescs = t.raw('projects.descs') as string[];
-  const projectTitles = [...projects, 'Enterprise web & data solutions'];
-  const projectDescriptions = [
-    ...projectDescs,
-    'Public-safe overview of confidential corporate work across web apps, cloud, integrations and analytics.',
-  ];
+  const projectTitles = t.raw('projects.titles') as string[];
+  const projectDescriptions = t.raw('projects.descs') as string[];
   const courses = t.raw('courses.items') as {
     title: string;
     issuer: string;
     year: string;
     details: string | null;
   }[];
-  const screenIndex = nav.findIndex(([id]) => id === screen);
+  const screenIndex = nav.findIndex((id) => id === screen);
   const previous = nav[(screenIndex - 1 + nav.length) % nav.length];
   const next = nav[(screenIndex + 1) % nav.length];
 
@@ -640,42 +660,38 @@ export function PortfolioV2({
                 <div className="flex items-center gap-3">
                   <Link
                     href="/"
-                    aria-label="Voltar para a página inicial"
+                    aria-label={v2.accessibility.home}
                     className="h-10 w-10 shrink-0"
                   >
                     <Crown className="h-10 w-10 object-contain" />
                   </Link>
-                  <p className="text-faint text-[10px]">[01] // OVERVIEW</p>
+                  <p className="text-faint text-[10px]">
+                    {v2.overview.eyebrow}
+                  </p>
                 </div>
                 <h1 className="font-display my-2 text-[clamp(52px,10vw,82px)] leading-[.86]">
-                  JONATHA BOTELHO
+                  {v2.identity.name}
                 </h1>
                 <p className="text-[10px] leading-6">
-                  <b className="text-red">~CODER~</b>
-                  {'  SOFTWARE DEVELOPER // FRONT-END // FULL-STACK'}
+                  <b className="text-red">{v2.identity.coderLabel}</b>
+                  {`  ${v2.identity.roleLine}`}
                 </p>
               </div>
               <div className="border-ink mb-8 flex h-12 items-center justify-between border-y text-[8px] md:hidden">
-                <span>● github.com/jonathabot</span>
-                <span>in /jonathabotelho</span>
+                <span>
+                  ● {site.hero.links.github.replace(/^https?:\/\//, '')}
+                </span>
+                <span>
+                  in {site.hero.links.linkedin.replace(/^https?:\/\//, '')}
+                </span>
               </div>
               <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:items-stretch xl:contents">
                 <div className="hidden flex-col text-[12px] leading-7 xl:flex">
-                  <b>FRONT-END:</b>
+                  <b>{v2.overview.frontEndTitle}</b>
                   <hr className="border-ink" />
-                  [React.js]
-                  <br />
-                  [Next.js]
-                  <br />
-                  [TypeScript]
-                  <br />
-                  [JavaScript]
-                  <br />
-                  [Tailwind CSS]
-                  <br />
-                  [shadcn/ui]
-                  <br />
-                  [Framer Motion]
+                  {v2.overview.frontEndItems.map((item) => (
+                    <span key={item}>[{item}]</span>
+                  ))}
                   <ArrowRight className="mt-5 translate-x-10 self-end" />
                 </div>
                 <PortraitStation />
@@ -684,22 +700,19 @@ export function PortfolioV2({
                 </div>
                 <div className="hidden text-[12px] leading-7 xl:block">
                   <div className="flex flex-col">
-                    <b>CLOUD & DEVOPS:</b>
+                    <b>{v2.overview.cloudTitle}</b>
                     <hr className="border-ink my-0 w-full" />
-                    <span>[Google Cloud Platform]</span>
-                    <span>[Cloud Run]</span>
-                    <span>[Cloud Storage]</span>
-                    <span>[GitHub Actions]</span>
-                    <span>[CI/CD]</span>
+                    {v2.overview.cloudItems.map((item) => (
+                      <span key={item}>[{item}]</span>
+                    ))}
                     <ArrowLeft className="mt-2 hidden -translate-x-10 self-start lg:block" />
                   </div>
                   <div className="mt-3 flex flex-col">
-                    <b>DATA & APIS:</b>
+                    <b>{v2.overview.dataTitle}</b>
                     <hr className="border-ink my-0 w-full" />
-                    <span>[REST APIs]</span>
-                    <span>[Firebase]</span>
-                    <span>[SQL]</span>
-                    <span>[BigQuery]</span>
+                    {v2.overview.dataItems.map((item) => (
+                      <span key={item}>[{item}]</span>
+                    ))}
                     <ArrowLeft className="mt-2 hidden -translate-x-10 self-start lg:block" />
                   </div>
                 </div>
@@ -713,19 +726,19 @@ export function PortfolioV2({
               />
               <div className="border-ink flex flex-col gap-3 border-t-2 py-6 xl:hidden">
                 <span className="text-faint text-[8px] tracking-[.14em]">
-                  AVAILABLE FOR SELECT PROJECTS
+                  {v2.overview.availableProjects}
                 </span>
                 <Link
                   href="/contact"
                   className="bg-ink text-paper flex h-12 items-center justify-between px-4 font-bold"
                 >
-                  INITIALIZE CONTACT <span>↗</span>
+                  {v2.overview.initializeContact} <span>↗</span>
                 </Link>
               </div>
             </div>
             <aside className="border-ink bg-panel hidden min-h-0 overflow-hidden border-l-2 xl:flex xl:flex-col">
               <h2 className="font-display bg-ink text-paper shrink-0 py-5 text-center text-lg tracking-wide">
-                EXHIBITED ENGINEERING WORKS
+                {v2.overview.worksTitle}
               </h2>
               <div className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_minmax(0,1fr)] sm:grid-cols-2 md:grid-cols-2 [&>article]:h-full [&>article]:min-h-0">
                 {projectTitles.slice(0, 4).map((p, i) => (
@@ -746,9 +759,9 @@ export function PortfolioV2({
             className="v2-screen mx-auto max-w-[1200px] px-5 py-10 lg:px-0"
           >
             <SectionTitle
-              index="02"
-              title="WORK EXPERIENCE"
-              subtitle="CHRONOLOGICAL FIELD RECORD // 3+ YEARS IN PRODUCTION"
+              index={v2.sections.experience.index}
+              title={v2.sections.experience.title}
+              subtitle={v2.sections.experience.subtitle}
             />
             <div>
               {site.experience.map((job, i) => (
@@ -757,16 +770,14 @@ export function PortfolioV2({
                   className="border-ink grid grid-cols-1 gap-3 border-b-2 py-5 md:grid-cols-[190px_1fr] md:gap-7 md:py-6 lg:grid-cols-[220px_1fr]"
                 >
                   <div>
-                    <b>
-                      {i === 0 ? 'AUG 2024 — PRESENT' : 'MAR 2023 — AUG 2024'}
-                    </b>
+                    <b>{periodLabels[i]}</b>
                     <p
                       className={`border-ink mt-3 block w-fit border-2 px-2 py-1 text-[8px] md:mt-4 md:px-5 md:py-2 md:text-[10px] ${i === 0 ? 'bg-yellow' : 'bg-blue'}`}
                     >
-                      FULL-TIME
+                      {employmentTypes[i]}
                     </p>
                     <p className="text-faint mt-0 text-[8px] md:mt-1 md:text-[10px]">
-                      São Paulo, BR
+                      {experienceLocations[i]}
                     </p>
                   </div>
                   <div>
@@ -774,9 +785,7 @@ export function PortfolioV2({
                       {roles[i].toUpperCase()}
                     </h3>
                     <p className="text-dim m-0 text-[11px] tracking-widest">
-                      {i === 0
-                        ? 'ENTERPRISE SOLUTIONS / CONFIDENTIAL CLIENTS'
-                        : 'INDUSTRIAL ERP / CONFIDENTIAL EMPLOYER'}
+                      {experienceContexts[i]}
                     </p>
                     <ul className="font-body space-y-2 pl-0 text-[10px] md:pl-5 md:text-[11px] lg:text-[12.5px]">
                       {bullets[i].slice(0, 3).map((b, j) => (
@@ -807,9 +816,9 @@ export function PortfolioV2({
             className="v2-screen mx-auto max-w-[1200px] px-5 py-10 lg:px-0"
           >
             <SectionTitle
-              index="03"
-              title="TECH STACK"
-              subtitle="INSTRUMENTATION MANIFEST // SKILL PROFICIENCY MAP"
+              index={v2.sections.stack.index}
+              title={v2.sections.stack.title}
+              subtitle={v2.sections.stack.subtitle}
             />
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:mt-8 lg:gap-5">
               {tools.slice(0, 4).map((name, i) => (
@@ -829,12 +838,12 @@ export function PortfolioV2({
             className="v2-screen mx-auto max-w-[1200px] px-5 py-10 lg:px-0"
           >
             <SectionTitle
-              index="04"
-              title="ACADEMICS & CERTS"
-              subtitle="EDUCATIONAL RECORD // CREDENTIALS & CERTIFICATIONS"
+              index={v2.sections.academics.index}
+              title={v2.sections.academics.title}
+              subtitle={v2.sections.academics.subtitle}
             />
             <p className="text-faint mt-5 mb-3 text-[9px] tracking-[.18em]">
-              § FORMAL EDUCATION
+              {v2.sections.academics.formalEducation}
             </p>
             <article className="v2-shadow border-ink bg-panel grid min-h-32 grid-cols-[1fr_112px] border-2 md:grid-cols-[1fr_190px]">
               <div className="p-5">
@@ -851,7 +860,7 @@ export function PortfolioV2({
               <div className="border-ink bg-yellow flex flex-col items-center justify-center border-l-2 text-center">
                 <span className="text-3xl">🎓</span>
                 <b className="mt-2 text-[9px]">
-                  PREVIOUS DEGREE
+                  {v2.sections.academics.previousDegree}
                   <br />
                   {t('education.degree')}
                   <br />
@@ -860,7 +869,7 @@ export function PortfolioV2({
               </div>
             </article>
             <p className="text-faint mt-8 mb-3 text-[9px] tracking-[.18em]">
-              § PROFESSIONAL CERTIFICATIONS
+              {v2.sections.academics.certifications}
             </p>
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {courses.slice(0, 6).map((c, i) => (
@@ -882,22 +891,13 @@ export function PortfolioV2({
                   </h3>
                   <div className="border-ink/30 mt-auto flex items-end justify-between border-t pt-3">
                     <span className="text-faint text-[7px] tracking-[.1em]">
-                      {
-                        [
-                          'COURSE: GENERATIVE AI AGENTS',
-                          'LEVEL: C1 ADVANCED',
-                          'COURSE: REACT',
-                          'TRACK: FOUNDATIONS · IMPLEMENTATION',
-                          'PROGRAM: REACT + NODE.JS',
-                          'PROGRAM: REACT + JAVASCRIPT',
-                        ][i]
-                      }
+                      {c.details}
                     </span>
                     <a
                       className="text-[8px] font-bold whitespace-nowrap underline"
                       href="#"
                     >
-                      SEE CERTIFICATE ↗
+                      {v2.sections.academics.seeCertificate}
                     </a>
                   </div>
                 </article>
@@ -911,9 +911,9 @@ export function PortfolioV2({
             className="v2-screen mx-auto max-w-[1200px] px-5 py-10 lg:px-0"
           >
             <SectionTitle
-              index="05"
-              title="PROJECTS"
-              subtitle="EXHIBITED ENGINEERING WORKS // SELECTED CASE STUDIES"
+              index={v2.sections.projects.index}
+              title={v2.sections.projects.title}
+              subtitle={v2.sections.projects.subtitle}
             />
             <div className="mt-6 grid grid-cols-1 md:mt-8 md:grid-cols-2">
               {projectTitles.map((p, i) => (
@@ -933,24 +933,32 @@ export function PortfolioV2({
             className="v2-screen mx-auto max-w-[1200px] px-5 py-10 lg:px-0"
           >
             <SectionTitle
-              index="06"
-              title="LET'S BUILD SOMETHING_"
-              subtitle="OPEN COMMUNICATION CHANNEL // CONTACT & COLLABORATION"
+              index={v2.sections.contact.index}
+              title={v2.sections.contact.title}
+              subtitle={v2.sections.contact.subtitle}
             />
             <div className="mt-5 grid gap-8 md:grid-cols-[1fr_310px] lg:grid-cols-[1fr_380px]">
               <Contact links={site.hero.links} embedded />
               <aside className="space-y-4">
                 <div className="v2-shadow border-ink bg-panel border-2">
                   <h3 className="font-display bg-ink text-paper m-0 px-5 py-3 text-lg">
-                    DIRECT CHANNELS
+                    {v2.contact.directChannels}
                   </h3>
                   <div className="p-5 text-[10px]">
                     {[
-                      ['✉', 'EMAIL', site.hero.links.email],
-                      ['◎', 'WEBSITE', 'jonatha.dev'],
-                      ['●', 'GITHUB', 'github.com/jonathabot'],
-                      ['in', 'LINKEDIN', 'linkedin.com/in/jonathabotelho'],
-                      ['⌖', 'LOCATION', 'São Paulo, BR (UTC-3)'],
+                      ['✉', v2.contact.labels.email, site.hero.links.email],
+                      ['◎', v2.contact.labels.website, v2.identity.website],
+                      [
+                        '●',
+                        v2.contact.labels.github,
+                        site.hero.links.github.replace(/^https?:\/\//, ''),
+                      ],
+                      [
+                        'in',
+                        v2.contact.labels.linkedin,
+                        site.hero.links.linkedin.replace(/^https?:\/\//, ''),
+                      ],
+                      ['⌖', v2.contact.labels.location, v2.contact.location],
                     ].map(([icon, label, value]) => (
                       <div
                         key={label}
@@ -968,20 +976,20 @@ export function PortfolioV2({
                   </div>
                 </div>
                 <div className="v2-shadow bg-paper border-2 border-[#4caf50] p-4">
-                  <b className="text-[11px]">🟢 OPEN TO WORK</b>
+                  <b className="text-[11px]">{v2.contact.openToWork}</b>
                   <p className="font-body mb-0 text-[10px] leading-relaxed">
-                    Currently available for full-time roles, contract work, and
-                    technical collaborations. Based in São Paulo — open to
-                    remote worldwide.
+                    {v2.contact.availabilityCopy}
                   </p>
                 </div>
                 <div className="v2-shadow border-ink bg-yellow grid grid-cols-[36px_1fr] items-center border-2 px-4 py-2">
                   <span className="text-xl">ϟ</span>
                   <div>
                     <b className="font-display block text-sm">
-                      AVG. RESPONSE TIME
+                      {v2.contact.responseTime}
                     </b>
-                    <span className="text-[8px]">&lt; 24 HOURS</span>
+                    <span className="text-[8px]">
+                      {v2.contact.responseValue}
+                    </span>
                   </div>
                 </div>
               </aside>
@@ -990,38 +998,38 @@ export function PortfolioV2({
         )}
       </motion.div>
       <nav className="border-ink bg-bg fixed inset-x-0 bottom-0 z-40 hidden h-[54px] grid-cols-6 border-t-2 lg:grid">
-        {nav.map(([id, label], i) => (
+        {nav.map((id, i) => (
           <Link
             key={id}
             href={routes[id]}
             className={`border-ink flex items-center justify-center border-r text-center text-[9px] font-bold ${screen === id ? 'bg-ink text-yellow' : 'bg-paper text-ink'}`}
-          >{`[0${i + 1} // ${label}]`}</Link>
+          >{`[0${i + 1} // ${navLabels[id]}]`}</Link>
         ))}
       </nav>
       <footer className="border-ink bg-paper fixed inset-x-0 bottom-0 z-40 lg:hidden">
         <nav className="border-ink grid h-12 grid-cols-3 items-center border-t-2 px-5 text-[8px] font-bold md:h-[54px] md:px-8 md:text-[10px]">
           <Link
             className="min-w-0 justify-self-start whitespace-nowrap"
-            href={routes[previous[0]]}
+            href={routes[previous]}
           >
-            ← {previous[1]}
+            ← {navLabels[previous]}
           </Link>
           <span className="text-faint justify-self-center whitespace-nowrap">
             [ 0{screenIndex + 1} / 06 ]
           </span>
           <Link
             className="min-w-0 justify-self-end text-right whitespace-nowrap"
-            href={routes[next[0]]}
+            href={routes[next]}
           >
-            {next[1]} →
+            {navLabels[next]} →
           </Link>
         </nav>
         <div className="border-ink flex h-9 items-center justify-between border-t px-5 text-[8px] md:h-10 md:px-8">
-          <span>J.BOTELHO © 2026</span>
+          <span>{v2.global.copyright}</span>
           <span className="text-faint hidden md:inline">
-            PORTFOLIO SYSTEM // V2
+            {v2.global.portfolioSystem}
           </span>
-          <span className="text-[#357a38]">● AVAILABLE</span>
+          <span className="text-[#357a38]">{v2.global.available}</span>
         </div>
       </footer>
     </main>

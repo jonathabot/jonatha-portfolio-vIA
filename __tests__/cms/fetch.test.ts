@@ -31,7 +31,7 @@ describe('getContent', () => {
     expect(c.hero.role.pt).toBe('CUSTOM ROLE');
   });
 
-  it('adds the courses fields to a legacy endpoint payload', async () => {
+  it('falls back atomically when a legacy endpoint payload is incomplete', async () => {
     vi.stubEnv('CMS_ENDPOINT_URL', 'https://cms.example/exec');
     const legacy = structuredClone(fallback) as unknown as {
       nav: Record<string, unknown>;
@@ -54,7 +54,7 @@ describe('getContent', () => {
     const { getContent } = await import('@/lib/cms/fetch');
     const c = await getContent();
 
-    expect(c.hero.role.pt).toBe('LEGACY ROLE');
+    expect(c.hero.role.pt).toBe(fallbackRolePt);
     expect(c.nav.courses).toEqual(fallback.nav.courses);
     expect(c.courses).toEqual(fallback.courses);
     expect(c.education.postgraduate).toEqual(

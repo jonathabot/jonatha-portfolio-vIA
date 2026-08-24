@@ -15,8 +15,9 @@ import { Bounds, useAnimations, useGLTF } from '@react-three/drei';
 import { Box3, MathUtils, Object3D, Vector3 } from 'three';
 import { clone } from 'three/examples/jsm/utils/SkeletonUtils.js';
 import type { Group } from 'three';
+import { useTranslations } from 'next-intl';
+import type { Messages } from '@/lib/cms/transform';
 
-const ACCESSIBLE_NAME = 'Personagem 3D de Jonatha Botelho';
 const MODEL_PATH = '/jonatha-character-final.glb';
 
 type PointerTarget = { x: number; y: number };
@@ -27,20 +28,26 @@ type PortraitTransform = {
 
 const portraitTransformCache = new WeakMap<Object3D, PortraitTransform>();
 
-function CharacterFallback() {
+function CharacterFallback({
+  accessibleName,
+  fallbackLabel,
+}: {
+  accessibleName: string;
+  fallbackLabel: string;
+}) {
   return (
     <div
       role="img"
-      aria-label={ACCESSIBLE_NAME}
+      aria-label={accessibleName}
       className="text-dim flex h-full w-full items-center justify-center bg-transparent text-[11px]"
     >
-      <span aria-hidden="true">[ 3D ]</span>
+      <span aria-hidden="true">{fallbackLabel}</span>
     </div>
   );
 }
 
 class WebGLErrorBoundary extends Component<
-  { children: ReactNode },
+  { children: ReactNode; accessibleName: string; fallbackLabel: string },
   { failed: boolean }
 > {
   state = { failed: false };
@@ -54,7 +61,14 @@ class WebGLErrorBoundary extends Component<
   }
 
   render() {
-    return this.state.failed ? <CharacterFallback /> : this.props.children;
+    return this.state.failed ? (
+      <CharacterFallback
+        accessibleName={this.props.accessibleName}
+        fallbackLabel={this.props.fallbackLabel}
+      />
+    ) : (
+      this.props.children
+    );
   }
 }
 
@@ -194,6 +208,10 @@ export function JonathaCharacter3D({
   view?: 'portrait' | 'full';
 }) {
   const pointerTarget = useRef<PointerTarget>({ x: 0, y: 0 });
+  const t = useTranslations();
+  const v2 = t.raw('v2') as Messages['v2'];
+  const accessibleName = v2.characterStudy.accessibleName;
+  const fallbackLabel = v2.accessibility.fallback3d;
   const reducedMotion = useReducedMotion();
   const [webGLAvailable] = useState(supportsWebGL);
   const [modelVisible, setModelVisible] = useState(false);
@@ -216,7 +234,13 @@ export function JonathaCharacter3D({
     setCanvasKey((key) => key + 1);
   };
 
-  if (webGLAvailable === false) return <CharacterFallback />;
+  if (webGLAvailable === false)
+    return (
+      <CharacterFallback
+        accessibleName={accessibleName}
+        fallbackLabel={fallbackLabel}
+      />
+    );
 
   return (
     <div
@@ -239,11 +263,14 @@ export function JonathaCharacter3D({
           modelVisible && !contextLost ? 'opacity-100' : 'opacity-0'
         } ${reducedMotion ? 'duration-0' : 'duration-500'}`}
       >
-        <WebGLErrorBoundary>
+        <WebGLErrorBoundary
+          accessibleName={accessibleName}
+          fallbackLabel={fallbackLabel}
+        >
           <Canvas
             key={canvasKey}
             role="img"
-            aria-label={ACCESSIBLE_NAME}
+            aria-label={accessibleName}
             camera={{
               position: view === 'portrait' ? [0, -0.76, 3.18] : [0, 0, 3],
               fov: view === 'portrait' ? 29 : 28,
@@ -289,14 +316,14 @@ export function JonathaCharacter3D({
       {contextLost && (
         <div className="bg-paper absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 text-center">
           <span className="text-faint text-[9px] tracking-[.14em]">
-            [ WEBGL CONTEXT LOST ]
+            {v2.characterStudy.contextLost}
           </span>
           <button
             type="button"
             onClick={reloadCanvas}
             className="border-ink bg-ink text-yellow cursor-pointer border-2 px-5 py-3 text-[10px] font-bold hover:underline hover:underline-offset-4"
           >
-            ↻ RELOAD 3D
+            {v2.characterStudy.reload}
           </button>
         </div>
       )}

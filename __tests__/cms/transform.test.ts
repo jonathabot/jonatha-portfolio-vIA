@@ -19,6 +19,15 @@ describe('transform', () => {
     expect(messages.en.hero.role).toBe(content.hero.role.en);
   });
 
+  it('localizes the complete V2 interface contract', () => {
+    expect(messages.pt.v2.sections.experience.title).toBe(
+      content.v2.sections.experience.title.pt,
+    );
+    expect(messages.en.v2.characterStudy.metaTitle).toBe(
+      content.v2.characterStudy.metaTitle.en,
+    );
+  });
+
   it('exposes the postgraduate education in both languages', () => {
     expect(messages.pt.education.postgraduate).toEqual({
       degree: 'Pós-graduação em Engenharia de Software',
