@@ -361,16 +361,18 @@
       },
       "dateLabel": { "pt": "2025 · TCC", "en": "2025 · Capstone" },
       "desc": {
-        "pt": "Plataforma gamificada para aprender programação com aulas interativas, quizzes, pontuação e ranking em tempo real.",
-        "en": "Gamified programming learning platform with interactive lessons, quizzes, scoring and a real-time leaderboard."
+        "pt": "Plataforma educacional interativa e gamificada criada como projeto de conclusão de curso. Reúne trilhas sobre engenharia de software, aulas em múltiplas etapas, quizzes, desafios de ordenação, pontuação, ranking em tempo real e gerenciamento de conteúdo.",
+        "en": "Interactive, gamified educational platform developed as a capstone project. It combines software engineering learning paths, multi-step lessons, quizzes, ordering challenges, scoring, a real-time leaderboard and content management."
       },
       "detail": {
-        "category": { "pt": "EDUCAÇÃO GAMIFICADA // APLICAÇÃO WEB", "en": "GAMIFIED TECHNOLOGY EDUCATION // WEB APPLICATION" },
-        "challenge": { "pt": "Criar uma experiência de aprendizagem envolvente, mantendo o progresso educacional claro e oferecendo mecânicas competitivas e feedback imediato.", "en": "Create an engaging learning experience that keeps educational progress clear while supporting competitive mechanics and immediate feedback." },
+        "category": { "pt": "TCC // EDUCAÇÃO EM ENGENHARIA DE SOFTWARE", "en": "CAPSTONE // SOFTWARE ENGINEERING EDUCATION" },
+        "challenge": { "pt": "Transformar conceitos de engenharia de software — como Scrum, arquitetura, SOLID, DDD e fluxos com Git — em uma experiência prática e gratuita, com progressão clara para estudantes e ferramentas completas de autoria para instrutores.", "en": "Turn software engineering concepts—including Scrum, architecture, SOLID, DDD and Git workflows—into a free, hands-on learning experience with clear student progression and complete authoring tools for instructors." },
         "outcomes": [
-          { "pt": "Fluxos estruturados de aulas e quizzes com componentes React reutilizáveis.", "en": "Structured lesson and quiz flows with reusable React components." },
-          { "pt": "Feedback de pontuação e ranking pensado para engajamento contínuo.", "en": "Scoring and leaderboard feedback designed for continuous engagement." },
-          { "pt": "Interface responsiva preparada para desktop, tablet e mobile.", "en": "Responsive interface prepared for desktop, tablet and mobile learners." }
+          { "pt": "Área do aluno com dashboard personalizado, cursos ativos, progresso e novas opções de matrícula.", "en": "Student area with a personalized dashboard, active courses, progress tracking and new enrollment options." },
+          { "pt": "Aulas em múltiplas etapas com conteúdo teórico, questões de múltipla escolha e desafios de ordenação, todos com feedback imediato.", "en": "Multi-step lessons with theory, multiple-choice questions and ordering challenges, all with immediate feedback." },
+          { "pt": "Sistema de pontos, ranking geral e semanal em tempo real e gerenciamento do perfil do estudante.", "en": "Points system, real-time all-time and weekly leaderboards, and student profile management." },
+          { "pt": "Painel administrativo com CRUD de cursos, módulos, aulas e etapas, usando formulários validados com Zod e React Hook Form.", "en": "Admin panel with CRUD for courses, modules, lessons and stages, using forms validated with Zod and React Hook Form." },
+          { "pt": "Persistência NoSQL no Cloud Firestore e autenticação de estudantes e administradores com Firebase Auth.", "en": "NoSQL persistence in Cloud Firestore and student/admin authentication with Firebase Auth." }
         ],
         "imageAlt": { "pt": "Interface do projeto Programatical", "en": "Programatical project interface" },
         "mediaHeader": { "pt": "MÍDIA DO PROJETO 01 / ASSET DO CMS", "en": "PROJECT MEDIA 01 / CMS ASSET" },
@@ -379,10 +381,10 @@
         "mediaType": { "pt": "MÍDIA DINÂMICA", "en": "DYNAMIC MEDIA" },
         "specifications": [
           { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "PROJETO PÚBLICO", "en": "PUBLIC PROJECT" } },
-          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVIMENTO FRONT-END", "en": "FRONT-END DEVELOPMENT" } },
-          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PLATAFORMA EDUCACIONAL", "en": "EDUCATION PLATFORM" } },
-          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · TYPESCRIPT · API", "en": "REACT · TYPESCRIPT · API" } },
-          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "APLICAÇÃO WEB RESPONSIVA", "en": "RESPONSIVE WEB APP" } }
+          { "k": { "pt": "CONTEXTO", "en": "CONTEXT" }, "v": { "pt": "PROJETO DE CONCLUSÃO DE CURSO", "en": "CAPSTONE PROJECT" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PLATAFORMA EDUCACIONAL GAMIFICADA", "en": "GAMIFIED EDUCATIONAL PLATFORM" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "NEXT.JS · FIREBASE · TYPESCRIPT", "en": "NEXT.JS · FIREBASE · TYPESCRIPT" } },
+          { "k": { "pt": "ESCOPO", "en": "SCOPE" }, "v": { "pt": "ÁREA DO ALUNO E PAINEL ADMINISTRATIVO", "en": "STUDENT AREA AND ADMIN PANEL" } }
         ]
       },
       "stack": [
@@ -417,72 +419,74 @@
       ]
     },
     {
-      "imageUrl": null,
-      "repoUrl": null,
+      "imageUrl": "/images/v2/united-finance-desktop.png",
+      "repoUrl": "https://github.com/jonathabot/united-personal-finance",
       "title": {
-        "pt": "Stinx Network — features com IA generativa",
-        "en": "Stinx Network — features with generative AI"
+        "pt": "United Finance — assistente financeiro com IA",
+        "en": "United Finance — AI financial assistant"
       },
-      "dateLabel": { "pt": "2025 — presente", "en": "2025 — present" },
+      "dateLabel": { "pt": "2026 · POC 1.0", "en": "2026 · POC 1.0" },
       "desc": {
-        "pt": "Projeto colaborativo entre desenvolvedores (servidor FiveM). Desenvolvimento assistido por Claude Code: prototipação de interfaces, especificações técnicas e planos de implementação com agentes especializados antes da construção do código.",
-        "en": "Collaborative developer project (FiveM server). AI-assisted development with Claude Code: interface prototyping, technical specs and implementation plans built with specialized agents before writing code."
+        "pt": "Assistente conversacional de finanças pessoais com Generative UI (A2UI). A IA interpreta intenções e seleciona ferramentas, enquanto um motor TypeScript 100% determinístico e testável calcula faturas, parcelas, saldos e projeções.",
+        "en": "Conversational personal finance assistant powered by Generative UI (A2UI). LLM intent parsing is paired with a 100% deterministic, testable TypeScript engine for invoices, installments, balances and projections."
       },
       "detail": {
-        "category": { "pt": "PLATAFORMA COLABORATIVA // FIVEM", "en": "COLLABORATIVE PLATFORM // FIVEM" },
-        "challenge": { "pt": "Coordenar uma base full-stack extensa entre diferentes contribuidores, mantendo contratos técnicos claros e entregas incrementais.", "en": "Coordinate a broad full-stack codebase across contributors while keeping technical contracts clear and delivery incremental." },
+        "category": { "pt": "FINTECH CONVERSACIONAL // GENERATIVE UI", "en": "CONVERSATIONAL FINTECH // GENERATIVE UI" },
+        "challenge": { "pt": "Oferecer análises financeiras em linguagem natural sem delegar cálculos monetários ao modelo. A IA deve apenas interpretar a solicitação e escolher ferramentas; valores, parcelas, faturas e projeções precisam permanecer reproduzíveis, validados e auditáveis.", "en": "Provide financial analysis through natural language without delegating monetary calculations to the model. AI only interprets requests and selects tools; amounts, installments, statements and projections remain reproducible, validated and auditable." },
         "outcomes": [
-          { "pt": "Especificações e planos de implementação assistidos por IA.", "en": "AI-assisted specifications and implementation plans." },
-          { "pt": "Interfaces NUI reutilizáveis com React e Tailwind CSS.", "en": "Reusable NUI interfaces with React and Tailwind CSS." },
-          { "pt": "Integração entre serviços .NET, Node.js e o runtime FiveM.", "en": "Integration across .NET, Node.js and the FiveM runtime." }
+          { "pt": "Fluxo conversacional em português para registrar transações, consultar faturas, analisar gastos e simular cenários.", "en": "Portuguese conversational flow for recording transactions, reviewing statements, analyzing spending and simulating scenarios." },
+          { "pt": "Catálogo A2UI fechado e validado para renderizar cards, tabelas e gráficos financeiros a partir dos resultados das ferramentas.", "en": "Closed, validated A2UI catalog that renders financial cards, tables and charts from tool results." },
+          { "pt": "Motor financeiro determinístico com valores em centavos inteiros e cobertura para parcelas, fechamentos, projeções e comparações.", "en": "Deterministic financial engine using integer cents with coverage for installments, statement cycles, projections and comparisons." },
+          { "pt": "Persistência no Supabase com autenticação, Postgres protegido por RLS, histórico auditável e alterações confirmáveis e reversíveis.", "en": "Supabase persistence with authentication, RLS-protected Postgres, auditable history, and confirmable, reversible changes." },
+          { "pt": "POC 1.0 validada com testes unitários, avaliações determinísticas do agente, testes E2E e integração contínua.", "en": "POC 1.0 validated with unit tests, deterministic agent evals, E2E tests and continuous integration." }
         ],
-        "imageAlt": { "pt": "Interface do projeto Stinx Network", "en": "Stinx Network project interface" },
-        "mediaHeader": { "pt": "MÍDIA DO PROJETO 02 / ASSET DO CMS", "en": "PROJECT MEDIA 02 / CMS ASSET" },
-        "mediaPlaceholder": { "pt": "[ SCREENSHOT DO PROJETO / IMAGEM DO CMS ]", "en": "[ PROJECT SCREENSHOT / CMS IMAGE ]" },
-        "figureCaption": { "pt": "FIG.03 — INTERFACE COLABORATIVA", "en": "FIG.03 — COLLABORATIVE INTERFACE" },
-        "mediaType": { "pt": "MÍDIA DINÂMICA", "en": "DYNAMIC MEDIA" },
+        "imageAlt": { "pt": "United Finance exibindo uma projeção financeira em uma conversa", "en": "United Finance displaying a financial projection in a conversation" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 02 / DESKTOP", "en": "PROJECT MEDIA 02 / DESKTOP" },
+        "mediaPlaceholder": { "pt": "[ INTERFACE DO UNITED FINANCE ]", "en": "[ UNITED FINANCE INTERFACE ]" },
+        "figureCaption": { "pt": "FIG.03 — PROJEÇÃO FINANCEIRA GENERATIVA", "en": "FIG.03 — GENERATIVE FINANCIAL PROJECTION" },
+        "mediaType": { "pt": "A2UI / TEMPO REAL", "en": "A2UI / REAL-TIME" },
         "specifications": [
-          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "EM DESENVOLVIMENTO", "en": "IN DEVELOPMENT" } },
-          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVEDOR COLABORADOR", "en": "COLLABORATIVE DEVELOPER" } },
-          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "PLATAFORMA FIVEM", "en": "FIVEM PLATFORM" } },
-          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · .NET · LUA", "en": "REACT · .NET · LUA" } },
-          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "MÓDULOS FULL-STACK", "en": "FULL-STACK MODULES" } }
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "POC 1.0 CONCLUÍDA", "en": "POC 1.0 COMPLETE" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "ASSISTENTE FINANCEIRO CONVERSACIONAL", "en": "CONVERSATIONAL FINANCE ASSISTANT" } },
+          { "k": { "pt": "IA", "en": "AI" }, "v": { "pt": "GROQ · GPT-OSS 20B · AG-UI", "en": "GROQ · GPT-OSS 20B · AG-UI" } },
+          { "k": { "pt": "INTERFACE", "en": "INTERFACE" }, "v": { "pt": "ASSISTANT-UI · A2UI · RECHARTS", "en": "ASSISTANT-UI · A2UI · RECHARTS" } },
+          { "k": { "pt": "GARANTIA", "en": "ASSURANCE" }, "v": { "pt": "MOTOR FINANCEIRO DETERMINÍSTICO", "en": "DETERMINISTIC FINANCIAL ENGINE" } }
         ]
       },
       "stack": [
         {
-          "k": { "pt": "Linguagens", "en": "Languages" },
+          "k": { "pt": "Aplicação", "en": "Application" },
           "v": {
-            "pt": "C# (.NET 10) · Lua 5.4 · TypeScript · JavaScript (Node.js)",
-            "en": "C# (.NET 10) · Lua 5.4 · TypeScript · JavaScript (Node.js)"
+            "pt": "Next.js 16 · React 19 · TypeScript · Zod",
+            "en": "Next.js 16 · React 19 · TypeScript · Zod"
           }
         },
         {
-          "k": { "pt": "Front-end & NUI", "en": "Front-end & NUI" },
+          "k": { "pt": "Agente e protocolo", "en": "Agent & protocol" },
           "v": {
-            "pt": "React 19.2 · Tailwind CSS v4 · Zustand 5 · Vite 8 · i18next · Vitest · Biome",
-            "en": "React 19.2 · Tailwind CSS v4 · Zustand 5 · Vite 8 · i18next · Vitest · Biome"
+            "pt": "Groq SDK · GPT-OSS 20B · AG-UI · assistant-ui",
+            "en": "Groq SDK · GPT-OSS 20B · AG-UI · assistant-ui"
           }
         },
         {
-          "k": { "pt": "Back-end & APIs", "en": "Back-end & APIs" },
+          "k": { "pt": "Generative UI", "en": "Generative UI" },
           "v": {
-            "pt": "ASP.NET Core · .NET Aspire · Dapper · Entity Framework Core · WebSockets",
-            "en": "ASP.NET Core · .NET Aspire · Dapper · Entity Framework Core · WebSockets"
+            "pt": "A2UI · catálogo validado · Recharts · Lucide React",
+            "en": "A2UI · validated catalog · Recharts · Lucide React"
           }
         },
         {
-          "k": { "pt": "Banco de dados & Mensageria", "en": "Database & Messaging" },
+          "k": { "pt": "Dados e segurança", "en": "Data & security" },
           "v": {
-            "pt": "PostgreSQL · Apache Kafka",
-            "en": "PostgreSQL · Apache Kafka"
+            "pt": "Supabase · PostgreSQL · autenticação SSR · RLS",
+            "en": "Supabase · PostgreSQL · SSR authentication · RLS"
           }
         },
         {
-          "k": { "pt": "DevOps & Testes", "en": "DevOps & Testing" },
+          "k": { "pt": "Qualidade", "en": "Quality" },
           "v": {
-            "pt": "Podman/Docker · Testcontainers · Git/GitHub · CodeWalker",
-            "en": "Podman/Docker · Testcontainers · Git/GitHub · CodeWalker"
+            "pt": "Vitest · Agent Evals · Playwright · GitHub Actions",
+            "en": "Vitest · Agent Evals · Playwright · GitHub Actions"
           }
         }
       ]
@@ -532,33 +536,37 @@
     },
     {
       "imageUrl": null,
-      "repoUrl": null,
-      "title": { "pt": "Soluções corporativas web e dados", "en": "Enterprise web & data solutions" },
-      "dateLabel": { "pt": "2024 — PRESENTE", "en": "2024 — PRESENT" },
-      "desc": { "pt": "Visão pública de trabalhos corporativos confidenciais em aplicações web, cloud, integrações e analytics.", "en": "Public-safe overview of confidential corporate work across web apps, cloud, integrations and analytics." },
+      "repoUrl": "https://github.com/jonathabot/idozer",
+      "title": { "pt": "Idozer — lembretes de medicamentos", "en": "Idozer — medication reminders" },
+      "dateLabel": { "pt": "2023 · PROJETO ACADÊMICO", "en": "2023 · ACADEMIC PROJECT" },
+      "desc": { "pt": "Aplicativo mobile acessível criado para ajudar pessoas idosas a organizar medicamentos e receber lembretes automáticos de cada dose.", "en": "Accessible mobile application designed to help seniors organize medications and receive automated reminders for each dose." },
       "detail": {
-        "category": { "pt": "SOLUÇÕES CORPORATIVAS // CONFIDENCIAL", "en": "ENTERPRISE SOLUTIONS // CONFIDENTIAL" },
-        "challenge": { "pt": "Entregar soluções para clientes corporativos preservando confidencialidade, confiabilidade e integração entre diferentes plataformas.", "en": "Deliver solutions for enterprise clients while preserving confidentiality, reliability and integration across platforms." },
+        "category": { "pt": "APLICATIVO MOBILE // SAÚDE E ACESSIBILIDADE", "en": "MOBILE APPLICATION // HEALTH & ACCESSIBILITY" },
+        "challenge": { "pt": "Criar uma experiência prática, intuitiva e acessível que ajude pessoas idosas a gerenciar seus medicamentos e horários com mais autonomia.", "en": "Create a practical, intuitive and accessible experience that helps elderly users manage medications and schedules with greater independence." },
         "outcomes": [
-          { "pt": "Aplicações web responsivas e componentes reutilizáveis.", "en": "Responsive web applications and reusable components." },
-          { "pt": "Automações e integrações com Google Cloud e Workspace.", "en": "Automation and integrations with Google Cloud and Workspace." },
-          { "pt": "Pipelines de dados, dashboards e processos de CI/CD.", "en": "Data pipelines, dashboards and CI/CD workflows." }
+          { "pt": "Fluxo inicial com opções de login e cadastro de usuário.", "en": "Onboarding flow with user login and registration options." },
+          { "pt": "Tela principal para visualizar e gerenciar os lembretes de medicamentos.", "en": "Home screen for viewing and managing medication reminders." },
+          { "pt": "Cadastro de novos lembretes com seleção de data e horário.", "en": "Creation of new reminders with date and time selection." },
+          { "pt": "Aplicativo multiplataforma estruturado com Expo e React Native.", "en": "Cross-platform application structured with Expo and React Native." }
         ],
-        "imageAlt": { "pt": "Representação de soluções corporativas", "en": "Enterprise solutions representation" },
-        "mediaHeader": { "pt": "MÍDIA DO PROJETO 04 / CONTEÚDO CONFIDENCIAL", "en": "PROJECT MEDIA 04 / CONFIDENTIAL CONTENT" },
-        "mediaPlaceholder": { "pt": "[ MÍDIA PROTEGIDA / PROJETO CONFIDENCIAL ]", "en": "[ PROTECTED MEDIA / CONFIDENTIAL PROJECT ]" },
-        "figureCaption": { "pt": "FIG.05 — SOLUÇÕES CORPORATIVAS", "en": "FIG.05 — ENTERPRISE SOLUTIONS" },
-        "mediaType": { "pt": "VISÃO PÚBLICA", "en": "PUBLIC-SAFE VIEW" },
+        "imageAlt": { "pt": "Telas do aplicativo Idozer", "en": "Idozer application screens" },
+        "mediaHeader": { "pt": "MÍDIA DO PROJETO 04 / APLICATIVO MOBILE", "en": "PROJECT MEDIA 04 / MOBILE APPLICATION" },
+        "mediaPlaceholder": { "pt": "[ TELAS DO APLICATIVO IDOZER ]", "en": "[ IDOZER APPLICATION SCREENS ]" },
+        "figureCaption": { "pt": "FIG.05 — EXPERIÊNCIA MOBILE", "en": "FIG.05 — MOBILE EXPERIENCE" },
+        "mediaType": { "pt": "REACT NATIVE / EXPO", "en": "REACT NATIVE / EXPO" },
         "specifications": [
-          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "CONFIDENCIAL", "en": "CONFIDENTIAL" } },
-          { "k": { "pt": "FUNÇÃO", "en": "ROLE" }, "v": { "pt": "DESENVOLVEDOR DE SOFTWARE", "en": "SOFTWARE DEVELOPER" } },
-          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "SOLUÇÕES CORPORATIVAS", "en": "ENTERPRISE SOLUTIONS" } },
-          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT · NEXT.JS · GCP · DADOS", "en": "REACT · NEXT.JS · GCP · DATA" } },
-          { "k": { "pt": "ENTREGA", "en": "DELIVERY" }, "v": { "pt": "APLICAÇÕES E AUTOMAÇÕES", "en": "APPLICATIONS & AUTOMATION" } }
+          { "k": { "pt": "STATUS", "en": "STATUS" }, "v": { "pt": "PROJETO PÚBLICO", "en": "PUBLIC PROJECT" } },
+          { "k": { "pt": "CONTEXTO", "en": "CONTEXT" }, "v": { "pt": "AVALIAÇÃO FINAL — DDMI6", "en": "FINAL ASSESSMENT — DDMI6" } },
+          { "k": { "pt": "TIPO", "en": "TYPE" }, "v": { "pt": "LEMBRETE DE MEDICAMENTOS", "en": "MEDICATION REMINDER" } },
+          { "k": { "pt": "STACK", "en": "STACK" }, "v": { "pt": "REACT NATIVE · EXPO · FIREBASE", "en": "REACT NATIVE · EXPO · FIREBASE" } },
+          { "k": { "pt": "PÚBLICO", "en": "AUDIENCE" }, "v": { "pt": "PESSOAS IDOSAS", "en": "SENIOR USERS" } }
         ]
       },
       "stack": [
-        { "k": { "pt": "Escopo", "en": "Scope" }, "v": { "pt": "React · Next.js · Google Cloud · Integrações de dados", "en": "React · Next.js · Google Cloud · Data integrations" } }
+        { "k": { "pt": "Core mobile", "en": "Mobile core" }, "v": { "pt": "React Native 0.72 · Expo 49 · React 18", "en": "React Native 0.72 · Expo 49 · React 18" } },
+        { "k": { "pt": "Linguagens", "en": "Languages" }, "v": { "pt": "TypeScript · JavaScript", "en": "TypeScript · JavaScript" } },
+        { "k": { "pt": "Interface", "en": "Interface" }, "v": { "pt": "React Native Paper · React Native Elements · React Navigation", "en": "React Native Paper · React Native Elements · React Navigation" } },
+        { "k": { "pt": "Dados e recursos", "en": "Data & features" }, "v": { "pt": "Firebase · Async Storage · DateTimePicker · notificações", "en": "Firebase · Async Storage · DateTimePicker · notifications" } }
       ]
     }
   ],
