@@ -162,7 +162,7 @@ export function Header({
   const reduceMotion = useReducedMotion();
 
   return (
-    <header className="border-ink bg-bg relative z-50 border-b-2 lg:sticky lg:top-0">
+    <header className="border-ink sticky top-0 z-50 lg:bg-bg lg:border-b-2">
       <div className="relative mx-auto hidden h-[130px] max-w-[1920px] lg:block">
         <div className="absolute top-[18px] left-7 flex gap-4">
           <MotionLink
@@ -231,19 +231,12 @@ export function Header({
           V1
         </span>
       </div>
-      <div className="grid h-[74px] grid-cols-[1fr_auto] items-center px-5 lg:hidden">
-        <Link
-          href="/"
-          aria-label="Voltar para a página inicial"
-          className="cursor-pointer justify-self-start"
-        >
-          <Crown className="h-10 w-10 object-contain" />
-        </Link>
+      <div className="h-0 lg:hidden">
         <button
           aria-label="Menu"
           aria-expanded={open}
           onClick={() => setOpen(!open)}
-          className="border-ink relative h-10 w-12 cursor-pointer justify-self-end border-2 text-2xl"
+          className="border-ink bg-bg fixed top-4 right-5 z-[51] h-10 w-12 cursor-pointer border-2 text-2xl"
         >
           {open ? '×' : '☰'}
           <i className="bg-yellow absolute top-0 right-0 h-2.5 w-3" />
@@ -252,7 +245,7 @@ export function Header({
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-x-0 top-[74px] bottom-0 z-50 bg-[#1a1a1a]/45 lg:hidden"
+            className="fixed inset-0 z-50 bg-[#1a1a1a]/45 lg:hidden"
             onClick={() => setOpen(false)}
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -260,7 +253,7 @@ export function Header({
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
             <motion.nav
-              className="border-ink bg-paper mr-5 ml-auto flex h-auto max-h-full w-[calc(100%_-_40px)] max-w-[460px] flex-col overflow-y-auto border-2 border-t-0 shadow-[7px_7px_0_var(--ink)] md:w-[46vw]"
+              className="border-ink bg-paper mt-[68px] mr-5 ml-auto flex h-auto max-h-[calc(100%_-_84px)] w-[calc(100%_-_40px)] max-w-[460px] flex-col overflow-y-auto border-2 shadow-[7px_7px_0_var(--ink)] md:w-[46vw]"
               onClick={(event) => event.stopPropagation()}
               initial={reduceMotion ? false : { x: 36, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -359,7 +352,7 @@ function SectionTitle({
 function Portrait() {
   return (
     <div className="border-ink bg-paper relative mx-auto h-[330px] w-[260px] border-[2.5px] shadow-[8px_8px_0_var(--ink)] md:h-[350px] md:w-[294px] lg:h-[374px] lg:w-[280px]">
-      <CrownDoodle className="pointer-events-none absolute top-0 left-1/2 z-10 h-[74px] w-[100px] -translate-x-1/2 object-contain" />
+      <CrownDoodle className="pointer-events-none absolute -top-[52px] left-1/2 z-10 h-[74px] w-[100px] -translate-x-1/2 object-contain" />
       <div className="h-[300px] overflow-hidden md:h-[320px] lg:h-[344px]">
         <Character />
       </div>
@@ -375,10 +368,16 @@ function PortraitStation() {
 
   return (
     <div className="flex flex-col items-center">
-      <Portrait />
+      <Link
+        href="/character"
+        aria-label="Open Jonatha Botelho character study"
+        className="block cursor-pointer"
+      >
+        <Portrait />
+      </Link>
       <MotionLink
         href="/contact"
-        className="v2-shadow border-ink text-paper font-display mt-9 hidden border-2 bg-[#2a1c12] px-10 py-4 text-xl tracking-wide lg:block"
+        className="v2-shadow border-ink text-paper font-display mt-9 hidden border-2 bg-[#2a1c12] px-10 py-4 text-xl tracking-wide xl:block"
         initial="rest"
         animate="rest"
         whileHover={reducedMotion ? undefined : 'hover'}
@@ -401,7 +400,7 @@ function PortraitStation() {
           INITIALIZE CONTACT ↗
         </motion.span>
       </MotionLink>
-      <span className="text-faint mt-4 hidden text-[8px] tracking-[.18em] lg:block">
+      <span className="text-faint mt-4 hidden text-[8px] tracking-[.18em] xl:block">
         <b className="text-[#4caf50]">●</b> CURRENTLY AVAILABLE FOR WORK
       </span>
     </div>
@@ -417,7 +416,7 @@ function ResponsiveStack() {
     ['WORKFLOW', 'Git · GitHub · CI/CD'],
   ];
   return (
-    <div className="border-ink flex w-full flex-col border-y-2 py-5 md:h-full md:border-t-0 md:py-0 lg:hidden">
+    <div className="border-ink flex w-full flex-col border-y-2 py-5 md:h-full md:border-t-0 md:py-0 xl:hidden">
       <h2 className="font-display mb-4 text-[28px] leading-none md:mb-0 md:flex md:min-h-[58px] md:items-center">
         SELECTED STACK_
       </h2>
@@ -442,7 +441,7 @@ function ResponsiveWorks({
   descriptions: string[];
 }) {
   return (
-    <section className="border-ink mt-6 border-t-2 py-6 lg:hidden">
+    <section className="border-ink mt-6 border-t-2 py-6 xl:hidden">
       <h2 className="font-display mb-4 text-[28px] leading-[.9] md:text-[30px]">
         EXHIBITED ENGINEERING WORKS
       </h2>
@@ -478,6 +477,8 @@ function ProjectCard({
       <Image
         src={projectIcons[index % projectIcons.length]}
         alt=""
+        width={80}
+        height={40}
         className="h-8 w-14 object-contain object-left md:h-10 md:w-20"
       />
       <div className="flex min-h-0 flex-1 flex-col justify-between py-2 md:py-4">
@@ -509,7 +510,8 @@ export function SketchNotes() {
   return (
     <p
       aria-hidden
-      className="text-faint fixed bottom-24 left-7 hidden w-40 -rotate-3 text-[13px] leading-[2] whitespace-pre lg:block"
+      data-testid="overview-sketch-notes"
+      className="text-faint pointer-events-none absolute bottom-10 left-7 hidden w-40 -rotate-3 text-[13px] leading-[2] whitespace-pre xl:block"
     >
       {'→ observe\n\n  build →\n\n↳ iterate'}
     </p>
@@ -617,7 +619,7 @@ export function PortfolioV2({
   }, [screen]);
 
   return (
-    <main className="min-h-dvh pb-[84px] md:pb-[94px] lg:h-dvh lg:overflow-hidden lg:pb-[54px]">
+    <main className="min-h-dvh pb-[84px] md:pb-[94px] lg:pb-[54px] xl:h-dvh xl:overflow-hidden">
       <Header links={site.hero.links} active={screen} />
       <motion.div
         key={screen}
@@ -630,12 +632,21 @@ export function PortfolioV2({
         {screen === 'overview' && (
           <section
             id="overview"
-            className="v2-screen v2-overview-screen border-ink grid border-b-2 lg:grid-cols-[200px_1fr_480px]"
+            className="v2-screen v2-overview-screen border-ink relative grid border-b-2 xl:grid-cols-[minmax(0,1fr)_480px]"
           >
-            <aside className="border-ink hidden border-r-2 lg:block" />
-            <div className="px-5 py-0 md:px-8 lg:flex lg:items-center lg:justify-center lg:gap-14 lg:px-5 lg:py-0">
-              <div className="border-ink relative mb-8 flex min-h-[220px] flex-col justify-evenly border-b-2 py-4 md:h-[168px] md:min-h-0 md:py-3 lg:hidden">
-                <p className="text-faint text-[10px]">[01] // OVERVIEW</p>
+            <SketchNotes />
+            <div className="relative z-10 px-5 py-0 md:px-8 xl:flex xl:items-center xl:justify-center xl:gap-14 xl:px-5 xl:py-0">
+              <div className="border-ink relative mb-8 flex min-h-[220px] flex-col justify-evenly border-b-2 py-4 md:h-[168px] md:min-h-0 md:py-3 xl:hidden">
+                <div className="flex items-center gap-3">
+                  <Link
+                    href="/"
+                    aria-label="Voltar para a página inicial"
+                    className="h-10 w-10 shrink-0"
+                  >
+                    <Crown className="h-10 w-10 object-contain" />
+                  </Link>
+                  <p className="text-faint text-[10px]">[01] // OVERVIEW</p>
+                </div>
                 <h1 className="font-display my-2 text-[clamp(52px,10vw,82px)] leading-[.86]">
                   JONATHA BOTELHO
                 </h1>
@@ -648,8 +659,8 @@ export function PortfolioV2({
                 <span>● github.com/jonathabot</span>
                 <span>in /jonathabotelho</span>
               </div>
-              <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:items-stretch lg:contents">
-                <div className="hidden flex-col text-[12px] leading-7 lg:flex">
+              <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:items-stretch xl:contents">
+                <div className="hidden flex-col text-[12px] leading-7 xl:flex">
                   <b>FRONT-END:</b>
                   <hr className="border-ink" />
                   [React.js]
@@ -668,10 +679,10 @@ export function PortfolioV2({
                   <ArrowRight className="mt-5 translate-x-10 self-end" />
                 </div>
                 <PortraitStation />
-                <div className="w-full md:min-w-0 md:flex-1 lg:hidden">
+                <div className="hidden w-full md:block md:min-w-0 md:flex-1 xl:hidden">
                   <ResponsiveStack />
                 </div>
-                <div className="hidden text-[12px] leading-7 lg:block">
+                <div className="hidden text-[12px] leading-7 xl:block">
                   <div className="flex flex-col">
                     <b>CLOUD & DEVOPS:</b>
                     <hr className="border-ink my-0 w-full" />
@@ -700,7 +711,7 @@ export function PortfolioV2({
                 titles={projectTitles}
                 descriptions={projectDescriptions}
               />
-              <div className="border-ink flex flex-col gap-3 border-t-2 py-6 lg:hidden">
+              <div className="border-ink flex flex-col gap-3 border-t-2 py-6 xl:hidden">
                 <span className="text-faint text-[8px] tracking-[.14em]">
                   AVAILABLE FOR SELECT PROJECTS
                 </span>
@@ -712,7 +723,7 @@ export function PortfolioV2({
                 </Link>
               </div>
             </div>
-            <aside className="border-ink bg-panel hidden min-h-0 overflow-hidden border-l-2 lg:flex lg:flex-col">
+            <aside className="border-ink bg-panel hidden min-h-0 overflow-hidden border-l-2 xl:flex xl:flex-col">
               <h2 className="font-display bg-ink text-paper shrink-0 py-5 text-center text-lg tracking-wide">
                 EXHIBITED ENGINEERING WORKS
               </h2>
@@ -790,7 +801,6 @@ export function PortfolioV2({
             </div>
           </section>
         )}
-        <SketchNotes />
         {screen === 'stack' && (
           <section
             id="stack"

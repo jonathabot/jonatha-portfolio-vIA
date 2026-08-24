@@ -11,5 +11,5 @@ const JonathaCharacter3D = dynamic(
 );
 
 export function CharacterViewer() {
-  return <JonathaCharacter3D view="full" />;
+  return <JonathaCharacter3D view="portrait" />;
 }

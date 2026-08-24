@@ -85,14 +85,14 @@ html {
   scroll-margin-top: 130px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .v2-overview-screen {
     height: calc(100dvh - 184px);
     min-height: 0;
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .v2-screen {
     min-height: auto;
     scroll-margin-top: 74px;

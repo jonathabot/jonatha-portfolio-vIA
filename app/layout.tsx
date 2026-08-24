@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Anton, DM_Sans, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const mono = JetBrains_Mono({
@@ -45,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
       </head>
       <body
         className={`${mono.variable} ${display.variable} ${body.variable} bg-bg text-ink`}
