@@ -102,6 +102,7 @@ const v2Schema = z.object({
     metaDescription: locStr,
     breadcrumb: locStr,
     title: locStr,
+    subtitle: locStr,
     figure: locStr,
     formatLabel: locStr,
     specificationTitle: locStr,

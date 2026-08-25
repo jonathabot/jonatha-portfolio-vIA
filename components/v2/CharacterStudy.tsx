@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { CharacterViewer } from '@/components/three/CharacterViewer';
-import { Header } from './PortfolioV2';
+import { Header, SectionTitle } from './PortfolioV2';
 import type { Messages, SiteContent } from '@/lib/cms/transform';
 
 export function CharacterStudy({ site }: { site: SiteContent }) {
@@ -13,16 +13,18 @@ export function CharacterStudy({ site }: { site: SiteContent }) {
     <main className="min-h-screen pb-16">
       <Header links={site.hero.links} />
       <section className="mx-auto grid max-w-[1200px] gap-8 px-5 py-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:px-0">
-        <div
-          data-testid="character-heading"
-          className="border-ink border-b-2 pb-5 lg:col-span-2"
-        >
-          <Link href="/" className="text-[9px] font-bold underline">
-            {v2.characterStudy.breadcrumb}
-          </Link>
-          <h1 className="font-display mt-5 mb-0 text-[clamp(48px,6vw,82px)] leading-none">
-            {v2.characterStudy.title}
-          </h1>
+        <div data-testid="character-heading" className="lg:col-span-2">
+          <SectionTitle
+            index="07"
+            title={v2.characterStudy.title}
+            subtitle={v2.characterStudy.subtitle}
+            level={1}
+            eyebrow={
+              <Link href="/" className="font-bold underline">
+                {v2.characterStudy.breadcrumb}
+              </Link>
+            }
+          />
         </div>
         <div data-testid="character-viewer-column">
           <div className="v2-shadow border-ink bg-paper relative mx-auto h-[620px] max-w-[740px] overflow-hidden border-2 max-sm:h-[520px]">

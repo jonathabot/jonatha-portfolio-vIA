@@ -47,17 +47,17 @@
       "figureCaption": { "pt": "FIG.01 — J.BOTELHO // SP, BR", "en": "FIG.01 — J.BOTELHO // SP, BR" },
       "annotations": { "pt": "→ observar\n\n  construir →\n\n↳ iterar", "en": "→ observe\n\n  build →\n\n↳ iterate" },
       "frontEndTitle": { "pt": "FRONT-END:", "en": "FRONT-END:" },
-      "frontEndItems": ["React.js", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
+      "frontEndItems": ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Ant Design", "shadcn/ui", "Framer Motion"],
       "cloudTitle": { "pt": "CLOUD E DEVOPS:", "en": "CLOUD & DEVOPS:" },
       "cloudItems": ["Google Cloud Platform", "Cloud Run", "Cloud Storage", "GitHub Actions", "CI/CD"],
       "dataTitle": { "pt": "DADOS E APIS:", "en": "DATA & APIS:" },
       "dataItems": ["REST APIs", "Firebase", "SQL", "BigQuery"],
       "responsiveStack": [
         { "label": { "pt": "FRONT-END", "en": "FRONT-END" }, "value": "React · Next.js · TypeScript" },
-        { "label": { "pt": "INTERFACE", "en": "INTERFACE" }, "value": "Tailwind · shadcn/ui · Motion" },
+        { "label": { "pt": "INTERFACE", "en": "INTERFACE" }, "value": "Tailwind · Ant Design · shadcn/ui · Motion" },
         { "label": { "pt": "CLOUD / GCP", "en": "CLOUD / GCP" }, "value": "Cloud Run · Actions" },
         { "label": { "pt": "DADOS", "en": "DATA" }, "value": "REST APIs · SQL · BigQuery" },
-        { "label": { "pt": "FLUXO", "en": "WORKFLOW" }, "value": "Git · GitHub · CI/CD" }
+        { "label": { "pt": "FLUXO", "en": "WORKFLOW" }, "value": "Git · GitHub · CI/CD · Vitest" }
       ]
     },
     "sections": {
@@ -84,6 +84,7 @@
       "metaDescription": { "pt": "Estudo interativo do personagem 3D de Jonatha Botelho.", "en": "Interactive study of Jonatha Botelho's 3D character." },
       "breadcrumb": { "pt": "← [01] VISÃO GERAL / ESTUDO DO PERSONAGEM", "en": "← [01] OVERVIEW / CHARACTER STUDY" },
       "title": { "pt": "ESTUDO DO PERSONAGEM", "en": "CHARACTER STUDY" },
+      "subtitle": { "pt": "GÊMEO DIGITAL // ESTUDO INTERATIVO EM WEBGL", "en": "DIGITAL TWIN // INTERACTIVE WEBGL STUDY" },
       "figure": { "pt": "FIG.07 — J.BOTELHO // GÊMEO DIGITAL", "en": "FIG.07 — J.BOTELHO // DIGITAL TWIN" },
       "formatLabel": { "pt": "GLB / TEMPO REAL", "en": "GLB / REAL-TIME" },
       "specificationTitle": { "pt": "ESPECIFICAÇÃO DO PERSONAGEM DIGITAL", "en": "DIGITAL CHARACTER SPECIFICATION" },
@@ -125,7 +126,7 @@
     },
     "footer": {
       "pt": "© 2026 Jonatha Botelho. Todos os direitos reservados.",
-      "en": "© 2026 Jonatha Mathews. All rights reserved."
+      "en": "© 2026 Jonatha Botelho. All rights reserved."
     }
   },
   "flags": { "showEducation": true, "showPhoto": true },
@@ -149,12 +150,12 @@
   "hero": {
     "hello": { "pt": "olá, meu nome é", "en": "hello, my name is" },
     "role": {
-      "pt": "Desenvolvedor Google Cloud & Google Workspace | Analista de Dados",
+      "pt": "Desenvolvedor de Software | React | Next.js | TypeScript",
       "en": "Software Developer | React | Next.js | TypeScript"
     },
     "summary": {
-      "pt": "Mais de 3 anos de experiência no desenvolvimento de soluções com Google Cloud e [[Google Workspace]]. Automação de processos com [[Apps Script]], desenvolvimento de aplicativos com AppSheet, dashboards com Looker Studio + BigQuery e serviços em Cloud Run. No front-end: [[React]], Next.js, TypeScript e Tailwind CSS. Fluxos de desenvolvimento assistidos por IA generativa aplicados em projetos profissionais.",
-      "en": "Software Developer with over 3 years of professional experience building web applications, specializing in [[front-end development]] with [[React]], Next.js, TypeScript and JavaScript. Experienced in responsive interfaces, reusable components, [[REST API integrations]] and enterprise systems. Contributed to projects for five large corporate clients and an industrial ERP focused on process digitization and factory productivity. Additional experience with Google Cloud Platform, GitHub Actions, CI/CD, SQL, BigQuery and Firebase in remote teams and agile environments."
+      "pt": "Desenvolvedor de Software com mais de 3 anos de experiência em aplicações web, integrações, automação e dados. Formado em Sistemas para Internet pelo IFSP e pós-graduando em Engenharia de Software pela PUC Minas. Experiência sólida com [[React]], Next.js, TypeScript e JavaScript, criando interfaces responsivas, componentes reutilizáveis, [[integrações com APIs REST]] e sistemas corporativos. Também atua com Google Cloud Platform, GitHub Actions, CI/CD, Vitest, SQL, BigQuery, Firebase, AppSheet e Looker Studio em equipes remotas e ambientes ágeis.",
+      "en": "Software Developer with over 3 years of experience in web applications, integrations, automation and data. Internet Systems graduate from IFSP and postgraduate Software Engineering student at PUC Minas. Strong experience with [[React]], Next.js, TypeScript and JavaScript, building responsive interfaces, reusable components, [[REST API integrations]] and enterprise systems. Also works with Google Cloud Platform, GitHub Actions, CI/CD, Vitest, SQL, BigQuery, Firebase, AppSheet and Looker Studio in remote teams and agile environments."
     },
     "cta": { "pt": "Entre em contato", "en": "Get in touch" },
     "techs": [
@@ -164,7 +165,8 @@
       "Looker Studio",
       "Cloud Run",
       "React",
-      "TypeScript"
+      "TypeScript",
+      "Vitest"
     ],
     "links": {
       "email": "jonathabotelho1@gmail.com",
@@ -193,36 +195,36 @@
     {
       "name": { "pt": "Front-end", "en": "Front-end" },
       "items": {
-        "pt": "JavaScript · TypeScript · Node.js · React · Next.js · Tailwind CSS · Ant Design",
+        "pt": "React · Next.js · TypeScript · JavaScript · HTML · CSS · Tailwind CSS · Ant Design · shadcn/ui · Framer Motion · Design Responsivo",
         "en": "React · Next.js · TypeScript · JavaScript · HTML · CSS · Tailwind CSS · Ant Design · shadcn/ui · Framer Motion · Responsive Design"
       }
     },
     {
       "name": { "pt": "Cloud", "en": "Cloud" },
       "items": {
-        "pt": "Google Cloud Platform · BigQuery · Cloud Run · Cloud Storage · App Engine",
-        "en": "Google Cloud Platform · Cloud Run · Cloud Storage · GitHub Actions · CI/CD · Docker"
+        "pt": "Google Cloud Platform · Cloud Run · Cloud Storage · GitHub Actions · CI/CD",
+        "en": "Google Cloud Platform · Cloud Run · Cloud Storage · GitHub Actions · CI/CD"
       }
     },
     {
       "name": { "pt": "Dados & Analytics", "en": "Data & Analytics" },
       "items": {
-        "pt": "SQL · BigQuery (Data Transfer Service) · Looker Studio · Google Sheets",
-        "en": "REST APIs · JSON · Firebase · SQL · BigQuery · Looker Studio · Google Sheets"
+        "pt": "APIs REST · JSON · Firebase · SQL · BigQuery · Looker Studio",
+        "en": "REST APIs · JSON · Firebase · SQL · BigQuery · Looker Studio"
       }
     },
     {
       "name": { "pt": "Automação & IA", "en": "Automation & AI" },
       "items": {
-        "pt": "Apps Script · AppSheet · Claude Code · APIs REST · Webhooks · OAuth 2.0",
-        "en": "Google Apps Script · AppSheet · Claude Code · Webhooks · OAuth 2.0"
+        "pt": "Google Apps Script · AppSheet · Looker Studio",
+        "en": "Google Apps Script · AppSheet · Looker Studio"
       }
     },
     {
       "name": { "pt": "Ferramentas", "en": "Dev tools" },
       "items": {
-        "pt": "Git · GitHub · CLI · Docker",
-        "en": "Git · GitHub · CLI · Trello · ClickUp · Agile Methodologies"
+        "pt": "Node.js · Vitest · testes automatizados · Git · GitHub · Trello · ClickUp · metodologias ágeis",
+        "en": "Node.js · Vitest · automated testing · Git · GitHub · Trello · ClickUp · agile methodologies"
       }
     }
   ],
@@ -234,9 +236,9 @@
       "periodLabel": { "pt": "AGO 2024 — PRESENTE", "en": "AUG 2024 — PRESENT" },
       "employmentType": { "pt": "TEMPO INTEGRAL", "en": "FULL-TIME" },
       "location": { "pt": "São Paulo, BR", "en": "São Paulo, BR" },
-      "context": { "pt": "SOLUÇÕES CORPORATIVAS / CLIENTES CONFIDENCIAIS", "en": "ENTERPRISE SOLUTIONS / GENTROP" },
+      "context": { "pt": "GENTROP / SOLUÇÕES CORPORATIVAS", "en": "GENTROP / ENTERPRISE SOLUTIONS" },
       "role": {
-        "pt": "Desenvolvedor Google Workspace",
+        "pt": "Desenvolvedor de Software",
         "en": "Software Developer"
       },
       "techs": ["Apps Script", "AppSheet", "BigQuery", "Cloud Run", "Looker Studio", "GCP"],
@@ -244,8 +246,8 @@
         {
           "head": { "pt": "Soluções corporativas:", "en": "Corporate solutions:" },
           "text": {
-            "pt": "desenvolvimento de aplicações web, automações, integrações e soluções de dados para grandes clientes corporativos, utilizando React, Next.js, Google Cloud Platform, AppSheet e ferramentas do ecossistema Google.",
-            "en": "development of web applications, automations, integrations and data solutions for large corporate clients, utilizing React, Next.js, Google Cloud Platform, AppSheet and Google ecosystem tools."
+            "pt": "atuação em projetos para cinco grandes clientes corporativos, envolvendo desenvolvimento web, dados, integrações e automação, sem expor informações confidenciais.",
+            "en": "work across projects for five large corporate clients involving web development, data, integrations and automation, without exposing confidential information."
           }
         },
         {
@@ -256,10 +258,10 @@
           }
         },
         {
-          "head": { "pt": "AppSheet:", "en": "AppSheet:" },
+          "head": { "pt": "Cloud, dados e automação:", "en": "Cloud, data and automation:" },
           "text": {
-            "pt": "desenvolvimento de aplicações corporativas e soluções no-code/low-code, incluindo design de interfaces, regras de negócio, automações e integração com diversas fontes de dados.",
-            "en": "development of corporate applications and no-code/low-code solutions, including interface design, business logic, automations and integration with various data sources."
+            "pt": "desenvolvimento de aplicações em AppSheet e Apps Script, dashboards no Looker Studio, dados no BigQuery e automações no Cloud Run, incluindo integrações com APIs REST e serviços de IA para geração de conteúdo.",
+            "en": "development of AppSheet and Apps Script applications, Looker Studio dashboards, BigQuery data workflows and Cloud Run automations, including REST API and AI-service integrations for content generation."
           }
         },
         {
@@ -306,10 +308,10 @@
       "periodLabel": { "pt": "MAR 2023 — AGO 2024", "en": "MAR 2023 — AUG 2024" },
       "employmentType": { "pt": "TEMPO INTEGRAL", "en": "FULL-TIME" },
       "location": { "pt": "São Paulo, BR", "en": "São Paulo, BR" },
-      "context": { "pt": "ERP INDUSTRIAL / EMPREGADOR CONFIDENCIAL", "en": "INDUSTRIAL ERP / MUNDO MÓVEIS" },
+      "context": { "pt": "MUNDO MÓVEIS / ERP INDUSTRIAL", "en": "MUNDO MÓVEIS / INDUSTRIAL ERP" },
       "role": {
-        "pt": "Analista de Sistemas (Front-end)",
-        "en": "Systems Analyst (Front-end)"
+        "pt": "Desenvolvedor de Software — Front-end",
+        "en": "Software Developer — Front-end"
       },
       "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Looker Studio", "AppSheet", "SQL"],
       "bullets": [
@@ -328,10 +330,10 @@
           }
         },
         {
-          "head": { "pt": "Interfaces reutilizáveis:", "en": "Reusable interfaces:" },
+          "head": { "pt": "Interfaces, automação e dados:", "en": "Interfaces, automation and data:" },
           "text": {
-            "pt": "componentes com React, Next.js, Tailwind CSS, Ant Design, shadcn/ui e Framer Motion para múltiplos módulos do ERP.",
-            "en": "built components with React, Next.js, Tailwind CSS, Ant Design, shadcn/ui and Framer Motion for multiple ERP modules."
+            "pt": "componentes reutilizáveis com React, Next.js, Tailwind CSS, Ant Design, shadcn/ui e Framer Motion, além de aplicativos em AppSheet e dashboards comerciais e industriais no Looker Studio.",
+            "en": "reusable components with React, Next.js, Tailwind CSS, Ant Design, shadcn/ui and Framer Motion, plus AppSheet applications and commercial and industrial Looker Studio dashboards."
           }
         },
         {
@@ -619,6 +621,12 @@
       "issuer": { "pt": "EF SET", "en": "EF SET" },
       "year": "2025",
       "details": { "pt": "NÍVEL: C1 AVANÇADO", "en": "LEVEL: C1 ADVANCED" }
+    },
+    {
+      "title": { "pt": "Docker", "en": "Docker" },
+      "issuer": { "pt": "Full Cycle", "en": "Full Cycle" },
+      "year": "2024",
+      "details": { "pt": "CURSO: CONTAINERS E DOCKER", "en": "COURSE: CONTAINERS AND DOCKER" }
     },
     {
       "title": { "pt": "React Completo", "en": "Complete React" },

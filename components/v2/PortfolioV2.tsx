@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useUIStore } from '@/store/ui-store';
@@ -339,21 +339,28 @@ export function Header({
   );
 }
 
-function SectionTitle({
+export function SectionTitle({
   index,
   title,
   subtitle,
+  eyebrow,
+  level = 2,
 }: {
   index: string;
   title: string;
   subtitle: string;
+  eyebrow?: ReactNode;
+  level?: 1 | 2;
 }) {
+  const Heading = level === 1 ? 'h1' : 'h2';
   return (
     <div className="border-ink border-b-[3px] pb-5">
-      <p className="text-faint m-0 text-[10px]">[{index}] —————————————</p>
-      <h2 className="font-display my-2 max-w-[300px] text-[clamp(42px,4vw,48px)] leading-none tracking-[.02em] md:max-w-none">
+      <div className="text-faint m-0 text-[10px]">
+        {eyebrow ?? `[${index}] —————————————`}
+      </div>
+      <Heading className="font-display my-2 max-w-[300px] text-[clamp(42px,4vw,48px)] leading-none tracking-[.02em] md:max-w-none">
         {title}
-      </h2>
+      </Heading>
       <p className="text-faint m-0 text-[10px] tracking-[.12em]">{subtitle}</p>
     </div>
   );
@@ -821,7 +828,7 @@ export function PortfolioV2({
               subtitle={v2.sections.stack.subtitle}
             />
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:mt-8 lg:gap-5">
-              {tools.slice(0, 4).map((name, i) => (
+              {tools.map((name, i) => (
                 <SkillCard
                   key={name}
                   name={name}
